@@ -3,6 +3,7 @@ package GeoIP2::Types;
 use strict;
 use warnings;
 
+use Data::Validate::IP ();
 use List::MoreUtils ();
 use Scalar::Util ();
 use Sub::Quote qw( quote_sub );
@@ -14,6 +15,7 @@ our @EXPORT_OK = qw(
     Bool
     HTTPStatus
     HashRef
+    IPAddress
     JSONObject
     LanguagesArrayRef
     MaxMindID
@@ -56,6 +58,14 @@ sub HashRef () {
                && ref $_[0]
                && Scalar::Util::reftype( $_[0] ) eq 'HASH'
                && ! Scalar::Util::blessed( $_[0] ); }
+    );
+}
+
+sub IPAddress {
+    return quote_sub(
+        q{ GeoIP2::Types::_tc_fail( $_[0], 'IPAddress' )
+               unless Data::Validate::IP::is_ipv4( $_[0] )
+               || Data::Validate::IP::is_ipv6( $_[0] ); }
     );
 }
 

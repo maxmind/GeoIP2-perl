@@ -20,6 +20,8 @@ my $NEG_NUM = -42.42;
 
 my $EMPTY_STRING = q{};
 my $STRING       = 'foo';
+my $IPV4         = '1.2.3.4';
+my $IPV6         = '1234:fb29::421a';
 
 my $ARRAY_REF = [];
 my $HASH_REF  = {};
@@ -84,6 +86,25 @@ my %tests = (
     HashRef => {
         accept => [
             $HASH_REF,
+        ],
+        reject => [
+            $UNDEF,
+            $EMPTY_STRING,
+            $STRING,
+            $ZERO,
+            $ONE,
+            $INT,
+            $NEG_INT,
+            $NUM,
+            $NEG_NUM,
+            $ARRAY_REF,
+            $OBJECT,
+        ],
+    },
+    IPAddress => {
+        accept => [
+            $IPV4,
+            $IPV6,
         ],
         reject => [
             $UNDEF,
