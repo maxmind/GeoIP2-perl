@@ -256,6 +256,24 @@ my %tests = (
             $OBJECT,
         ],
     },
+    Num => {
+        accept => [
+            $ZERO,
+            $ONE,
+            $INT,
+            $NEG_INT,
+            $NUM,
+            $NEG_NUM,
+        ],
+        reject => [
+            $UNDEF,
+            $EMPTY_STRING,
+            $STRING,
+            $ARRAY_REF,
+            $HASH_REF,
+            $OBJECT,
+        ],
+    },
     PositiveInt => {
         accept => [
             $ONE,

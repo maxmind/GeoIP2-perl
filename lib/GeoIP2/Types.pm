@@ -23,6 +23,7 @@ our @EXPORT_OK = qw(
     MaybeStr
     NameHashRef
     NonNegativeInt
+    Num
     PositiveInt
     Str
     URIObject
@@ -146,6 +147,15 @@ sub NonNegativeInt () {
                && ! ref $_[0]
                && $_[0] =~ /^\d+$/
                && $_[0] >= 0; }
+    );
+}
+
+sub Num () {
+    return quote_sub(
+        q{ GeoIP2::Types::_tc_fail( $_[0], 'Num' )
+               unless defined $_[0]
+               && ! ref $_[0]
+               && $_[0] =~ /^-?\d+(\.\d+)?$/; }
     );
 }
 

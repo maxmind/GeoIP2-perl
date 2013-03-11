@@ -1,11 +1,12 @@
-package GeoIP2::Record::Country;
+package GeoIP2::Role::HasNames;
 
 use strict;
 use warnings;
 
 use GeoIP2::Types qw( MaybeStr NameHashRef );
-
 use List::Util qw( first );
+
+use Moo::Role;
 
 with 'GeoIP2::Role::HasLanguages';
 

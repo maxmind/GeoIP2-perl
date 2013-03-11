@@ -1,4 +1,4 @@
-package GeoIP2::Model::Country;
+package GeoIP2::Model::Omni;
 
 use strict;
 use warnings;
@@ -10,6 +10,7 @@ use Moo;
 
 with 'GeoIP2::Role::Model';
 
-__PACKAGE__->_define_attributes_for_keys(qw( continent country traits ));
+__PACKAGE__->_define_attributes_for_keys(
+    qw( city continent country location region traits ));
 
 1;

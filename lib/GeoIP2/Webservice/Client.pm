@@ -8,7 +8,6 @@ use GeoIP2::Error::HTTP;
 use GeoIP2::Error::JSON;
 use GeoIP2::Error::Webservice;
 use GeoIP2::Model::City;
-use GeoIP2::Model::CityISPOrg;
 use GeoIP2::Model::Country;
 use GeoIP2::Model::Omni;
 use GeoIP2::Types
@@ -89,16 +88,6 @@ sub city {
     return $self->_response_for(
         'city',
         'GeoIP2::Model::City',
-        @_,
-    );
-}
-
-sub city_isp_org {
-    my $self = shift;
-
-    return $self->_response_for(
-        'city_isp_org',
-        'GeoIP2::Model::CityISPOrg',
         @_,
     );
 }

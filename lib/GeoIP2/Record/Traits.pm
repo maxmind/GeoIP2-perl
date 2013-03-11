@@ -3,10 +3,16 @@ package GeoIP2::Record::Traits;
 use strict;
 use warnings;
 
-use GeoIP2::Types qw( Bool NonNegativeInt Str );
+use GeoIP2::Types qw( Bool IPAddress NonNegativeInt Str );
 use Sub::Quote qw( quote_sub );
 
 use Moo;
+
+has ip_address => (
+    is       => 'ro',
+    isa      => IPAddress,
+    required => 1,
+);
 
 has autonomous_system_number => (
     is        => 'ro',
