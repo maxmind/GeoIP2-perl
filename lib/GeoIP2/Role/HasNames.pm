@@ -12,6 +12,7 @@ with 'GeoIP2::Role::HasLanguages';
 has name => (
     is      => 'ro',
     isa     => MaybeStr,
+    lazy    => 1,
     builder => '_build_name',
 );
 
