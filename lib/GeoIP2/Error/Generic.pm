@@ -7,12 +7,6 @@ use GeoIP2::Types qw( Str );
 
 use Moo;
 
-with 'Throwable';
-
-has error => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
-);
+extends 'Throwable::Error';
 
 1;

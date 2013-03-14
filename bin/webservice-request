@@ -1,0 +1,104 @@
+#!/usr/bin/env perl
+
+use v5.10;
+
+use strict;
+use warnings;
+
+use lib 'lib';
+
+use Data::Dumper;
+use Getopt::Long;
+use GeoIP2::Webservice::Client;
+use Try::Tiny;
+
+sub main {
+    my %opts = ( service => 'country' );
+
+    GetOptions(
+        'user-id:s'     => \$opts{user_id},
+        'license-key:s' => \$opts{license_key},
+        'ip-address:s'  => \$opts{ip},
+        'service:s'     => \$opts{service},
+        'host:s'        => \$opts{host},
+        'help'          => \$opts{help},
+    );
+
+    if ( $opts{help} ) {
+        _help();
+        exit 0;
+    }
+
+    unless ( $opts{user_id} && $opts{license_key} && $opts{ip} ) {
+        _help('You must provide a user id, license key, and ip address.');
+        exit 1;
+    }
+
+    my $service = delete $opts{service} // 'country';
+
+    unless ( GeoIP2::Webservice::Client->can($service) ) {
+        _help("The service you asked for ($service) does not exist.");
+        exit 1;
+    }
+
+    my $ip = delete $opts{ip};
+
+    for my $k ( keys %opts ) {
+        delete $opts{$k} unless defined $opts{$k};
+    }
+
+    my $client = GeoIP2::Webservice::Client->new(%opts);
+
+    my $model;
+    try {
+        $model = $client->$service( ip => $ip );
+    }
+    catch {
+        warn "\n** Got an error when trying to look up the IP '$ip'\n\n";
+        warn '     Message:        ', $_->message(), "\n";
+        if ( $_->can('code') ) {
+            warn '     Code:           ', $_->code(), "\n";
+        }
+        if ( $_->can('http_status') ) {
+            warn '     HTTP Status:    ', $_->http_status(), "\n";
+        }
+
+        exit 2;
+    };
+
+    {
+        local $Data::Dumper::Terse     = 1;
+        local $Data::Dumper::Indent    = 1;
+        local $Data::Dumper::Useqq     = 1;
+        local $Data::Dumper::Deparse   = 1;
+        local $Data::Dumper::Quotekeys = 0;
+        local $Data::Dumper::Sortkeys  = 1;
+        print Dumper( $model->raw() );
+    }
+
+    exit 0;
+}
+
+sub _help {
+    my $error = shift;
+
+    print "\n** $error\n\n" if $error;
+
+    print <<'EOF';
+webservice-request --user-id [id] --license-key [key] --ip-address [ip]
+
+  This script will query the MaxMind GeoIP webservice for information about
+  the given IP address.
+
+  It accepts the following options:
+
+    --user-id        Your MaxMind user ID (required)
+    --license-key    Your MaxMind license key (required)
+    --ip-address     The IP address to look up (required)
+    --service        One of country, city, city_isp_org, or omni. Defaults to country.
+    --host           The host to use. Defaults to geoip.maxmind.com.
+
+EOF
+}
+
+main();

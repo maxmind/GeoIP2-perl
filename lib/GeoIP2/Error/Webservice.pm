@@ -7,7 +7,9 @@ use GeoIP2::Types qw( Str );
 
 use Moo;
 
-with 'GeoIP2::Role::Error::HTTP', 'Throwable';
+with 'GeoIP2::Role::Error::HTTP';
+
+extends 'Throwable::Error';
 
 has code => (
     is       => 'ro',

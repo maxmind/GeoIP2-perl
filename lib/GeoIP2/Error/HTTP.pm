@@ -7,12 +7,8 @@ use GeoIP2::Types qw( Str );
 
 use Moo;
 
-with 'GeoIP2::Role::Error::HTTP', 'Throwable';
+with 'GeoIP2::Role::Error::HTTP';
 
-has error => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
-);
+extends 'Throwable::Error';
 
 1;

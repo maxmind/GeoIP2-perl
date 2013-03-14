@@ -27,7 +27,6 @@ our @EXPORT_OK = qw(
     PositiveInt
     Str
     URIObject
-    URIObjectCoercion
     UserAgentObject
     object_can_type
     object_isa_type
@@ -179,14 +178,6 @@ sub Str () {
 
 sub URIObject () {
     return quote_sub(q{ GeoIP2::Types::object_isa_type( $_[0], 'URI' ) });
-}
-
-sub URIObjectCoercion () {
-    return quote_sub(
-        q{ return $_[0] unless defined $_[0];
-           return $_[0] if ref $_[0];
-           return URI->new( $_[0] ); }
-    );
 }
 
 sub UserAgentObject () {

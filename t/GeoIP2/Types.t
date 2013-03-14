@@ -348,20 +348,6 @@ my %tests = (
     },
 );
 
-    # Bool
-    # HashRef
-    # HTTPStatus
-    # JSONObject
-    # MaxMindID
-    # MaxMindLicenseKey
-    # NameHashRef
-    # PositiveInt
-    # URIObject
-    # URIObjectCoercion
-    # UserAgent
-    # object_can_type
-    # object_isa_type
-
 for my $type ( sort keys %tests ) {
     my $type_constant = __PACKAGE__->can($type)
         or die "No such type: $type";
@@ -382,26 +368,6 @@ for my $type ( sort keys %tests ) {
             "$type rejects " . _describe($reject)
         );
     }
-}
-
-{
-    isa_ok(
-        URIObjectCoercion()->('http://example.com'),
-        'URI',
-        'return value from URIObjectCoercion'
-    );
-
-    is(
-        URIObjectCoercion()->(undef),
-        undef,
-        'URIObjectCoercion does not attempt to coerce an undef'
-    );
-
-    is_deeply(
-        URIObjectCoercion()->( [] ),
-        [],
-        'URIObjectCoercion does not attempt to coerce array ref'
-    );
 }
 
 sub _describe {

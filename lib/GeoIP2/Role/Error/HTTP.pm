@@ -3,15 +3,9 @@ package GeoIP2::Role::Error::HTTP;
 use strict;
 use warnings;
 
-use GeoIP2::Types qw( HTTPStatus URIObject );
+use GeoIP2::Types qw( HTTPStatus Str URIObject );
 
 use Moo::Role;
-
-has error => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
-);
 
 has http_status => (
     is       => 'ro',
@@ -19,7 +13,7 @@ has http_status => (
     required => 1,
 );
 
-has URI => (
+has uri => (
     is       => 'ro',
     isa      => URIObject,
     required => 1,
