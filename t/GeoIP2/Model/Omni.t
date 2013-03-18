@@ -104,4 +104,51 @@ use GeoIP2::Model::Omni;
     );
 }
 
+{
+    my $model = GeoIP2::Model::Omni->new(
+        traits => { ip_address => '5.6.7.8' } );
+
+    isa_ok(
+        $model,
+        'GeoIP2::Model::Omni',
+        'GeoIP2::Model::Omni object with no data except traits.ip_address'
+    );
+
+    isa_ok(
+        $model->city(),
+        'GeoIP2::Record::City',
+        '$model->city()'
+    );
+
+    isa_ok(
+        $model->continent(),
+        'GeoIP2::Record::Continent',
+        '$model->continent()'
+    );
+
+    isa_ok(
+        $model->country(),
+        'GeoIP2::Record::Country',
+        '$model->country()'
+    );
+
+    isa_ok(
+        $model->location(),
+        'GeoIP2::Record::Location',
+        '$model->location()'
+    );
+
+    isa_ok(
+        $model->region(),
+        'GeoIP2::Record::Region',
+        '$model->region()'
+    );
+
+    isa_ok(
+        $model->traits(),
+        'GeoIP2::Record::Traits',
+        '$model->traits()'
+    );
+}
+
 done_testing();

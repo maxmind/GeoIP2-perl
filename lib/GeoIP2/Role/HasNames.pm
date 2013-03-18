@@ -5,6 +5,7 @@ use warnings;
 
 use GeoIP2::Types qw( MaybeStr NameHashRef );
 use List::Util qw( first );
+use Sub::Quote qw( quote_sub );
 
 use Moo::Role;
 
@@ -18,9 +19,9 @@ has name => (
 );
 
 has names => (
-    is       => 'ro',
-    isa      => NameHashRef,
-    required => 1,
+    is      => 'ro',
+    isa     => NameHashRef,
+    default => quote_sub(q{ {} }),
 );
 
 sub _build_name {

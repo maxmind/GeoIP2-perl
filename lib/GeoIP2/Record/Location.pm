@@ -14,27 +14,27 @@ has accuracy_radius => (
 );
 
 has latitude => (
-    is       => 'ro',
-    isa      => Num,
-    required => 1,
+    is        => 'ro',
+    isa       => Num,
+    predicate => 'has_latitude',
 );
 
 has longitude => (
     is       => 'ro',
     isa      => Num,
-    required => 1,
+    predicate => 'has_longitude',
 );
 
 has metro_code => (
-    is       => 'ro',
-    isa      => PositiveInt,
-    required => 1,
+    is        => 'ro',
+    isa       => PositiveInt,
+    predicate => 'has_metro_code',
 );
 
 has postal_code => (
     is       => 'ro',
     isa      => Str,
-    required => 1,
+    predicate => 'has_postal_code',
 );
 
 has postal_confidence => (
@@ -46,7 +46,7 @@ has postal_confidence => (
 has time_zone => (
     is       => 'ro',
     isa      => Str,
-    required => 1,
+    predicate => 'has_time_zone',
 );
 
 1;

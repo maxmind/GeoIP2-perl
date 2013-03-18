@@ -10,21 +10,21 @@ use Moo;
 with 'GeoIP2::Role::HasNames';
 
 has iso_3166_1_alpha_2 => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
+    is        => 'ro',
+    isa       => Str,
+    predicate => 'has_iso_3166_1_alpha_2',
 );
 
 has iso_3166_1_alpha_3 => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
+    is        => 'ro',
+    isa       => Str,
+    predicate => 'has_iso_3166_1_alpha_3',
 );
 
 has geoname_id => (
-    is       => 'ro',
-    isa      => PositiveInt,
-    required => 1,
+    is        => 'ro',
+    isa       => PositiveInt,
+    predicate => 'has_geoname_id,'
 );
 
 has confidence => (

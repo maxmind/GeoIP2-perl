@@ -16,9 +16,9 @@ has confidence => (
 );
 
 has geoname_id => (
-    is       => 'ro',
-    isa      => PositiveInt,
-    required => 1,
+    is        => 'ro',
+    isa       => PositiveInt,
+    predicate => 'has_geoname_id',
 );
 
 1;

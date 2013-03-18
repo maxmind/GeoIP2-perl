@@ -32,7 +32,7 @@ sub _define_attributes_for_keys {
                 is       => 'ro',
                 isa      => HashRef,
                 init_arg => $key,
-                required => 1,
+                default  => quote_sub(q{ {} }),
             ),
         );
 

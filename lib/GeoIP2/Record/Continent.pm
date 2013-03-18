@@ -10,15 +10,15 @@ use Moo;
 with 'GeoIP2::Role::HasNames';
 
 has continent_code => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
+    is        => 'ro',
+    isa       => Str,
+    predicate => 'has_continent_code',
 );
 
 has geoname_id => (
-    is       => 'ro',
-    isa      => PositiveInt,
-    required => 1,
+    is        => 'ro',
+    isa       => PositiveInt,
+    predicate => 'has_geoname_id,'
 );
 
 1;
