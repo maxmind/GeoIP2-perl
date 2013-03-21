@@ -20,6 +20,12 @@ has autonomous_system_number => (
     predicate => 'has_autonomous_system_number',
 );
 
+has autonomous_system_organization => (
+    is        => 'ro',
+    isa       => Str,
+    predicate => 'has_autonomous_system_organization',
+);
+
 has domain => (
     is        => 'ro',
     isa       => Str,
