@@ -366,6 +366,23 @@ see your MaxMind User ID and license key.
 
 This argument is required.
 
+=item * languages
+
+This is an array reference where each value is a string indicating a
+language. This argument will be passed onto record classes to use when their
+C<name()> methods are called.
+
+The order of the languages is significant. When a record class has multiple
+names (country, city, etc.) its C<name()> method will look at each element of
+this array ref and return the first language for which it has a name.
+
+Note that the only language which is always present in the GeoIP Precision
+data in "en". If you do not include this language, the C<name()> method may
+end up returning C<undef> even when the record in question has an English
+name.
+
+The default value for this argument is C<['en']>.
+
 =item * host
 
 The hostname to make a request against. This defaults to
