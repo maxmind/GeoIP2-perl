@@ -428,9 +428,9 @@ This argument allows you to your own L<LWP::UserAgent> object. This is useful
 if you cannot use a vanilla LWP object, for example if you need to set proxy
 parameters.
 
-This can actually be any object which supports a C<request()> method. This
-method will be called with an L<HTTP::Request> object as its only
-argument. This method must return an L<HTTP::Response> object.
+This can actually be any object which supports C<agent()> and C<request()>
+methods. This method will be called with an L<HTTP::Request> object as its
+only argument. This method must return an L<HTTP::Response> object.
 
 =back
 
@@ -471,6 +471,12 @@ L<GeoIP::Model::CityISPOrg> object.
 
 This method calls the GeoIP Precision Omni end point. It returns a
 L<GeoIP::Model::Omni> object.
+
+=head1 User-Agent HEADER
+
+This module will set the User-Agent header to include the package name and
+version of this module (or a subclass if you use one), the package name and
+version of the user agent object, and the version of Perl.
 
 =head1 EXCEPTIONS
 
