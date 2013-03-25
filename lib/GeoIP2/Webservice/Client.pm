@@ -265,16 +265,7 @@ sub _build_base_uri {
 sub _build_ua {
     my $self = shift;
 
-    my $ua = LWP::UserAgent->new();
-
-    $ua->add_handler(
-        request_send => sub {
-            warn $_[0]->dump;
-            return;
-        }
-    );
-
-    return $ua;
+    return LWP::UserAgent->new();
 }
 
 1;
