@@ -2,6 +2,8 @@ package GeoIP2;
 
 use v5.10;
 
+1;
+
 # ABSTRACT: Perl API for MaxMind's GeoIP Precision web services and GeoIP2 databases
 
 __END__
