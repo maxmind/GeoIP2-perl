@@ -18,13 +18,13 @@ has confidence => (
 has geoname_id => (
     is       => 'ro',
     isa      => PositiveInt,
-    predicate => 'has_geoname_id,'
+    predicate => 'has_geoname_id',
 );
 
 has iso_3166_2 => (
     is       => 'ro',
     isa      => Str,
-    predicate => 'has_iso_3166_2,'
+    predicate => 'has_iso_3166_2',
 );
 
 1;

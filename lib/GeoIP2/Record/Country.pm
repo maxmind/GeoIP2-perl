@@ -24,7 +24,7 @@ has iso_3166_1_alpha_3 => (
 has geoname_id => (
     is        => 'ro',
     isa       => PositiveInt,
-    predicate => 'has_geoname_id,'
+    predicate => 'has_geoname_id',
 );
 
 has confidence => (

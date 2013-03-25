@@ -18,7 +18,7 @@ has continent_code => (
 has geoname_id => (
     is        => 'ro',
     isa       => PositiveInt,
-    predicate => 'has_geoname_id,'
+    predicate => 'has_geoname_id',
 );
 
 1;
