@@ -396,8 +396,8 @@ if you cannot use a vanilla LWP object, for example if you need to set proxy
 parameters.
 
 This can actually be any object which supports a C<request()> method. This
-method will be called with an L<HTTP::Request> object as its only
-argument. This method must return an L<HTTP::Response> object.
+method will be called with an L<HTTP::Request> object as its onlya
+ergument. This method must return an L<HTTP::Response> object.
 
 =back
 
