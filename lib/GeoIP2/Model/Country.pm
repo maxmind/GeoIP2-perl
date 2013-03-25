@@ -10,6 +10,7 @@ use Moo;
 
 with 'GeoIP2::Role::Model';
 
-__PACKAGE__->_define_attributes_for_keys(qw( continent country traits ));
+__PACKAGE__->_define_attributes_for_keys(
+    qw( continent country registered_country traits ));
 
 1;

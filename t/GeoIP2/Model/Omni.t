@@ -40,6 +40,12 @@ use GeoIP2::Model::Omni;
             iso_3166_2 => 'MN',
             names      => { en => 'Minnesota' },
         },
+        registered_country => {
+            geoname_id         => 2,
+            iso_3166_1_alpha_2 => 'CA',
+            iso_3166_1_alpha_3 => 'CAN',
+            names              => { en => 'Canada' },
+        },
         traits => {
             autonomous_system_number       => 1234,
             autonomous_system_organization => 'AS Organization',

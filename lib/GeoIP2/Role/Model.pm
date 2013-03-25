@@ -86,6 +86,8 @@ sub _record_class_for_key {
     my $self = shift;
     my $key  = shift;
 
+    return 'GeoIP2::Record::Country' if $key eq 'registered_country';
+
     return 'GeoIP2::Record::' . ucfirst $key;
 }
 

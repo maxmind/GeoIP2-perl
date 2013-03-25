@@ -19,6 +19,12 @@ use GeoIP2::Model::Country;
             iso_3166_1_alpha_3 => 'USA',
             names              => { en => 'United States of America' },
         },
+        registered_country => {
+            geoname_id         => 2,
+            iso_3166_1_alpha_2 => 'CA',
+            iso_3166_1_alpha_3 => 'CAN',
+            names              => { en => 'Canada' },
+        },
         traits => {
             ip_address => '1.2.3.4',
         },
@@ -42,6 +48,12 @@ use GeoIP2::Model::Country;
         $model->country(),
         'GeoIP2::Record::Country',
         '$model->country()'
+    );
+
+    isa_ok(
+        $model->registered_country(),
+        'GeoIP2::Record::Country',
+        '$model->registered_country()'
     );
 
     isa_ok(
@@ -108,6 +120,36 @@ use GeoIP2::Model::Country;
         $model->country()->confidence(),
         undef,
         'country confidence is undef'
+    );
+
+    is(
+        $model->registered_country()->geoname_id(),
+        2,
+        'registered_country geoname_id is 2'
+    );
+
+    is(
+        $model->registered_country()->iso_3166_1_alpha_2(),
+        'CA',
+        'registered_country iso_3166_1_alpha_2 is CA'
+    );
+
+    is(
+        $model->registered_country()->iso_3166_1_alpha_3(),
+        'CAN',
+        'registered_country iso_3166_1_alpha_3 is CAN'
+    );
+
+    is_deeply(
+        $model->registered_country()->names(),
+        { en => 'Canada' },
+        'registered_country names'
+    );
+
+    is(
+        $model->registered_country()->name(),
+        'Canada',
+        'registered_country name is Canada'
     );
 
     for my $meth (
