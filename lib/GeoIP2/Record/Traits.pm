@@ -68,4 +68,10 @@ has organization => (
     predicate => 'has_organization',
 );
 
+has user_type => (
+    is        => 'ro',
+    isa       => Str,
+    predicate => 'has_user_type',
+);
+
 1;
