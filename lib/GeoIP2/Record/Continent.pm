@@ -71,7 +71,7 @@ C<languages> argument that was passed to the record's constructor. This will
 be passed through from the L<GeoIP2::Webservice::Client> object you used to
 fetch the data that populated this record.
 
-If the record does not have a namy in any of languages you asked for, this
+If the record does not have a name in any of languages you asked for, this
 method returns C<undef>.
 
 This attribute is returned by all end points.
