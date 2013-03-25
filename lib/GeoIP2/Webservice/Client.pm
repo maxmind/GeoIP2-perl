@@ -289,3 +289,161 @@ sub _build_ua {
 }
 
 1;
+
+# ABSTRACT: Perl API for the GeoIP Precision webservice end points
+
+__END__
+
+=head1 SYNOPSIS
+
+  use v5.10;
+
+  my $client = GeoIP2::Webservice::Client->new(
+      user_id     => 42,
+      license_key => 'abcdef123456',
+  );
+
+  my $omni = $client->omni( ip => '24.24.24.24' );
+
+  my $country = $omni->country();
+  say $country->iso_3166_alpha_2;
+
+=head1 DESCRIPTION
+
+This class provides a client API for all the GeoIP Precision web service's end
+points. The end points are Country, City, City/ISP/Org, and Omni. Each end
+point returns a different set of data about an IP address, with Country
+returning the least data and Omni the most.
+
+Each web service end point is represented by a different model class, and
+these model classes in turn contain multiple Record classes. The record
+classes have attributes which contain data about the IP address.
+
+If the web service does not return a particular piece of data for an IP
+address, the associated attribute is not populated.
+
+The web service may not return any information for an entire record, in which
+case all of the attributes for that record class will be empty.
+
+=head1 SSL
+
+Requests to the GeoIP Precision web service are always made with SSL.
+
+=head1 USAGE
+
+The basic API for this class is the same for all of the web service end
+points. First you create a web service object with your MaxMind C<user_id> and
+C<license_key>, then you call the method corresponding to a specific end
+point, passing it the IP address you want to look up.
+
+If the request succeeds, the method call will return a model class for the end
+point you called. This model in turn contains multiple record classes, each of
+which represents part of the data returned by the web service.
+
+If the request fails, the client class throws an exception.
+
+=head1 CONSTRUCTOR
+
+This class has a single constructor method:
+
+=head2 GeoIP2::Webservice::Client->new()
+
+This method creates a new client object. It accepts the following arguments:
+
+=over 4
+
+=item * user_id
+
+Your MaxMind User ID. Go to https://www.maxmind.com/en/my_license_key to see
+your MaxMind User ID and license key.
+
+This argument is required.
+
+=item * license_key
+
+Your MaxMind license key. Go to https://www.maxmind.com/en/my_license_key to
+see your MaxMind User ID and license key.
+
+This argument is required.
+
+=item * host
+
+The hostname to make a request against. This defaults to
+"geoip.maxmind.com". In most cases, you should not need to set this
+explicitly.
+
+=item * ua
+
+This argument allows you to your own L<LWP::UserAgent> object. This is useful
+if you cannot use a vanilla LWP object, for example if you need to set proxy
+parameters.
+
+This can actually be any object which supports a C<request()> method. This
+method will be called with an L<HTTP::Request> object as its only
+argument. This method must return an L<HTTP::Response> object.
+
+=back
+
+=head1 REQUEST METHODS
+
+All of the request methods accept a single argument:
+
+=over 4
+
+=item * ip
+
+This must be a valid IPv4 or IPv6 address, or the string "me". This is the
+address that you want to look up using the GeoIP Precision web service.
+
+If you pass the string "me" then the web service returns data on the client
+system's IP address. Note that this is the IP address that the web service
+sees. If you are using a proxy, the web service will not see the client
+system's actual IP address.
+
+=back
+
+=head2 $client->country()
+
+This method calls the GeoIP Precision Country end point. It returns a
+L<GeoIP::Model::Country> object.
+
+=head2 $client->city()
+
+This method calls the GeoIP Precision City end point. It returns a
+L<GeoIP::Model::City> object.
+
+=head2 $client->city_isp_org()
+
+This method calls the GeoIP Precision City/ISP/Org end point. It returns a
+L<GeoIP::Model::CityISPOrg> object.
+
+=head2 $client->omni()
+
+This method calls the GeoIP Precision Omni end point. It returns a
+L<GeoIP::Model::Omni> object.
+
+=head1 EXCEPTIONS
+
+For details on the possible errors returned by the web service itself, see
+http://dev.maxmind.com/geoip/precision for the GeoIP Precision web service
+docs.
+
+If the web service returns an explicit error document, this is thrown as a
+L<GeoIP2::Error::Webservice> exception object. If some other sort of error
+occurs, this is thrown as a L<GeoIP2::Error::HTTP> object. The difference is
+that the webservice error includes an error message and error code delivered
+by the web service. The latter is thrown when some sort of unanticipated error
+occurs, like if the web service returns a 500 or if the web service returns an
+invalid error document.
+
+If the web service returns any status code besides 200, 4xx, or 5xx, this also
+becomes a L<GeoIP2::Error::HTTP> object.
+
+Finally, if the web service returns a 200 but the body is invalid, the client
+throws a L<GeoIP2::Error::Generic> object.
+
+All of these error classes have an L<< $error->message() >> method and
+overload stringification to show that message. This means that if you don't
+explicitly catch errors they will ultimately be sent to C<STDERR> with some
+sort of (hopefully) useful error message.
+
