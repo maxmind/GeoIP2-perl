@@ -59,6 +59,8 @@ __END__
 
   use v5.10;
 
+  use GeoIP2::Webservice::Client;
+
   my $client = GeoIP2::Webservice::Client->new(
       user_id     => 42,
       license_key => 'abcdef123456',
