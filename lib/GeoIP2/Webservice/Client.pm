@@ -381,6 +381,37 @@ data in "en". If you do not include this language, the C<name()> method may
 end up returning C<undef> even when the record in question has an English
 name.
 
+Currently, the valid list of language codes is:
+
+=over 8
+
+=item * de
+
+=item * en
+
+English names may still include accented characters if that is the accepted
+spelling in English. In other words, English does not mean ASCII.
+
+=item * es
+
+=item * fr
+
+=item * it
+
+=item * ja
+
+=item * pt-BR
+
+=item * ru
+
+=item * zh-CN
+
+This is simplified Chinese.
+
+=back
+
+Passing any other language code will result in an error.
+
 The default value for this argument is C<['en']>.
 
 =item * host
