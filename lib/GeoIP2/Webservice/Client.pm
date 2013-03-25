@@ -385,12 +385,12 @@ Currently, the valid list of language codes is:
 
 =over 8
 
-=item * de
-
 =item * en
 
 English names may still include accented characters if that is the accepted
 spelling in English. In other words, English does not mean ASCII.
+
+=item * de
 
 =item * es
 
