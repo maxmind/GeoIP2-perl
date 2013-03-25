@@ -20,6 +20,7 @@ use MIME::Base64 qw( encode_base64 );
 use LWP::Protocol::https;
 use LWP::UserAgent;
 use Params::Validate qw( validate );
+use Scalar::Util qw( blessed );
 use Sub::Quote qw( quote_sub );
 use Try::Tiny;
 use URI;
@@ -65,6 +66,25 @@ has _json => (
     init_arg => undef,
     default  => quote_sub(q{ JSON->new()->utf8() }),
 );
+
+sub BUILD {
+    my $self = shift;
+
+    local $@;
+    my $self_version = eval { 'v' . $self->VERSION() } || 'v?';
+
+    my $ua = $self->ua();
+    my $ua_version = eval { 'v' . $ua->VERSION() } || 'v?';
+
+    my $agent
+        = blessed($self)
+        . " $self_version" . ' ('
+        . blessed($ua) . q{ }
+        . $ua_version . q{ / }
+        . "Perl $^V)";
+
+    $ua->agent($agent);
+}
 
 sub country {
     my $self = shift;

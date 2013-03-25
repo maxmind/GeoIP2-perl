@@ -365,6 +365,34 @@ $ua->map_response(
 
 }
 
+{
+    local $GeoIP2::Webservice::Client::VERSION = 42;
+    my $client = GeoIP2::Webservice::Client->new(
+        user_id     => 42,
+        license_key => 'abcdef123456',
+    );
+
+    like(
+        $client->ua()->agent(),
+        qr/\QGeoIP2::Webservice::Client v42/,
+        'user agent includes client package and version'
+    );
+
+    my $ua_version = $client->ua()->VERSION();
+
+    like(
+        $client->ua()->agent(),
+        qr/\QLWP::UserAgent v$ua_version/,
+        'user agent includes user agent package and version'
+    );
+
+    like(
+        $client->ua()->agent(),
+        qr/\QPerl $^V/,
+        'user agent includes Perl version'
+    );
+}
+
 done_testing();
 
 sub _mock_request_handler {
