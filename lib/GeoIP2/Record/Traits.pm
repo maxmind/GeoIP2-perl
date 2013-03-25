@@ -75,3 +75,151 @@ has user_type => (
 );
 
 1;
+
+# ABSTRACT: Contains data for the traits record associated with an IP address
+
+__END__
+
+=head1 SYNOPSIS
+
+  use v5.10;
+
+  my $client = GeoIP2::Webservice::Client->new(
+      user_id     => 42,
+      license_key => 'abcdef123456',
+  );
+
+  my $city = $client->city_isp_org( ip => '24.24.24.24' );
+
+  my $traits_rec = $city->country();
+  say $traits_rec->name();
+
+=head1 DESCRIPTION
+
+This class contains the traits data associated with an IP address.
+
+This record is returned by all the end points.
+
+=head1 METHODS
+
+This class provides the following methods:
+
+=head2 $traits_rec->autonomous_system_number()
+
+This returns the autonomous system number
+(http://en.wikipedia.org/wiki/Autonomous_system_(Internet)) associated with
+the IP address.
+
+This attribute is only available from the City/ISP/Org and Omni end points.
+
+=head2 $traits_rec->autonomous_system_organization()
+
+This returns the organization associated with the registered autonomous system
+number (http://en.wikipedia.org/wiki/Autonomous_system_(Internet)) for the IP
+address.
+
+This attribute is only available from the City/ISP/Org and Omni end points.
+
+=head2 $traits_rec->domain()
+
+This returns the second level domain associated with the IP address. This will
+be something like "example.com" or "example.co.uk", not "foo.example.com".
+
+This attribute is only available from the City/ISP/Org and Omni end points.
+
+=head2 $traits_rec->ip_address()
+
+This returns the IP address that the data in the model is for. If you
+performed a "me" lookup against the web service this may not be the same as
+the IP address on the system your code is running on.
+
+This attribute is returned by all end points.
+
+=head2 $traits_rec->is_anonymous_proxy()
+
+This returns true if the IP is an anonymous proxy. See
+http://dev.maxmind.com/faq/geoip#anonproxy for further details.
+
+This attribute is returned by all end points.
+
+=head2 $traits_rec->is_transparent_proxy()
+
+This returns true if the IP is a transparent proxy.
+
+This attribute is returned by all end points.
+
+=head2 $traits_rec->is_us_military()
+
+This returns true if the IP is used by the US military,
+
+This attribute is returned by all end points.
+
+=head2 $traits_rec->isp()
+
+This returns the name of the ISP associated the IP address.
+
+This attribute is only available from the City/ISP/Org and Omni end points.
+
+=head2 $traits_rec->network_speed()
+
+This returns the network speed associated with the IP address. This can be one
+of the following values:
+
+=over 4
+
+=item * dialup
+
+=item * cable/DSL
+
+=item * corporate
+
+=item * cellular
+
+=back
+
+This attribute is only available from the Omni end point.
+
+=head2 $traits_rec->organization()
+
+This returns the name of the organization associated the IP address.
+
+This attribute is only available from the City/ISP/Org and Omni end points.
+
+=head2 $traits_rec->user_type()
+
+This returns the user type associated with the IP address. This can be one of
+the following values:
+
+=over 4
+
+=item * business
+
+=item * cafe
+
+=item * cellular
+
+=item * college
+
+=item * contentDeliveryNetwork
+
+=item * government
+
+=item * hosting
+
+=item * library
+
+=item * military
+
+=item * residential
+
+=item * router
+
+=item * school
+
+=item * searchEngineSpider
+
+=item * traveler
+
+=back
+
+This attribute is only available from the Omni end point.
