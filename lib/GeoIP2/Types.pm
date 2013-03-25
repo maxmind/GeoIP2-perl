@@ -181,7 +181,7 @@ sub URIObject () {
 }
 
 sub UserAgentObject () {
-    return quote_sub(q{ GeoIP2::Types::object_can_type( $_[0], 'request' ) });
+    return quote_sub(q{ GeoIP2::Types::object_can_type( $_[0], 'agent', 'request' ) });
 }
 
 sub object_can_type {
