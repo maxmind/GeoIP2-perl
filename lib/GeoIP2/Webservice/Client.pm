@@ -478,6 +478,9 @@ This module will set the User-Agent header to include the package name and
 version of this module (or a subclass if you use one), the package name and
 version of the user agent object, and the version of Perl.
 
+This is set in order to help us support individual users, as well to determine
+support policies for dependencies and Perl itself.
+
 =head1 EXCEPTIONS
 
 For details on the possible errors returned by the web service itself, see
