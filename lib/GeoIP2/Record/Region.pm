@@ -68,7 +68,7 @@ region is correct.
 
 This attribute is only available from the Omni end point.
 
-=head2 $region_rec->geonames_id()
+=head2 $region_rec->geoname_id()
 
 This returns a GeoNames id for the region.
 

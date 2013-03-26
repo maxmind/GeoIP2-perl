@@ -60,7 +60,7 @@ is correct.
 
 This attribute is only available from the Omni end point.
 
-=head2 $city_rec->geonames_id()
+=head2 $city_rec->geoname_id()
 
 This returns a GeoNames id for the city.
 

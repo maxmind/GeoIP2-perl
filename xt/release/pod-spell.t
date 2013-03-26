@@ -42,7 +42,7 @@ de
 dialup
 downloadable
 ergument
-geonames_id
+geoname_id
 hostname
 ip
 ja
