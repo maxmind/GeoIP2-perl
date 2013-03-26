@@ -31,7 +31,7 @@ my %raw = (
         iso_3166_1_alpha_3 => 'USA',
         names              => {
             en      => 'United States of America',
-            fr      => 'États-Unis',
+            ru      => 'объединяет государства',
             'zh-CN' => '美国',
         },
     },
@@ -43,57 +43,57 @@ my %raw = (
 {
     my $model = GeoIP2::Model::Country->new(
         %raw,
-        languages => [ 'fr', 'zh-CN', 'en' ],
+        languages => [ 'ru', 'zh-CN', 'en' ],
     );
 
     is(
         $model->continent()->name(),
         '北美洲',
-        'continent name is in Chinese (no French available)'
+        'continent name is in Chinese (no Russian available)'
     );
 
     is(
         $model->country()->name(),
-        'États-Unis',
-        'country name is in French'
+        'объединяет государства',
+        'country name is in Russian'
     );
 }
 
 {
     my $model = GeoIP2::Model::Country->new(
         %raw,
-        languages => [ 'fr', 'de' ],
+        languages => [ 'ru', 'ja' ],
     );
 
     is(
         $model->continent()->name(),
         undef,
-        'continent name is undef (no French available)'
+        'continent name is undef (no Russian or Japanese available)'
     );
 
     is(
         $model->country()->name(),
-        'États-Unis',
-        'country name is in French'
+        'объединяет государства',
+        'country name is in Russian'
     );
 }
 
 {
     my $model = GeoIP2::Model::Country->new(
         %raw,
-        languages => ['de'],
+        languages => ['ja'],
     );
 
     is(
         $model->continent()->name(),
         undef,
-        'continent name is undef (no German available) '
+        'continent name is undef (no Japanese available) '
     );
 
     is(
         $model->country()->name(),
         undef,
-        'country name is undef (no German available) '
+        'country name is undef (no Japanese available) '
     );
 }
 

@@ -141,7 +141,7 @@ my %tests = (
     LanguagesArrayRef => {
         accept => [
             [],
-            [ 'en',    'es', 'fr' ],
+            [ 'en', 'ru' ],
             [ 'zh-CN', 'ja', 'en' ],
         ],
         reject => [
