@@ -375,7 +375,7 @@ language. This argument will be passed onto record classes to use when their
 C<name()> methods are called.
 
 The order of the languages is significant. When a record class has multiple
-names (country, city, etc.) its C<name()> method will look at each element of
+names (country, city, etc.), its C<name()> method will look at each element of
 this array ref and return the first language for which it has a name.
 
 Note that the only language which is always present in the GeoIP Precision
@@ -392,17 +392,7 @@ Currently, the valid list of language codes is:
 English names may still include accented characters if that is the accepted
 spelling in English. In other words, English does not mean ASCII.
 
-=item * de
-
-=item * es
-
-=item * fr
-
-=item * it
-
 =item * ja
-
-=item * pt-BR
 
 =item * ru
 
@@ -492,8 +482,7 @@ L<GeoIP2::Error::Webservice> exception object. If some other sort of error
 occurs, this is thrown as a L<GeoIP2::Error::HTTP> object. The difference is
 that the webservice error includes an error message and error code delivered
 by the web service. The latter is thrown when some sort of unanticipated error
-occurs, like if the web service returns a 500 or if the web service returns an
-invalid error document.
+occurs, such as the web service returning a 500 or an invalid error document.
 
 If the web service returns any status code besides 200, 4xx, or 5xx, this also
 becomes a L<GeoIP2::Error::HTTP> object.
