@@ -132,8 +132,9 @@ This attribute is only available from the City/ISP/Org and Omni end points.
 =head2 $traits_rec->ip_address()
 
 This returns the IP address that the data in the model is for. If you
-performed a "me" lookup against the web service this may not be the same as
-the IP address on the system your code is running on.
+performed a "me" lookup against the web service, this will be the externally
+routable IP address for the system the code is running on. If the system is
+behind a NAT, this may differ from the IP address locally assigned to it.
 
 This attribute is returned by all end points.
 
