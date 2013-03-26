@@ -49,40 +49,40 @@ http://dev.maxmind.com/geoip/precision for more details.
 This class provides the following methods, each of which returns a record
 object.
 
-=head2 $country->city()
+=head2 $omni->city()
 
 Returns a L<GeoIP2::Record::City> object representing country data for the
 requested IP address.
 
-=head2 $country->continent()
+=head2 $omni->continent()
 
 Returns a L<GeoIP2::Record::Continent> object representing continent data for
 the requested IP address.
 
-=head2 $country->country()
+=head2 $omni->country()
 
 Returns a L<GeoIP2::Record::Country> object representing country data for the
 requested IP address. This record represents the country where the GeoIP
 service believes the IP is located in.
 
-=head2 $country->location()
+=head2 $omni->location()
 
 Returns a L<GeoIP2::Record::Location> object representing country data for the
 requested IP address.
 
-=head2 $country->region()
+=head2 $omni->region()
 
 Returns a L<GeoIP2::Record::Region> object representing country data for the
 requested IP address.
 
-=head2 $country->registered_country()
+=head2 $omni->registered_country()
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
 country data for the requested IP address. This record represents the country
-where the ISP has registered a given IP block in, and may differ from the
+where the ISP has registered a given IP block in and may differ from the
 user's country.
 
-=head2 $country->traits()
+=head2 $omni->traits()
 
 Returns a L<GeoIP2::Record::Traits> object representing the traits for the
 request IP address.

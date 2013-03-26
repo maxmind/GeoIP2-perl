@@ -46,7 +46,7 @@ you can use to correct data ("move", "edit", "alternate names", etc.). Once
 the correction is part of the GeoNames data set, it will be automatically
 incorporated into future MaxMind releases.
 
-If you are a paid MaxMind customer and you're not sure where to submit a
+If you are a paying MaxMind customer and you're not sure where to submit a
 correction, please contact MaxMind support at
 http://www.maxmind.com/en/support for help.
 
