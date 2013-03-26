@@ -70,7 +70,7 @@ This attribute is only available from the Omni end point.
 
 =head2 $region_rec->geoname_id()
 
-This returns a GeoName ID for the region.
+This returns a C<geoname_id> for the region.
 
 This attribute is returned by all end points except the Country end point.
 
