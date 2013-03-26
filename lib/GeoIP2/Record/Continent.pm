@@ -62,7 +62,7 @@ This attribute is returned by all end points.
 
 =head2 $continent_rec->geoname_id()
 
-This returns a GeoNames id for the continent.
+This returns a GeoName ID for the continent.
 
 This attribute is returned by all end points.
 

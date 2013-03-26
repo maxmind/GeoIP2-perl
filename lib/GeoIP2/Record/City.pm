@@ -62,7 +62,7 @@ This attribute is only available from the Omni end point.
 
 =head2 $city_rec->geoname_id()
 
-This returns a GeoNames id for the city.
+This returns a GeoName ID for the city.
 
 This attribute is returned by all end points.
 
