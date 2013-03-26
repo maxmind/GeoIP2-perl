@@ -30,7 +30,7 @@ sub main {
     }
 
     unless ( $opts{user_id} && $opts{license_key} && $opts{ip} ) {
-        _help('You must provide a user id, license key, and ip address.');
+        _help('You must provide a user ID, license key, and IP address.');
         exit 1;
     }
 
