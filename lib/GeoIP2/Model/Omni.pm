@@ -62,8 +62,8 @@ the requested IP address.
 =head2 $omni->country()
 
 Returns a L<GeoIP2::Record::Country> object representing country data for the
-requested IP address. This record represents the country where the GeoIP
-service believes the IP is located in.
+requested IP address. This record represents the country where MaxMind
+believes the IP is located in.
 
 =head2 $omni->location()
 
