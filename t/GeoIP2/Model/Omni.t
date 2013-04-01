@@ -55,7 +55,6 @@ use GeoIP2::Model::Omni;
             is_transparent_proxy           => 1,
             is_us_military                 => 1,
             isp                            => 'Comcast',
-            network_speed                  => 'cable/DSL',
             organization                   => 'Blorg',
             user_type                      => 'college',
         },

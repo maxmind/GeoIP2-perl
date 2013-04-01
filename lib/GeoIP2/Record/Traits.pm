@@ -56,12 +56,6 @@ has isp => (
     predicate => 'has_isp',
 );
 
-has network_speed => (
-    is        => 'ro',
-    isa       => Str,
-    predicate => 'has_network_speed',
-);
-
 has organization => (
     is        => 'ro',
     isa       => Str,
@@ -163,25 +157,6 @@ This returns the name of the ISP associated the IP address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
 
-=head2 $traits_rec->network_speed()
-
-This returns the network speed associated with the IP address. This can be one
-of the following values:
-
-=over 4
-
-=item * dialup
-
-=item * cable/DSL
-
-=item * corporate
-
-=item * cellular
-
-=back
-
-This attribute is only available from the Omni end point.
-
 =head2 $traits_rec->organization()
 
 This returns the name of the organization associated the IP address.
@@ -203,7 +178,9 @@ the following values:
 
 =item * college
 
-=item * contentDeliveryNetwork
+=item * content_delivery_network
+
+=item * dialup
 
 =item * government
 
@@ -219,7 +196,7 @@ the following values:
 
 =item * school
 
-=item * searchEngineSpider
+=item * search_engine_spider
 
 =item * traveler
 
