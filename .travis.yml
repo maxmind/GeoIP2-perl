@@ -1,0 +1,12 @@
+language: perl
+perl:
+  - "5.16"
+  - "5.14"
+  - "5.12"
+  - "5.10"
+notifications:
+  email:
+    recipients:
+      - oalders@maxmind.com
+    on_success: always
+    on_failure: always
