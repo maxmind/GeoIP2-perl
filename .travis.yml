@@ -7,6 +7,6 @@ perl:
 notifications:
   email:
     recipients:
-      - oalders@maxmind.com
-    on_success: always
+      - dev@maxmind.com
+    on_success: change
     on_failure: always
