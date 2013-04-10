@@ -15,7 +15,7 @@ __PACKAGE__->_define_attributes_for_keys(
 
 1;
 
-# ABSTRACT: Model class for the GeoIP Precision City end point
+# ABSTRACT: Model class for the GeoIP2 Precision City end point
 
 __END__
 
@@ -37,7 +37,7 @@ __END__
 
 =head1 DESCRIPTION
 
-This class provides a model for the data returned by the GeoIP Precision
+This class provides a model for the data returned by the GeoIP2 Precision
 City end point.
 
 The only difference between the City, City/ISP/Org, and Omni model classes is

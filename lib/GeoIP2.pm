@@ -4,13 +4,13 @@ use v5.10;
 
 1;
 
-# ABSTRACT: Perl API for MaxMind's GeoIP Precision web services and GeoIP2 databases
+# ABSTRACT: Perl API for MaxMind's GeoIP2 Precision web services and GeoIP2 databases
 
 __END__
 
 =head1 DESCRIPTION
 
-Currently, this distribution provides an API for the GeoIP Precision web
+Currently, this distribution provides an API for the GeoIP2 Precision web
 services (as documented at http://dev.maxmind.com/geoip/precision).
 
 In the future, this distribution will also provide the same API for the GeoIP2

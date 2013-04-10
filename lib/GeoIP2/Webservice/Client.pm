@@ -290,7 +290,7 @@ sub _build_ua {
 
 1;
 
-# ABSTRACT: Perl API for the GeoIP Precision webservice end points
+# ABSTRACT: Perl API for the GeoIP2 Precision webservice end points
 
 __END__
 
@@ -312,8 +312,8 @@ __END__
 
 =head1 DESCRIPTION
 
-This class provides a client API for all the GeoIP Precision web service's end
-points. The end points are Country, City, City/ISP/Org, and Omni. Each end
+This class provides a client API for all the GeoIP2 Precision web service's
+end points. The end points are Country, City, City/ISP/Org, and Omni. Each end
 point returns a different set of data about an IP address, with Country
 returning the least data and Omni the most.
 
@@ -329,7 +329,7 @@ case all of the attributes for that record class will be empty.
 
 =head1 SSL
 
-Requests to the GeoIP Precision web service are always made with SSL.
+Requests to the GeoIP2 Precision web service are always made with SSL.
 
 =head1 USAGE
 
@@ -378,7 +378,7 @@ The order of the languages is significant. When a record class has multiple
 names (country, city, etc.), its C<name()> method will look at each element of
 this array ref and return the first language for which it has a name.
 
-Note that the only language which is always present in the GeoIP Precision
+Note that the only language which is always present in the GeoIP2 Precision
 data in "en". If you do not include this language, the C<name()> method may
 end up returning C<undef> even when the record in question has an English
 name.
@@ -433,7 +433,7 @@ All of the request methods accept a single argument:
 =item * ip
 
 This must be a valid IPv4 or IPv6 address, or the string "me". This is the
-address that you want to look up using the GeoIP Precision web service.
+address that you want to look up using the GeoIP2 Precision web service.
 
 If you pass the string "me" then the web service returns data on the client
 system's IP address. Note that this is the IP address that the web service
@@ -444,22 +444,22 @@ system's actual IP address.
 
 =head2 $client->country()
 
-This method calls the GeoIP Precision Country end point. It returns a
+This method calls the GeoIP2 Precision Country end point. It returns a
 L<GeoIP::Model::Country> object.
 
 =head2 $client->city()
 
-This method calls the GeoIP Precision City end point. It returns a
+This method calls the GeoIP2 Precision City end point. It returns a
 L<GeoIP::Model::City> object.
 
 =head2 $client->city_isp_org()
 
-This method calls the GeoIP Precision City/ISP/Org end point. It returns a
+This method calls the GeoIP2 Precision City/ISP/Org end point. It returns a
 L<GeoIP::Model::CityISPOrg> object.
 
 =head2 $client->omni()
 
-This method calls the GeoIP Precision Omni end point. It returns a
+This method calls the GeoIP2 Precision Omni end point. It returns a
 L<GeoIP::Model::Omni> object.
 
 =head1 User-Agent HEADER
@@ -474,7 +474,7 @@ support policies for dependencies and Perl itself.
 =head1 EXCEPTIONS
 
 For details on the possible errors returned by the web service itself, see
-http://dev.maxmind.com/geoip/precision for the GeoIP Precision web service
+http://dev.maxmind.com/geoip/precision for the GeoIP2 Precision web service
 docs.
 
 If the web service returns an explicit error document, this is thrown as a
