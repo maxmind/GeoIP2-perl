@@ -279,7 +279,7 @@ sub _handle_non_200_status {
 sub _build_base_uri {
     my $self = shift;
 
-    return URI->new( 'https://' . $self->host() . '/geoip/v1' );
+    return URI->new( 'https://' . $self->host() . '/geoip/v2.0' );
 }
 
 sub _build_ua {
