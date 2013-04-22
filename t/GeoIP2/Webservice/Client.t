@@ -77,7 +77,7 @@ my %responses = (
 
 my $ua = Test::LWP::UserAgent->new();
 $ua->map_response(
-    qr{^\Qhttps://geoip.maxmind.com/geoip/},
+    qr{^\Qhttps://geoip.maxmind.com/geoip/v1/},
     \&_mock_request_handler,
 );
 
@@ -325,13 +325,13 @@ $ua->map_response(
 {
     my $ua = Test::LWP::UserAgent->new();
     $ua->map_response(
-        qr{^\Qhttps://geoip.maxmind.com/geoip/},
+        qr{^\Qhttps://geoip.maxmind.com/geoip/v1/},
         sub {
             my $request = shift;
 
             is(
                 $request->uri(),
-                'https://geoip.maxmind.com/geoip/country/1.2.3.4',
+                'https://geoip.maxmind.com/geoip/v1/country/1.2.3.4',
                 'got expected URI for Country request'
             );
 
