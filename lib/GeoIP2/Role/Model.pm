@@ -72,7 +72,7 @@ around BUILDARGS => sub {
 
     my $p = $self->$orig(@_);
 
-    return $p if exists $p->{raw};
+    delete $p->{raw};
 
     # We make a copy to avoid a circular reference
     $p->{raw} = { %{$p} };
