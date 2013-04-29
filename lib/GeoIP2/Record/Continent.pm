@@ -7,7 +7,7 @@ use GeoIP2::Types qw( PositiveInt Str );
 
 use Moo;
 
-with 'GeoIP2::Role::HasNames';
+with 'GeoIP2::Role::Record::HasNames';
 
 has continent_code => (
     is        => 'ro',

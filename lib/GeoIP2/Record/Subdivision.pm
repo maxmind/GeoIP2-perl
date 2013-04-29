@@ -7,7 +7,7 @@ use GeoIP2::Types qw( NonNegativeInt PositiveInt Str );
 
 use Moo;
 
-with 'GeoIP2::Role::HasNames';
+with 'GeoIP2::Role::Record::HasNames';
 
 has confidence => (
     is        => 'ro',

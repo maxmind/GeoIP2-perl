@@ -1,4 +1,4 @@
-package GeoIP2::Role::HasNames;
+package GeoIP2::Role::Record::HasNames;
 
 use strict;
 use warnings;

@@ -7,7 +7,7 @@ use GeoIP2::Types qw( NonNegativeInt PositiveInt Str );
 
 use Moo::Role;
 
-with 'GeoIP2::Role::HasNames';
+with 'GeoIP2::Role::Record::HasNames';
 
 has iso_code => (
     is        => 'ro',
