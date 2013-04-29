@@ -18,10 +18,9 @@ my %country = (
         names          => { en => 'North America' },
     },
     country => {
-        geoname_id         => 1,
-        iso_3166_1_alpha_2 => 'US',
-        iso_3166_1_alpha_3 => 'USA',
-        names              => { en => 'United States of America' },
+        geoname_id => 1,
+        iso_code   => 'US',
+        names      => { en => 'United States of America' },
     },
     traits => {
         ip_address => '1.2.3.4',
@@ -126,15 +125,9 @@ $ua->map_response(
     );
 
     is(
-        $country->country()->iso_3166_1_alpha_2(),
+        $country->country()->iso_code(),
         'US',
-        'country iso_3166_1_alpha_2 is US'
-    );
-
-    is(
-        $country->country()->iso_3166_1_alpha_3(),
-        'USA',
-        'country iso_3166_1_alpha_3 is USA'
+        'country iso_code is US'
     );
 
     is_deeply(

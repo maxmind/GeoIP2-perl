@@ -12,6 +12,7 @@ use URI;
 use Exporter qw( import );
 
 our @EXPORT_OK = qw(
+    ArrayRef
     Bool
     HTTPStatus
     HashRef
@@ -33,6 +34,16 @@ our @EXPORT_OK = qw(
 );
 
 our %EXPORT_TAGS = ( all => \@EXPORT_OK );
+
+sub ArrayRef () {
+    return quote_sub(
+        q{ GeoIP2::Types::_tc_fail( $_[0], 'ArrayRef' )
+               unless defined $_[0]
+               && ref $_[0]
+               && Scalar::Util::reftype( $_[0] ) eq 'ARRAY'
+               && ! Scalar::Util::blessed( $_[0] ); }
+    );
+}
 
 sub Bool () {
     return quote_sub(

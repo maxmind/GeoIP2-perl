@@ -1,4 +1,4 @@
-package GeoIP2::Record::Region;
+package GeoIP2::Record::Subdivision;
 
 use strict;
 use warnings;
@@ -21,15 +21,15 @@ has geoname_id => (
     predicate => 'has_geoname_id',
 );
 
-has iso_3166_2 => (
+has iso_code => (
     is       => 'ro',
     isa      => Str,
-    predicate => 'has_iso_3166_2',
+    predicate => 'has_iso_code',
 );
 
 1;
 
-# ABSTRACT: Contains data for the region record associated with an IP address
+# ABSTRACT: Contains data for the subdivision record associated with an IP address
 
 __END__
 
@@ -46,13 +46,13 @@ __END__
 
   my $city = $client->city_isp_org( ip => '24.24.24.24' );
 
-  my $region_rec = $city->region();
-  say $region_rec->name();
+  my $subdivision_rec = $city->subdivision();
+  say $subdivision_rec->name();
 
 =head1 DESCRIPTION
 
-This class contains the region-level data associated with an IP address. A
-region is a sub-country level administrative boundary, such as a province or
+This class contains the subdivision-level data associated with an IP address. A
+subdivision is a sub-country level administrative boundary, such as a province or
 state.
 
 This record is returned by all the end points except the Country end point.
@@ -61,29 +61,29 @@ This record is returned by all the end points except the Country end point.
 
 This class provides the following methods:
 
-=head2 $region_rec->confidence()
+=head2 $subdivision_rec->confidence()
 
 This returns a value from 0-100 indicating MaxMind's confidence that the
-region is correct.
+subdivision is correct.
 
 This attribute is only available from the Omni end point.
 
-=head2 $region_rec->geoname_id()
+=head2 $subdivision_rec->geoname_id()
 
-This returns a C<geoname_id> for the region.
+This returns a C<geoname_id> for the subdivision.
 
 This attribute is returned by all end points except the Country end point.
 
-=head2 $region_rec->iso_3166_2()
+=head2 $subdivision_rec->iso_code()
 
-This returns a string up to three characters long contain the region portion
+This returns a string up to three characters long contain the subdivision portion
 of the ISO 3166-2 code (http://en.wikipedia.org/wiki/ISO_3166-2).
 
 This attribute is returned by all end points except the Country end point.
 
-=head2 $region_rec->name()
+=head2 $subdivision_rec->name()
 
-This returns a name for the region. The language chosen depends on the
+This returns a name for the subdivision. The language chosen depends on the
 C<languages> argument that was passed to the record's constructor. This will
 be passed through from the L<GeoIP2::Webservice::Client> object you used to
 fetch the data that populated this record.
@@ -93,7 +93,7 @@ method returns C<undef>.
 
 This attribute is returned by all end points except the Country end point.
 
-=head2 $region_rec->names()
+=head2 $subdivision_rec->names()
 
 This returns a hash reference where the keys are language codes and the values
 are names. See L<GeoIP2::Webservice::Client> for a list of the possible

@@ -19,11 +19,10 @@ use GeoIP2::Model::Omni;
             names          => { en => 'North America' },
         },
         country => {
-            confidence         => 99,
-            geoname_id         => 1,
-            iso_3166_1_alpha_2 => 'US',
-            iso_3166_1_alpha_3 => 'USA',
-            names              => { en => 'United States of America' },
+            confidence => 99,
+            geoname_id => 1,
+            iso_code   => 'US',
+            names      => { en => 'United States of America' },
         },
         location => {
             accuracy_radius   => 1500,
@@ -34,18 +33,24 @@ use GeoIP2::Model::Omni;
             postal_confidence => 33,
             time_zone         => 'America/Chicago',
         },
-        region => {
-            confidence => 88,
-            geoname_id => 574635,
-            iso_3166_2 => 'MN',
-            names      => { en => 'Minnesota' },
-        },
         registered_country => {
-            geoname_id         => 2,
-            iso_3166_1_alpha_2 => 'CA',
-            iso_3166_1_alpha_3 => 'CAN',
-            names              => { en => 'Canada' },
+            geoname_id => 2,
+            iso_code   => 'CA',
+            names      => { en => 'Canada' },
         },
+        represented_country => {
+            geoname_id => 3,
+            iso_code   => 'GB',
+            names      => { en => 'United Kingdom' },
+        },
+        subdivisions => [
+            {
+                confidence => 88,
+                geoname_id => 574635,
+                iso_code   => 'MN',
+                names      => { en => 'Minnesota' },
+            }
+        ],
         traits => {
             autonomous_system_number       => 1234,
             autonomous_system_organization => 'AS Organization',
@@ -93,9 +98,30 @@ use GeoIP2::Model::Omni;
     );
 
     isa_ok(
-        $model->region(),
-        'GeoIP2::Record::Region',
-        '$model->region()'
+        $model->registered_country(),
+        'GeoIP2::Record::Country',
+        '$model->registered_country()'
+    );
+
+    isa_ok(
+        $model->represented_country(),
+        'GeoIP2::Record::RepresentedCountry',
+        '$model->represented_country()'
+    );
+
+    my @subdivisions = $model->subdivisions();
+    for my $i ( 0 .. $#subdivisions ) {
+        isa_ok(
+            $subdivisions[$i],
+            'GeoIP2::Record::Subdivision',
+            "\$model->subdivisions()[$i]"
+        );
+    }
+
+    isa_ok(
+        $model->most_specific_subdivision(),
+        'GeoIP2::Record::Subdivision',
+        '$model->most_specific_subdivision',
     );
 
     isa_ok(
@@ -146,9 +172,28 @@ use GeoIP2::Model::Omni;
     );
 
     isa_ok(
-        $model->region(),
-        'GeoIP2::Record::Region',
-        '$model->region()'
+        $model->registered_country(),
+        'GeoIP2::Record::Country',
+        '$model->registered_country()'
+    );
+
+    isa_ok(
+        $model->represented_country(),
+        'GeoIP2::Record::RepresentedCountry',
+        '$model->represented_country()'
+    );
+
+    my @subdivisions = $model->subdivisions();
+    is(
+        scalar $model->subdivisions(),
+        0,
+        '$model->subdivisions returns an empty list'
+    );
+
+    isa_ok(
+        $model->most_specific_subdivision(),
+        'GeoIP2::Record::Subdivision',
+        '$model->most_specific_subdivision',
     );
 
     isa_ok(

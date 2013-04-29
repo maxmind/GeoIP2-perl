@@ -14,16 +14,14 @@ use GeoIP2::Model::Country;
             names          => { en => 'North America' },
         },
         country => {
-            geoname_id         => 1,
-            iso_3166_1_alpha_2 => 'US',
-            iso_3166_1_alpha_3 => 'USA',
-            names              => { en => 'United States of America' },
+            geoname_id => 1,
+            iso_code   => 'US',
+            names      => { en => 'United States of America' },
         },
         registered_country => {
-            geoname_id         => 2,
-            iso_3166_1_alpha_2 => 'CA',
-            iso_3166_1_alpha_3 => 'CAN',
-            names              => { en => 'Canada' },
+            geoname_id => 2,
+            iso_code   => 'CA',
+            names      => { en => 'Canada' },
         },
         traits => {
             ip_address => '1.2.3.4',
@@ -93,15 +91,9 @@ use GeoIP2::Model::Country;
     );
 
     is(
-        $model->country()->iso_3166_1_alpha_2(),
+        $model->country()->iso_code(),
         'US',
-        'country iso_3166_1_alpha_2 is US'
-    );
-
-    is(
-        $model->country()->iso_3166_1_alpha_3(),
-        'USA',
-        'country iso_3166_1_alpha_3 is USA'
+        'country iso_code is US'
     );
 
     is_deeply(
@@ -129,15 +121,9 @@ use GeoIP2::Model::Country;
     );
 
     is(
-        $model->registered_country()->iso_3166_1_alpha_2(),
+        $model->registered_country()->iso_code(),
         'CA',
-        'registered_country iso_3166_1_alpha_2 is CA'
-    );
-
-    is(
-        $model->registered_country()->iso_3166_1_alpha_3(),
-        'CAN',
-        'registered_country iso_3166_1_alpha_3 is CAN'
+        'registered_country iso_code is CA'
     );
 
     is_deeply(

@@ -11,7 +11,8 @@ use Moo;
 with 'GeoIP2::Role::Model';
 
 __PACKAGE__->_define_attributes_for_keys(
-    qw( city continent country location region registered_country traits ));
+    qw( city continent country location registered_country represented_country traits )
+);
 
 1;
 
