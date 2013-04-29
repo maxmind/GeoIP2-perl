@@ -183,12 +183,12 @@ sub object_can_type {
     my $thing   = shift;
     my @methods = @_;
 
-    _tc_fail( $_[0], 'Object' )
+    _tc_fail( $thing, 'Object' )
         unless defined $thing
         && Scalar::Util::blessed($thing);
 
     for my $method (@methods) {
-        _tc_fail( $_[0], "Object which ->can($method)" )
+        _tc_fail( $thing, "Object which ->can($method)" )
             unless $thing->can($method);
     }
 }
@@ -197,7 +197,7 @@ sub object_isa_type {
     my $thing = shift;
     my $class = shift;
 
-    _tc_fail( $_[0], "$class Object" )
+    _tc_fail( $thing, "$class Object" )
         unless defined $thing
         && Scalar::Util::blessed($thing)
         && $thing->isa($class);
