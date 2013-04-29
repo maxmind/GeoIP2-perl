@@ -308,7 +308,7 @@ __END__
   my $omni = $client->omni( ip => '24.24.24.24' );
 
   my $country = $omni->country();
-  say $country->iso_3166_alpha_2;
+  say $country->iso_code();
 
 =head1 DESCRIPTION
 

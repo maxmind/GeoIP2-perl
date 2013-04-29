@@ -26,10 +26,9 @@ my %raw = (
         },
     },
     country => {
-        geoname_id         => 1,
-        iso_3166_1_alpha_2 => 'US',
-        iso_3166_1_alpha_3 => 'USA',
-        names              => {
+        geoname_id => 1,
+        iso_code   => 'US',
+        names      => {
             en      => 'United States of America',
             ru      => 'объединяет государства',
             'zh-CN' => '美国',
