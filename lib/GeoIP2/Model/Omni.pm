@@ -92,10 +92,9 @@ subdivisions varies by country, but a subdivision is typically a state,
 province, county, etc.
 
 Some countries have multiple levels of subdivisions. For instance, the
-subdivisions Oxford in the United Kingdom would have an object for England as
-the first element in subdivisions array and an object for Oxfordshire as the
-second element. The subdivisions array for Minneapolis in the United States
-will have a single object for Minnesota.
+subdivisions array for Oxford in the United Kingdom would have England as the
+first element and Oxfordshire as the second element. The subdivisions array
+for Minneapolis in the United States would have a single object for Minnesota.
 
 If the response did not contain any subdivisions, this method returns an empty
 list.
@@ -105,8 +104,8 @@ list.
 Returns a single L<GeoIP2::Record::Subdivision> object representing the most
 specific subdivision returned.
 
-If the response did not contain any subdivisions, this method returns an
-object with no values.
+If the response did not contain any subdivisions, this method returns a
+L<GeoIP2::Record::Subdivision> object with no values.
 
 =head2 $omni->traits()
 

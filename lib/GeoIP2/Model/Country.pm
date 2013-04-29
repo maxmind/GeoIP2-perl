@@ -63,6 +63,12 @@ country data for the requested IP address. This record represents the country
 where the ISP has registered a given IP block in and may differ from the
 user's country.
 
+=head2 $omni->represented_country()
+
+Returns a L<GeoIP2::Record::RepresentedCountry> object for the country
+represented by the requested IP address. The represented country may differ
+from the C<country> for things like military bases or embassies.
+
 =head2 $country->traits()
 
 Returns a L<GeoIP2::Record::Traits> object representing the traits for the

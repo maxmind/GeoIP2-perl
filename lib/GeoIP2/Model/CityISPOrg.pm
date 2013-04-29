@@ -71,17 +71,41 @@ believes the IP is located in.
 Returns a L<GeoIP2::Record::Location> object representing country data for the
 requested IP address.
 
-=head2 $city_isp_org->region()
-
-Returns a L<GeoIP2::Record::Region> object representing country data for the
-requested IP address.
-
 =head2 $city_isp_org->registered_country()
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
 country data for the requested IP address. This record represents the country
 where the ISP has registered a given IP block in and may differ from the
 user's country.
+
+=head2 $omni->represented_country()
+
+Returns a L<GeoIP2::Record::RepresentedCountry> object for the country
+represented by the requested IP address. The represented country may differ
+from the C<country> for things like military bases or embassies.
+
+=head2 $omni->subdivisions()
+
+Returns an array of L<GeoIP2::Record::Subdvision> objects representing the
+country subdivisions for the requested IP address. The number and type of
+subdivisions varies by country, but a subdivision is typically a state,
+province, county, etc.
+
+Some countries have multiple levels of subdivisions. For instance, the
+subdivisions array for Oxford in the United Kingdom would have England as the
+first element and Oxfordshire as the second element. The subdivisions array
+for Minneapolis in the United States would have a single object for Minnesota.
+
+If the response did not contain any subdivisions, this method returns an empty
+list.
+
+=head2 $omni->most_specific_subdivision()
+
+Returns a single L<GeoIP2::Record::Subdivision> object representing the most
+specific subdivision returned.
+
+If the response did not contain any subdivisions, this method returns a
+L<GeoIP2::Record::Subdivision> object with no values.
 
 =head2 $city_isp_org->traits()
 
