@@ -177,7 +177,7 @@ sub _handle_success {
 
     my $body;
     try {
-        $body = $self->_json()->decode( $response->content() );
+        $body = $self->_json()->decode( $response->decoded_content() );
     }
     catch {
         GeoIP2::Error::Generic->throw(
