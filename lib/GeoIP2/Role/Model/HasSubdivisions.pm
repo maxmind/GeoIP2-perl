@@ -65,15 +65,4 @@ sub _build_most_specific_subdivision {
     );
 }
 
-around _build_raw => sub {
-    my $orig = shift;
-    my $self = shift;
-
-    my $raw = $self->$orig(@_);
-
-    $raw->{subdivisions} = $self->_raw_subdivisions();
-
-    return $raw;
-};
-
 1;

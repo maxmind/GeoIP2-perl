@@ -138,8 +138,9 @@ use GeoIP2::Model::Omni;
 }
 
 {
-    my $model = GeoIP2::Model::Omni->new(
-        traits => { ip_address => '5.6.7.8' } );
+    my %raw = ( traits => { ip_address => '5.6.7.8' } );
+
+    my $model = GeoIP2::Model::Omni->new(%raw);
 
     isa_ok(
         $model,
@@ -200,6 +201,38 @@ use GeoIP2::Model::Omni;
         $model->traits(),
         'GeoIP2::Record::Traits',
         '$model->traits()'
+    );
+
+    is_deeply(
+        $model->raw(),
+        \%raw,
+        'raw method returns raw input with no added empty values'
+    );
+}
+
+{
+    my %raw = (
+        new_top_level => { foo => 42 },
+        city          => {
+            confidence => 76,
+            geoname_id => 9876,
+            names      => { en => 'Minneapolis' },
+            population => 50,
+        },
+        traits => { ip_address => '5.6.7.8' },
+    );
+
+    my $model;
+    is(
+        exception { $model = GeoIP2::Model::Omni->new(%raw) },
+        undef,
+        'no exception when Omni model gets raw data with unknown keys'
+    );
+
+    is_deeply(
+        $model->raw(),
+        \%raw,
+        'raw method returns raw input'
     );
 }
 
