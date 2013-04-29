@@ -490,7 +490,7 @@ becomes a L<GeoIP2::Error::HTTP> object.
 Finally, if the web service returns a 200 but the body is invalid, the client
 throws a L<GeoIP2::Error::Generic> object.
 
-All of these error classes have an L<< $error->message() >> method and
+All of these error classes have an C<< $error->message() >> method and
 overload stringification to show that message. This means that if you don't
 explicitly catch errors they will ultimately be sent to C<STDERR> with some
 sort of (hopefully) useful error message.
