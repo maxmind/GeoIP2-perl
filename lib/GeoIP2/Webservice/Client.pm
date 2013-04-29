@@ -213,25 +213,35 @@ sub _handle_4xx_status {
     my $status   = shift;
     my $uri      = shift;
 
-    my $content = $response->content();
+    my $content = $response->decoded_content();
 
     my $body = {};
 
     if ( defined $content && length $content ) {
-        try {
-            $body = $self->_json()->decode($content);
-            die
-                'Response contains JSON but it does not specify code or error keys'
-                unless $body->{code} && $body->{error};
+        if ( $response->content_type() =~ /json/ ) {
+            try {
+                $body = $self->_json()->decode($content);
+                die
+                    'Response contains JSON but it does not specify code or error keys'
+                    unless $body->{code} && $body->{error};
+            }
+            catch {
+                GeoIP2::Error::HTTP->throw(
+                    message =>
+                        "Received a $status error for $uri but it did not include the expected JSON body: $_",
+                    http_status => $status,
+                    uri         => $uri,
+                );
+            };
         }
-        catch {
+        else {
             GeoIP2::Error::HTTP->throw(
                 message =>
-                    "Received a $status error for $uri but it did not include the expected JSON body: $_",
+                    "Received a $status error for $uri with the following body: $content",
                 http_status => $status,
                 uri         => $uri,
             );
-        };
+        }
     }
     else {
         GeoIP2::Error::HTTP->throw(

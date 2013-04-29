@@ -72,6 +72,13 @@ my %responses = (
         undef,
         300,
     ),
+    '1.2.3.12' => _response(
+        'error',
+        406,
+        'Cannot satisfy your Accept-Charset requirements',
+        undef,
+        'text/plain',
+    ),
 );
 
 my $ua = Test::LWP::UserAgent->new();
@@ -386,6 +393,33 @@ $ua->map_response(
     );
 }
 
+{
+    my $client = GeoIP2::Webservice::Client->new(
+        user_id     => 42,
+        license_key => 'abcdef123456',
+        ua          => $ua,
+    );
+
+    my $e = exception { $client->country( ip => '1.2.3.12' ) };
+    isa_ok(
+        $e,
+        'GeoIP2::Error::HTTP',
+        'exception thrown when webservice returns a 406 error'
+    );
+
+    like(
+        $e->message(),
+        qr{\QReceived a 406 error for https://geoip.maxmind.com/geoip/v2.0/country/1.2.3.12 with the following body: Cannot satisfy your Accept-Charset requirements},
+        'error contains expected text'
+    );
+
+    unlike(
+        $e->message(),
+        qr/\QResponse contains JSON/,
+        'error does not complain about JSON issues when Content-Type for error is text/plain'
+    );
+}
+
 done_testing();
 
 sub _mock_request_handler {
@@ -397,25 +431,35 @@ sub _mock_request_handler {
 }
 
 sub _response {
-    my $endpoint = shift;
-    my $status   = shift;
-    my $body     = shift;
-    my $bad      = shift;
+    my $endpoint     = shift;
+    my $status       = shift;
+    my $body         = shift;
+    my $bad          = shift;
+    my $content_type = shift;
 
-    my $headers;
-    if ( $status == 200 || ( $status >= 400 && $status < 500 ) ) {
-        my $content_type
-            = 'application/vnd.maxmind.com-'
-            . $endpoint
-            . '+json; charset=UTF-8; version=1.0';
+    my $headers = HTTP::Headers->new();
 
-        $headers = HTTP::Headers->new( 'Content-Type' => $content_type );
+    if ($content_type) {
+        $headers->header( 'Content-Type' => $content_type );
+    }
+    elsif ( $status == 200 || ( $status >= 400 && $status < 500 ) ) {
+        $headers->header( 'Content-Type' => 'application/vnd.maxmind.com-'
+                . $endpoint
+                . '+json; charset=UTF-8; version=1.0' );
+    }
+
+    my $encoded_body = q{};
+    if ($bad) {
+        $encoded_body = '{ invalid: }';
+    }
+    elsif ($body) {
+        $encoded_body = ref $body ? $json->encode($body) : $body;
     }
 
     return HTTP::Response->new(
         $status,
         status_message($status),
         $headers,
-        ( $bad ? '{ invalid: }' : $body ? $json->encode($body) : q{} ),
+        $encoded_body,
     );
 }
