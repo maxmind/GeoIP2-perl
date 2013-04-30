@@ -52,8 +52,14 @@ http://www.maxmind.com/en/support for help.
 
 =head1 PERL VERSION SUPPORT
 
-This code requires Perl 5.10 or greater. Older versions of Perl are not
-supported.
+MaxMind has tested this API with Perl 5.8.8 and above. Reasonable patches for
+earlier versions of Perl 5.8 will be applied. We will not accept patches to
+support version of Perl before 5.8.
+
+The data returned from the GeoIP2 web services include Unicode characters in
+several languages. This may expose bugs in earlier versions of Perl. If
+Unicode support is important to you, we recommend that you use the most recent
+version of Perl available.
 
 =head1 SUPPORT
 
