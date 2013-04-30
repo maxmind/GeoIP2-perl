@@ -2,7 +2,6 @@ use strict;
 use warnings;
 
 use Test::Fatal;
-use Test::LWP::UserAgent;
 use Test::More 0.88;
 
 use GeoIP2::Webservice::Client;
@@ -81,10 +80,15 @@ my %responses = (
     ),
 );
 
-my $ua = Test::LWP::UserAgent->new();
-$ua->map_response(
-    qr{^\Qhttps://geoip.maxmind.com/geoip/v2.0/},
-    \&_mock_request_handler,
+my $ua = Mock::LWP::UserAgent->new(
+    sub {
+        my $self = shift;
+        my $request = shift;
+
+        my ($ip) = $request->uri() =~ m{country/(.+)$};
+
+        return $responses{$ip};
+    }
 );
 
 {
@@ -323,10 +327,9 @@ $ua->map_response(
 }
 
 {
-    my $ua = Test::LWP::UserAgent->new();
-    $ua->map_response(
-        qr{^\Qhttps://geoip.maxmind.com/geoip/v2.0/},
+    my $ua = Mock::LWP::UserAgent->new(
         sub {
+            my $self = shift;
             my $request = shift;
 
             is(
@@ -422,12 +425,32 @@ $ua->map_response(
 
 done_testing();
 
-sub _mock_request_handler {
-    my $request = shift;
+{
+    package Mock::LWP::UserAgent;
 
-    my ($ip) = $request->uri() =~ m{country/(.+)$};
+    use strict;
+    use warnings;
 
-    return $responses{$ip};
+    use base 'LWP::UserAgent';
+
+    sub new {
+        my $class        = shift;
+        my $request_meth = shift;
+
+        my $self = $class->SUPER::new();
+
+        $self->{__request_meth__} = $request_meth;
+
+        return $self;
+    }
+
+    sub request {
+        my $self = shift;
+
+        my $meth = $self->{__request_meth__};
+
+        return $self->$meth(@_);
+    }
 }
 
 sub _response {
