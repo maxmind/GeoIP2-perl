@@ -25,7 +25,7 @@ __END__
 
 =head1 SYNOPSIS
 
-  use v5.10;
+  use 5.008008;
 
   use GeoIP2::Webservice::Client;
   use Scalar::Util qw( blessed );

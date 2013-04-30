@@ -218,7 +218,11 @@ sub _tc_fail {
     my $value = shift;
     my $type  = shift;
 
-    die( ( $value // 'undef' ) . " is not a valid $type" );
+    $value
+        = !defined $value
+        ? 'undef'
+        : $value;
+    die "$value is not a valid $type";
 }
 
 1;

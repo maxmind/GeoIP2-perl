@@ -2,14 +2,14 @@
 use strict;
 use warnings;
 
-use 5.010000;
+use 5.008008;
 
 use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Perl API for MaxMind's GeoIP Precision web services and GeoIP2 databases",
+  "ABSTRACT" => "Perl API for MaxMind's GeoIP2 Precision web services and GeoIP2 databases",
   "AUTHOR" => "Dave Rolsky <autarch\@urth.org>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
@@ -47,8 +47,8 @@ my %WriteMakefileArgs = (
     "B" => 0,
     "HTTP::Status" => 0,
     "Test::Fatal" => 0,
-    "Test::LWP::UserAgent" => 0,
     "Test::More" => "0.88",
+    "base" => 0,
     "utf8" => 0
   },
   "VERSION" => "0.01",
@@ -89,4 +89,5 @@ delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
 
 WriteMakefile(%WriteMakefileArgs);
 
-1;
+
+

@@ -1,6 +1,6 @@
 package GeoIP2::Webservice::Client;
 
-use v5.10;
+use 5.008008;
 
 use strict;
 use warnings;
@@ -126,7 +126,7 @@ sub omni {
     );
 }
 
-my %ip_param = (
+my %spec = (
     ip => {
         callbacks => {
             'is a public IP address or me' => sub {
@@ -142,8 +142,7 @@ sub _response_for {
     my $path        = shift;
     my $model_class = shift;
 
-    state $spec = {%ip_param};
-    my %p = validate( @_, $spec );
+    my %p = validate( @_, \%spec );
 
     my $uri = $self->_base_uri()->clone();
     $uri->path_segments( $uri->path_segments(), $path, $p{ip} );
@@ -306,7 +305,7 @@ __END__
 
 =head1 SYNOPSIS
 
-  use v5.10;
+  use 5.008008;
 
   use GeoIP2::Webservice::Client;
 
