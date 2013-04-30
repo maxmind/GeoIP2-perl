@@ -1,6 +1,6 @@
 package GeoIP2::Webservice::Client;
 
-use 5.008008;
+use 5.008;
 
 use strict;
 use warnings;
@@ -305,7 +305,7 @@ __END__
 
 =head1 SYNOPSIS
 
-  use 5.008008;
+  use 5.008;
 
   use GeoIP2::Webservice::Client;
 

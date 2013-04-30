@@ -1,6 +1,6 @@
 package GeoIP2;
 
-use 5.008008;
+use 5.008;
 
 1;
 
