@@ -54,7 +54,7 @@ http://www.maxmind.com/en/support for help.
 
 MaxMind has tested this API with Perl 5.8.8 and above. Reasonable patches for
 earlier versions of Perl 5.8 will be applied. We will not accept patches to
-support version of Perl before 5.8.
+support any version of Perl before 5.8.
 
 The data returned from the GeoIP2 web services include Unicode characters in
 several languages. This may expose bugs in earlier versions of Perl. If
