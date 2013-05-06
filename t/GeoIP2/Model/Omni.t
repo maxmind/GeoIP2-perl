@@ -56,7 +56,6 @@ use GeoIP2::Model::Omni;
             autonomous_system_organization => 'AS Organization',
             domain                         => 'example.com',
             ip_address                     => '1.2.3.4',
-            is_anonymous_proxy             => 0,
             is_satellite_provider          => 1,
             isp                            => 'Comcast',
             organization                   => 'Blorg',
