@@ -139,7 +139,7 @@ use GeoIP2::Model::Country;
     );
 
     for my $meth (
-        qw( is_anonymous_proxy is_transparent_proxy is_us_military )) {
+        qw( is_anonymous_proxy is_satellite_provider )) {
 
         is(
             $model->traits()->$meth(),

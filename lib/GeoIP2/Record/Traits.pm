@@ -38,13 +38,7 @@ has is_anonymous_proxy => (
     default => quote_sub(q{ 0 })
 );
 
-has is_transparent_proxy => (
-    is      => 'ro',
-    isa     => Bool,
-    default => quote_sub(q{ 0 })
-);
-
-has is_us_military => (
+has is_satellite_provider => (
     is      => 'ro',
     isa     => Bool,
     default => quote_sub(q{ 0 })
@@ -63,8 +57,8 @@ has organization => (
 );
 
 has user_type => (
-    is        => 'ro',
-    isa       => Str,
+    is        => 'ro', 
+   isa       => Str,
     predicate => 'has_user_type',
 );
 
@@ -139,15 +133,10 @@ http://dev.maxmind.com/faq/geoip#anonproxy for further details.
 
 This attribute is returned by all end points.
 
-=head2 $traits_rec->is_transparent_proxy()
+=head2 $traits_rec->is_satellite_provider()
 
-This returns true if the IP is a transparent proxy.
-
-This attribute is returned by all end points.
-
-=head2 $traits_rec->is_us_military()
-
-This returns true if the IP is used by the US military,
+This returns true if the IP is a from a satellite provider that provides
+service to multiple countries.
 
 This attribute is returned by all end points.
 
