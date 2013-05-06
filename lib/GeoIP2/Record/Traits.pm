@@ -57,8 +57,8 @@ has organization => (
 );
 
 has user_type => (
-    is        => 'ro', 
-   isa       => Str,
+    is        => 'ro',
+    isa       => Str,
     predicate => 'has_user_type',
 );
 
