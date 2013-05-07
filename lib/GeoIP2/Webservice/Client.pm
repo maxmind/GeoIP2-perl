@@ -220,9 +220,9 @@ sub _handle_4xx_status {
         if ( $response->content_type() =~ /json/ ) {
             try {
                 $body = $self->_json()->decode($content);
-                die
-                    'Response contains JSON but it does not specify code or error keys'
-                    unless $body->{code} && $body->{error};
+                GeoIP2::Error::Generic->throw( message =>
+                        'Response contains JSON but it does not specify code or error keys'
+                ) unless $body->{code} && $body->{error};
             }
             catch {
                 GeoIP2::Error::HTTP->throw(
