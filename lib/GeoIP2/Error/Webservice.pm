@@ -60,7 +60,7 @@ service. It extends L<Throwable::Error> and adds attributes of its own.
 
 The C<< $error->message() >>, and C<< $error->stack_trace() >> methods are
 inherited from L<Throwable::Error>. The message will be the value provided by
-the MaxMind web service. See http://dev.maxmind.com/geoip/precision for
+the MaxMind web service. See http://dev.maxmind.com/geoip/geoip2/web-services for
 details.
 
 It also provide three methods of its own:

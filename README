@@ -1,13 +1,13 @@
 NAME
-    GeoIP2 - Perl API for MaxMind's GeoIP Precision web services and GeoIP2
+    GeoIP2 - Perl API for MaxMind's GeoIP2 web services and GeoIP2
     databases
 
 VERSION
     version 0.01
 
 DESCRIPTION
-    Currently, this distribution provides an API for the GeoIP Precision web
-    services (as documented at http://dev.maxmind.com/geoip/precision).
+    Currently, this distribution provides an API for the GeoIP2 web
+    services (as documented at http://dev.maxmind.com/geoip/geoip2/web-services).
 
     In the future, this distribution will also provide the same API for the
     GeoIP2 downloadable databases. These databases have not yet been

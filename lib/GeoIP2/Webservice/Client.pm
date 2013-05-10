@@ -483,7 +483,7 @@ support policies for dependencies and Perl itself.
 =head1 EXCEPTIONS
 
 For details on the possible errors returned by the web service itself, see
-http://dev.maxmind.com/geoip/precision for the GeoIP2 Precision web service
+http://dev.maxmind.com/geoip/geoip2/web-services for the GeoIP2 Precision web service
 docs.
 
 If the web service returns an explicit error document, this is thrown as a
@@ -514,7 +514,7 @@ piece of data for any given IP address.
 Because of these factors, it is possible for any end point to return a record
 where some or all of the attributes are unpopulated.
 
-See http://dev.maxmind.com/geoip/precision for details on what data each end
+See http://dev.maxmind.com/geoip/geoip2/web-services for details on what data each end
 point I<may> return.
 
 The only piece of data which is always returned is the C<ip_address> key in
