@@ -31,7 +31,7 @@ C<geoname_id> field. This is the ID of a geographical feature (city, region,
 country, etc.) in the GeoNames database.
 
 Some of the data that MaxMind provides is also sourced from GeoNames. We
-source things like place names, ISO codes, and other similar data from the
+source data such as place names, ISO codes, and other similar data from the
 GeoNames premium data set.
 
 =head1 REPORTING DATA PROBLEMS
@@ -47,8 +47,8 @@ the correction is part of the GeoNames data set, it will be automatically
 incorporated into future MaxMind releases.
 
 If you are a paying MaxMind customer and you're not sure where to submit a
-correction, please contact MaxMind support at
-http://www.maxmind.com/en/support for help.
+correction, please contact MaxMind support at for help. See
+http://www.maxmind.com/en/support for support details.
 
 =head1 PERL VERSION SUPPORT
 
@@ -56,7 +56,7 @@ MaxMind has tested this API with Perl 5.8.8 and above. Reasonable patches for
 earlier versions of Perl 5.8 will be applied. We will not accept patches to
 support any version of Perl before 5.8.
 
-The data returned from the GeoIP2 web services include Unicode characters in
+The data returned from the GeoIP2 web services includes Unicode characters in
 several languages. This may expose bugs in earlier versions of Perl. If
 Unicode support is important to you, we recommend that you use the most recent
 version of Perl available.
