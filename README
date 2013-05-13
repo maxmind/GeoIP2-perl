@@ -2,7 +2,7 @@ NAME
     GeoIP2 - Perl API for MaxMind's GeoIP2 web services
 
 VERSION
-    version 0.0100
+    version 0.0200
 
 DESCRIPTION
     This is an alpha release, and APIs may change before the final
@@ -15,7 +15,7 @@ DESCRIPTION
     GeoIP2 downloadable databases. These databases have not yet been
     released as a downloadable product.
 
-    See GeoIP2::Webservice::Client for details on the web service client
+    See GeoIP2::WebService::Client for details on the web service client
     API.
 
 INTEGRATION WITH GEONAMES
