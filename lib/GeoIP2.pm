@@ -53,6 +53,12 @@ If you are a paying MaxMind customer and you're not sure where to submit a
 correction, please contact MaxMind support at for help. See
 http://www.maxmind.com/en/support for support details.
 
+=head1 VERSIONING POLICY
+
+This module uses semantic versioning as described by
+http://semver.org/. Version numbers can be read as X.YYZZ, where X is the
+major number, YY is the minor number, and ZZ is the patch number.
+
 =head1 PERL VERSION SUPPORT
 
 MaxMind has tested this API with Perl 5.8.8 and above. Reasonable patches for
