@@ -40,6 +40,10 @@ Oxfordshire
 Rolsky
 SSL
 URI
+VERSIONING
+YY
+YYZZ
+ZZ
 contentDeliveryNetwork
 de
 dialup
@@ -55,5 +59,6 @@ ru
 searchEngineSpider
 ua
 unpopulated
+versioning
 webservice
 zh
