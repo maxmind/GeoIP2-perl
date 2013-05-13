@@ -398,18 +398,24 @@ Currently, the valid list of language codes is:
 
 =over 8
 
-=item * en
+=item * de - German
+
+=item * en - English
 
 English names may still include accented characters if that is the accepted
 spelling in English. In other words, English does not mean ASCII.
 
-=item * ja
+=item * es - Spanish
 
-=item * ru
+=item * fr - French
 
-=item * zh-CN
+=item * ja - Japanese
 
-This is simplified Chinese.
+=item * pt-BR - Brazilian Portuguese
+
+=item * ru - Russian
+
+=item * zh-CN - simplified Chinese
 
 =back
 

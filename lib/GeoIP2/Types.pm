@@ -86,8 +86,12 @@ sub JSONObject () {
 
 {
     our %_SupportededLangs = map { $_ => 1 } qw(
+        de
         en
+        es
+        fr
         ja
+        pt-BR
         ru
         zh-CN
     );
