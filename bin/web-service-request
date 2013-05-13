@@ -85,9 +85,9 @@ sub _help {
     print "\n** $error\n\n" if $error;
 
     print <<'EOF';
-webservice-request --user-id [id] --license-key [key] --ip-address [ip]
+web-service-request --user-id [id] --license-key [key] --ip-address [ip]
 
-  This script will query the MaxMind GeoIP webservice for information about
+  This script will query the MaxMind GeoIP web service for information about
   the given IP address.
 
   It accepts the following options:

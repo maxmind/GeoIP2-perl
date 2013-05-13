@@ -299,7 +299,7 @@ sub _build_ua {
 
 1;
 
-# ABSTRACT: Perl API for the GeoIP2 Precision webservice end points
+# ABSTRACT: Perl API for the GeoIP2 Precision web service end points
 
 __END__
 
@@ -489,7 +489,7 @@ docs.
 If the web service returns an explicit error document, this is thrown as a
 L<GeoIP2::Error::WebService> exception object. If some other sort of error
 occurs, this is thrown as a L<GeoIP2::Error::HTTP> object. The difference is
-that the webservice error includes an error message and error code delivered
+that the web service error includes an error message and error code delivered
 by the web service. The latter is thrown when some sort of unanticipated error
 occurs, such as the web service returning a 500 or an invalid error document.
 

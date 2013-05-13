@@ -199,7 +199,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::WebService',
-        'exception thrown when webservice returns a 4xx error'
+        'exception thrown when web service returns a 4xx error'
     );
 
     is(
@@ -232,7 +232,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 4xx error without a body'
+        'exception thrown when web service returns a 4xx error without a body'
     );
 
     like(
@@ -253,7 +253,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 4xx error with a JSON body but no code and error keys'
+        'exception thrown when web service returns a 4xx error with a JSON body but no code and error keys'
     );
 
     like(
@@ -274,7 +274,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 4xx error with a non-JSON body'
+        'exception thrown when web service returns a 4xx error with a non-JSON body'
     );
 
     like(
@@ -295,7 +295,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 5xx error'
+        'exception thrown when web service returns a 5xx error'
     );
 
     like(
@@ -316,7 +316,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 3xx error'
+        'exception thrown when web service returns a 3xx error'
     );
 
     like(
@@ -407,7 +407,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 406 error'
+        'exception thrown when web service returns a 406 error'
     );
 
     like(

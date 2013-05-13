@@ -41,7 +41,7 @@ __END__
   catch {
       die $_ unless blessed $_;
       if ( $_->isa('GeoIP2::Error::HTTP') ) {
-          log_webservice_error(
+          log_web_service_error(
               maxmind_code => $_->code(),
               status       => $_->http_status(),
               uri          => $_->uri(),
