@@ -13,7 +13,7 @@ extends 'Throwable::Error';
 
 1;
 
-# ABSTRACT: A generic exception
+# ABSTRACT: An HTTP transport error
 
 __END__
 

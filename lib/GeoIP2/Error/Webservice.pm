@@ -19,7 +19,7 @@ has code => (
 
 1;
 
-# ABSTRACT: A generic exception
+# ABSTRACT: An explicit error from the GeoIP2 web service
 
 __END__
 
