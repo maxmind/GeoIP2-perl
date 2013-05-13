@@ -10,6 +10,9 @@ __END__
 
 =head1 DESCRIPTION
 
+B<This is an alpha release, and APIs may change before the final production
+release, which will be numbered 2.0000>.
+
 This distribution provides an API for the GeoIP2 web services (as documented
 at http://dev.maxmind.com/geoip/geoip2/web-services).
 
