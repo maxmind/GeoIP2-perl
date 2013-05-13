@@ -1,13 +1,15 @@
 NAME
-    GeoIP2 - Perl API for MaxMind's GeoIP2 web services and GeoIP2
-    databases
+    GeoIP2 - Perl API for MaxMind's GeoIP2 web services
 
 VERSION
-    version 0.01
+    version 0.0100
 
 DESCRIPTION
-    Currently, this distribution provides an API for the GeoIP2 web
-    services (as documented at http://dev.maxmind.com/geoip/geoip2/web-services).
+    This is an alpha release, and APIs may change before the final
+    production release, which will be numbered 2.0000.
+
+    This distribution provides an API for the GeoIP2 web services (as
+    documented at http://dev.maxmind.com/geoip/geoip2/web-services).
 
     In the future, this distribution will also provide the same API for the
     GeoIP2 downloadable databases. These databases have not yet been
@@ -27,7 +29,7 @@ INTEGRATION WITH GEONAMES
     (city, region, country, etc.) in the GeoNames database.
 
     Some of the data that MaxMind provides is also sourced from GeoNames. We
-    source things like place names, ISO codes, and other similar data from
+    source data such as place names, ISO codes, and other similar data from
     the GeoNames premium data set.
 
 REPORTING DATA PROBLEMS
@@ -44,12 +46,23 @@ REPORTING DATA PROBLEMS
     releases.
 
     If you are a paying MaxMind customer and you're not sure where to submit
-    a correction, please contact MaxMind support at
-    http://www.maxmind.com/en/support for help.
+    a correction, please contact MaxMind support at for help. See
+    http://www.maxmind.com/en/support for support details.
+
+VERSIONING POLICY
+    This module uses semantic versioning as described by http://semver.org/.
+    Version numbers can be read as X.YYZZ, where X is the major number, YY
+    is the minor number, and ZZ is the patch number.
 
 PERL VERSION SUPPORT
-    This code requires Perl 5.10 or greater. Older versions of Perl are not
-    supported.
+    MaxMind has tested this API with Perl 5.8.8 and above. Reasonable
+    patches for earlier versions of Perl 5.8 will be applied. We will not
+    accept patches to support any version of Perl before 5.8.
+
+    The data returned from the GeoIP2 web services includes Unicode
+    characters in several languages. This may expose bugs in earlier
+    versions of Perl. If Unicode support is important to you, we recommend
+    that you use the most recent version of Perl available.
 
 SUPPORT
     Please report all issues with this code using the GitHub issue tracker
