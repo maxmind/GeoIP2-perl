@@ -19,10 +19,10 @@ __END__
 
   use 5.008;
 
-  use GeoIP2::Webservice::Client;
+  use GeoIP2::WebService::Client;
   use Scalar::Util qw( blessed );
 
-  my $client = GeoIP2::Webservice::Client->new(
+  my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
       license_key => 'abcdef123456',
   );

@@ -4,7 +4,7 @@ use warnings;
 use Test::Fatal;
 use Test::More 0.88;
 
-use GeoIP2::Webservice::Client;
+use GeoIP2::WebService::Client;
 use HTTP::Status qw( status_message );
 use JSON;
 
@@ -92,7 +92,7 @@ my $ua = Mock::LWP::UserAgent->new(
 );
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -155,7 +155,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -168,7 +168,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -189,7 +189,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -198,7 +198,7 @@ my $ua = Mock::LWP::UserAgent->new(
     my $e = exception { $client->country( ip => '1.2.3.6' ) };
     isa_ok(
         $e,
-        'GeoIP2::Error::Webservice',
+        'GeoIP2::Error::WebService',
         'exception thrown when webservice returns a 4xx error'
     );
 
@@ -222,7 +222,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -243,7 +243,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -264,7 +264,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -285,7 +285,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -306,7 +306,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -358,7 +358,7 @@ my $ua = Mock::LWP::UserAgent->new(
         }
     );
 
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -369,15 +369,15 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    local $GeoIP2::Webservice::Client::VERSION = 42;
-    my $client = GeoIP2::Webservice::Client->new(
+    local $GeoIP2::WebService::Client::VERSION = 42;
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
     );
 
     like(
         $client->ua()->agent(),
-        qr/\QGeoIP2::Webservice::Client v42/,
+        qr/\QGeoIP2::WebService::Client v42/,
         'user agent includes client package and version'
     );
 
@@ -397,7 +397,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,

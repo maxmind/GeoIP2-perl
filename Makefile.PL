@@ -53,7 +53,7 @@ my %WriteMakefileArgs = (
   },
   "VERSION" => "0.01",
   "test" => {
-    "TESTS" => "t/*.t t/GeoIP2/*.t t/GeoIP2/Model/*.t t/GeoIP2/Webservice/*.t"
+    "TESTS" => "t/*.t t/GeoIP2/*.t t/GeoIP2/Model/*.t t/GeoIP2/WebService/*.t"
   }
 );
 

@@ -37,9 +37,9 @@ __END__
 
   use 5.008;
 
-  use GeoIP2::Webservice::Client;
+  use GeoIP2::WebService::Client;
 
-  my $client = GeoIP2::Webservice::Client->new(
+  my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
       license_key => 'abcdef123456',
   );
@@ -85,7 +85,7 @@ This attribute is returned by all end points except the Country end point.
 
 This returns a name for the subdivision. The language chosen depends on the
 C<languages> argument that was passed to the record's constructor. This will
-be passed through from the L<GeoIP2::Webservice::Client> object you used to
+be passed through from the L<GeoIP2::WebService::Client> object you used to
 fetch the data that populated this record.
 
 If the record does not have a name in any of languages you asked for, this
@@ -96,7 +96,7 @@ This attribute is returned by all end points except the Country end point.
 =head2 $subdivision_rec->names()
 
 This returns a hash reference where the keys are language codes and the values
-are names. See L<GeoIP2::Webservice::Client> for a list of the possible
+are names. See L<GeoIP2::WebService::Client> for a list of the possible
 language codes.
 
 This attribute is returned by all end points except the Country end point.
