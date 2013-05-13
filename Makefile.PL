@@ -17,7 +17,7 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "GeoIP2",
   "EXE_FILES" => [
-    "bin/webservice-request"
+    "bin/web-service-request"
   ],
   "LICENSE" => "artistic_2",
   "NAME" => "GeoIP2",
