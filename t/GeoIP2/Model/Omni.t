@@ -22,7 +22,17 @@ use GeoIP2::Model::Omni;
             confidence => 99,
             geoname_id => 1,
             iso_code   => 'US',
-            names      => { en => 'United States of America' },
+            names      => {
+                'de'    => 'Nordamerika',
+                'en'    => 'North America',
+                'ja'    => '北米',
+                'es'    => 'América del Norte',
+                'fr'    => 'Amérique du Nord',
+                'ja'    => '北アメリカ',
+                'pt-BR' => 'América do Norte',
+                'ru'    => 'Северная Америка',
+                'zh-CN' => '北美洲',
+            },
         },
         location => {
             accuracy_radius   => 1500,
