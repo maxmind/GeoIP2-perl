@@ -454,22 +454,22 @@ system's actual IP address.
 =head2 $client->country()
 
 This method calls the GeoIP2 Precision Country end point. It returns a
-L<GeoIP::Model::Country> object.
+L<GeoIP2::Model::Country> object.
 
 =head2 $client->city()
 
 This method calls the GeoIP2 Precision City end point. It returns a
-L<GeoIP::Model::City> object.
+L<GeoIP2::Model::City> object.
 
 =head2 $client->city_isp_org()
 
 This method calls the GeoIP2 Precision City/ISP/Org end point. It returns a
-L<GeoIP::Model::CityISPOrg> object.
+L<GeoIP2::Model::CityISPOrg> object.
 
 =head2 $client->omni()
 
 This method calls the GeoIP2 Precision Omni end point. It returns a
-L<GeoIP::Model::Omni> object.
+L<GeoIP2::Model::Omni> object.
 
 =head1 User-Agent HEADER
 
