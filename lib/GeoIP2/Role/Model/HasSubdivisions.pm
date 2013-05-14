@@ -1,4 +1,4 @@
-package GeoIP2::Role::Model;
+package GeoIP2::Role::Model::HasSubdivisions;
 
 use strict;
 use warnings;
