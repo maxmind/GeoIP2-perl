@@ -85,7 +85,7 @@ sub JSONObject () {
 }
 
 {
-    our %_SupportededLangs = map { $_ => 1 } qw(
+    our %_SupportedLangs = map { $_ => 1 } qw(
         de
         en
         es
@@ -104,7 +104,7 @@ sub JSONObject () {
                    && Scalar::Util::reftype( $_[0] ) eq 'ARRAY'
                    && !Scalar::Util::blessed( $_[0] )
                    && List::MoreUtils::all(
-                   sub { defined $_ && !ref $_ && $GeoIP2::Types::_SupportededLangs{$_} },
+                   sub { defined $_ && !ref $_ && $GeoIP2::Types::_SupportedLangs{$_} },
                    @{ $_[0] }
                    ); }
         );
