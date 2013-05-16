@@ -37,6 +37,11 @@ my %responses = (
         200,
         \%country,
     ),
+    'a09c:4242:519c::0123' => _response(
+        'country',
+        200,
+        \%country,
+    ),
     '1.2.3.5' => _response(
         'country',
         200,
@@ -151,6 +156,13 @@ my $ua = Mock::LWP::UserAgent->new(
         $country->country()->name(),
         'United States of America',
         'country name is United States of America'
+    );
+
+    my $ipv6_country = $client->country( ip => 'a09c:4242:519c::0123' );
+    isa_ok(
+        $ipv6_country,
+        'GeoIP2::Model::Country',
+        'return value of $client->country for IPv6 address'
     );
 }
 
@@ -421,6 +433,48 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\QResponse contains JSON/,
         'error does not complain about JSON issues when Content-Type for error is text/plain'
     );
+}
+
+{
+    my $client = GeoIP2::WebService::Client->new(
+        user_id     => 42,
+        license_key => 'abcdef123456',
+    );
+
+    my @bad = qw(
+        mine
+        0.1.2.3
+        255.666.242.1
+        abcd::1234::b6b3
+        1.2.3
+        abcde::
+    );
+
+    for my $bad (@bad) {
+        like(
+            exception { $client->country( ip => $bad ) },
+            qr/is a public IP address or me/,
+            qq{client rejects ip address '$bad'}
+        );
+    }
+
+    my @good = qw(
+        mine
+        0.1.2.3
+        255.666.242.1
+        abcd::1234::b6b3
+        1.2.3
+        abcde::
+    );
+
+    for my $bad (@bad) {
+        like(
+            exception { $client->country( ip => $bad ) },
+            qr/is a public IP address or me/,
+            qq{client rejects ip address '$bad'}
+        );
+    }
+
 }
 
 done_testing();
