@@ -2,6 +2,7 @@
 
 - Allow IPv6 addresses to be passed to the GeoIP2::WebService::Client class's
   methods.
+- We now support more languages. The new languages are de, es, fr, and pt-BR.
 
 
 0.0200   2013-05-13
