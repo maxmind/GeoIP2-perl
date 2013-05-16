@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Allow IPv6 addresses to be passed to the GeoIP2::WebService::Client class's
+  methods.
+
+
 0.0200   2013-05-13
 
 - Replaced all uses of Webservice with WebService.
