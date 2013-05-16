@@ -457,24 +457,6 @@ my $ua = Mock::LWP::UserAgent->new(
             qq{client rejects ip address '$bad'}
         );
     }
-
-    my @good = qw(
-        mine
-        0.1.2.3
-        255.666.242.1
-        abcd::1234::b6b3
-        1.2.3
-        abcde::
-    );
-
-    for my $bad (@bad) {
-        like(
-            exception { $client->country( ip => $bad ) },
-            qr/is a public IP address or me/,
-            qq{client rejects ip address '$bad'}
-        );
-    }
-
 }
 
 done_testing();
