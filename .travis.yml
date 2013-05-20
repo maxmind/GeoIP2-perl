@@ -4,6 +4,12 @@ perl:
   - "5.14"
   - "5.12"
   - "5.10"
+before_install:
+  cpanm Devel::Cover::Report::Coveralls
+script:
+  perl Makefile.PL build && cover -test
+after_success:
+  cover -report coveralls
 notifications:
   email:
     recipients:
