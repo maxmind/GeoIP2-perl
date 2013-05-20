@@ -53,8 +53,8 @@ __END__
 
 =head1 DESCRIPTION
 
-This class represents an error returned by MaxMind's GeoIP2 Precision web
-service. It extends L<Throwable::Error> and adds attributes of its own.
+This class represents an error returned by MaxMind's GeoIP2 web service. It
+extends L<Throwable::Error> and adds attributes of its own.
 
 =head1 METHODS
 
@@ -67,7 +67,7 @@ It also provide three methods of its own:
 
 =head2 $error->code()
 
-Returns the code returned by the MaxMind GeoIP2 Precision web service.
+Returns the code returned by the MaxMind GeoIP2 web service.
 
 =head2 $error->http_status()
 
