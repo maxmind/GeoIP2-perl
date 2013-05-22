@@ -2,7 +2,17 @@
 
 - Allow IPv6 addresses to be passed to the GeoIP2::WebService::Client class's
   methods.
+
 - We now support more languages. The new languages are de, es, fr, and pt-BR.
+
+- Postal code data is now returned as a separate top-level object. We now
+  provide a GeoIP2::Record::Postal class for this data.
+
+- The REST API returns a record with data about your account. There is a new
+  GeoIP2::Record::MaxMind class for this data.
+
+- Fixed bug in the City & CityISPOrg classes. Their subdivions() method was
+  not working.
 
 
 0.0200   2013-05-13
