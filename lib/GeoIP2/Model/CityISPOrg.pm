@@ -8,7 +8,7 @@ use Sub::Quote qw( quote_sub );
 
 use Moo;
 
-with 'GeoIP2::Role::Model';
+with 'GeoIP2::Role::Model', 'GeoIP2::Role::Model::HasSubdivisions';
 
 __PACKAGE__->_define_attributes_for_keys( __PACKAGE__->_all_record_names() );
 
