@@ -69,6 +69,16 @@ believes the IP is located in.
 Returns a L<GeoIP2::Record::Location> object representing country data for the
 requested IP address.
 
+=head2 $city->maxmind()
+
+Returns a L<GeoIP2::Record::MaxMind> object representing data about your
+MaxMind account.
+
+=head2 $city->postal()
+
+Returns a L<GeoIP2::Record::Postal> object representing postal code data for
+the requested IP address.
+
 =head2 $city->registered_country()
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
@@ -76,13 +86,13 @@ country data for the requested IP address. This record represents the country
 where the ISP has registered a given IP block in and may differ from the
 user's country.
 
-=head2 $omni->represented_country()
+=head2 $city->represented_country()
 
 Returns a L<GeoIP2::Record::RepresentedCountry> object for the country
 represented by the requested IP address. The represented country may differ
 from the C<country> for things like military bases or embassies.
 
-=head2 $omni->subdivisions()
+=head2 $city->subdivisions()
 
 Returns an array of L<GeoIP2::Record::Subdvision> objects representing the
 country subdivisions for the requested IP address. The number and type of
@@ -97,7 +107,7 @@ for Minneapolis in the United States would have a single object for Minnesota.
 If the response did not contain any subdivisions, this method returns an empty
 list.
 
-=head2 $omni->most_specific_subdivision()
+=head2 $city->most_specific_subdivision()
 
 Returns a single L<GeoIP2::Record::Subdivision> object representing the most
 specific subdivision returned.

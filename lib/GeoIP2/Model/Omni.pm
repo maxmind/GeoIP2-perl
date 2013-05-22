@@ -69,6 +69,16 @@ believes the IP is located in.
 Returns a L<GeoIP2::Record::Location> object representing country data for the
 requested IP address.
 
+=head2 $omni->maxmind()
+
+Returns a L<GeoIP2::Record::MaxMind> object representing data about your
+MaxMind account.
+
+=head2 $omni->postal()
+
+Returns a L<GeoIP2::Record::Postal> object representing postal code data for
+the requested IP address.
+
 =head2 $omni->registered_country()
 
 Returns a L<GeoIP2::Record::Country> object representing the registered

@@ -56,6 +56,11 @@ Returns a L<GeoIP2::Record::Country> object representing country data for the
 requested IP address. This record represents the country where MaxMind
 believes the IP is located in.
 
+=head2 $country->maxmind()
+
+Returns a L<GeoIP2::Record::MaxMind> object representing data about your
+MaxMind account.
+
 =head2 $country->registered_country()
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
@@ -63,7 +68,7 @@ country data for the requested IP address. This record represents the country
 where the ISP has registered a given IP block in and may differ from the
 user's country.
 
-=head2 $omni->represented_country()
+=head2 $country->represented_country()
 
 Returns a L<GeoIP2::Record::RepresentedCountry> object for the country
 represented by the requested IP address. The represented country may differ
