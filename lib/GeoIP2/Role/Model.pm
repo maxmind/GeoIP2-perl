@@ -66,6 +66,18 @@ sub _define_attributes_for_keys {
     }
 }
 
+sub _all_record_names {
+    return qw(
+        city
+        continent
+        country
+        location
+        registered_country
+        represented_country
+        traits
+    );
+}
+
 around BUILDARGS => sub {
     my $orig = shift;
     my $self = shift;

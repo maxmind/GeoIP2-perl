@@ -10,9 +10,7 @@ use Moo;
 
 with 'GeoIP2::Role::Model', 'GeoIP2::Role::Model::HasSubdivisions';
 
-__PACKAGE__->_define_attributes_for_keys(
-    qw( city continent country location registered_country represented_country traits )
-);
+__PACKAGE__->_define_attributes_for_keys( __PACKAGE__->_all_record_names() );
 
 1;
 
