@@ -8,6 +8,7 @@ use GeoIP2::Record::Continent;
 use GeoIP2::Record::Country;
 use GeoIP2::Record::Location;
 use GeoIP2::Record::MaxMind;
+use GeoIP2::Record::Postal;
 use GeoIP2::Record::RepresentedCountry;
 use GeoIP2::Record::Traits;
 use GeoIP2::Types qw( ArrayRef HashRef );
@@ -74,6 +75,7 @@ sub _all_record_names {
         country
         location
         maxmind
+        postal
         registered_country
         represented_country
         traits

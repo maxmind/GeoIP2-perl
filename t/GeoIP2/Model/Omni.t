@@ -45,12 +45,14 @@ use GeoIP2::Model::Omni;
             latitude          => 44.98,
             longitude         => 93.2636,
             metro_code        => 765,
-            postal_code       => '55401',
-            postal_confidence => 33,
             time_zone         => 'America/Chicago',
         },
         maxmind => {
             queries_remaining => 42,
+        },
+        postal => {
+            code       => '12345',
+            confidence => 57,
         },
         registered_country => {
             geoname_id => 2,

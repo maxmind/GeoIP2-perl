@@ -43,11 +43,13 @@ use GeoIP2::Model::City;
             latitude        => 44.98,
             longitude       => 93.2636,
             metro_code      => 765,
-            postal_code     => '55401',
             time_zone       => 'America/Chicago',
         },
         maxmind => {
             queries_remaining => 42,
+        },
+        postal => {
+            code => '12345',
         },
         registered_country => {
             geoname_id => 2,

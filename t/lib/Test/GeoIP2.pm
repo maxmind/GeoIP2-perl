@@ -100,6 +100,12 @@ sub _shared_model_tests {
     );
 
     isa_ok(
+        $model->postal(),
+        'GeoIP2::Record::Postal',
+        '$model->postal()'
+    );
+
+    isa_ok(
         $model->registered_country(),
         'GeoIP2::Record::Country',
         '$model->registered_country()'

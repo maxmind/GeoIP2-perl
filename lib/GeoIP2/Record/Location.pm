@@ -31,18 +31,6 @@ has metro_code => (
     predicate => 'has_metro_code',
 );
 
-has postal_code => (
-    is       => 'ro',
-    isa      => Str,
-    predicate => 'has_postal_code',
-);
-
-has postal_confidence => (
-    is        => 'ro',
-    isa       => NonNegativeInt,
-    predicate => 'has_postal_confidence',
-);
-
 has time_zone => (
     is       => 'ro',
     isa      => Str,
@@ -107,21 +95,6 @@ MaxMind returns the same metro codes as the Google AdWords API
 (https://developers.google.com/adwords/api/docs/appendix/cities-DMAregions).
 
 This attribute is returned by all end points except the Country end point.
-
-=head2 $location_rec->postal_code()
-
-This returns the postal code of the location. Postal codes are not available
-for all countries. In some countries, this will only contain part of the
-postal code.
-
-This attribute is returned by all end points except the Country end point.
-
-=head2 $location_rec->postal_confidence()
-
-This returns a value from 0-100 indicating MaxMind's confidence that the
-postal code is correct.
-
-This attribute is only available from the Omni end point.
 
 =head2 $location_rec->time_zone()
 
