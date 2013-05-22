@@ -3,9 +3,10 @@ package GeoIP2::Types;
 use strict;
 use warnings;
 
-use Data::Validate::IP ();
-use List::MoreUtils ();
-use Scalar::Util ();
+use Data::Validate::IP  ();
+use GeoIP2::Error::Type ();
+use List::MoreUtils     ();
+use Scalar::Util        ();
 use Sub::Quote qw( quote_sub );
 use URI;
 
@@ -226,7 +227,12 @@ sub _tc_fail {
         = !defined $value
         ? 'undef'
         : $value;
-    die "$value is not a valid $type";
+
+    GeoIP2::Error::Type->throw(
+        message => "$value is not a valid $type",
+        name    => $type,
+        value   => $value
+    );
 }
 
 1;
