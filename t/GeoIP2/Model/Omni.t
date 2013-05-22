@@ -1,7 +1,13 @@
 use strict;
 use warnings;
 
-use Test::Fatal;
+use lib 't/lib';
+
+use Test::GeoIP2 qw(
+    test_model_class
+    test_model_class_with_empty_record
+    test_model_class_with_unknown_keys
+);
 use Test::More 0.88;
 
 use GeoIP2::Model::Omni;
@@ -43,6 +49,9 @@ use GeoIP2::Model::Omni;
             postal_confidence => 33,
             time_zone         => 'America/Chicago',
         },
+        maxmind => {
+            queries_remaining => 42,
+        },
         registered_country => {
             geoname_id => 2,
             iso_code   => 'CA',
@@ -73,175 +82,12 @@ use GeoIP2::Model::Omni;
         },
     );
 
-    my $model = GeoIP2::Model::Omni->new(%raw);
-
-    isa_ok(
-        $model,
-        'GeoIP2::Model::Omni',
-        'GeoIP2::Model::Omni object'
-    );
-
-    isa_ok(
-        $model->city(),
-        'GeoIP2::Record::City',
-        '$model->city()'
-    );
-
-    isa_ok(
-        $model->continent(),
-        'GeoIP2::Record::Continent',
-        '$model->continent()'
-    );
-
-    isa_ok(
-        $model->country(),
-        'GeoIP2::Record::Country',
-        '$model->country()'
-    );
-
-    isa_ok(
-        $model->location(),
-        'GeoIP2::Record::Location',
-        '$model->location()'
-    );
-
-    isa_ok(
-        $model->registered_country(),
-        'GeoIP2::Record::Country',
-        '$model->registered_country()'
-    );
-
-    isa_ok(
-        $model->represented_country(),
-        'GeoIP2::Record::RepresentedCountry',
-        '$model->represented_country()'
-    );
-
-    my @subdivisions = $model->subdivisions();
-    for my $i ( 0 .. $#subdivisions ) {
-        isa_ok(
-            $subdivisions[$i],
-            'GeoIP2::Record::Subdivision',
-            "\$model->subdivisions()[$i]"
-        );
-    }
-
-    isa_ok(
-        $model->most_specific_subdivision(),
-        'GeoIP2::Record::Subdivision',
-        '$model->most_specific_subdivision',
-    );
-
-    isa_ok(
-        $model->traits(),
-        'GeoIP2::Record::Traits',
-        '$model->traits()'
-    );
-
-    is_deeply(
-        $model->raw(),
-        \%raw,
-        'raw method returns raw input'
-    );
+    test_model_class( 'GeoIP2::Model::Omni', \%raw );
 }
 
 {
-    my %raw = ( traits => { ip_address => '5.6.7.8' } );
-
-    my $model = GeoIP2::Model::Omni->new(%raw);
-
-    isa_ok(
-        $model,
-        'GeoIP2::Model::Omni',
-        'GeoIP2::Model::Omni object with no data except traits.ip_address'
-    );
-
-    isa_ok(
-        $model->city(),
-        'GeoIP2::Record::City',
-        '$model->city()'
-    );
-
-    isa_ok(
-        $model->continent(),
-        'GeoIP2::Record::Continent',
-        '$model->continent()'
-    );
-
-    isa_ok(
-        $model->country(),
-        'GeoIP2::Record::Country',
-        '$model->country()'
-    );
-
-    isa_ok(
-        $model->location(),
-        'GeoIP2::Record::Location',
-        '$model->location()'
-    );
-
-    isa_ok(
-        $model->registered_country(),
-        'GeoIP2::Record::Country',
-        '$model->registered_country()'
-    );
-
-    isa_ok(
-        $model->represented_country(),
-        'GeoIP2::Record::RepresentedCountry',
-        '$model->represented_country()'
-    );
-
-    my @subdivisions = $model->subdivisions();
-    is(
-        scalar $model->subdivisions(),
-        0,
-        '$model->subdivisions returns an empty list'
-    );
-
-    isa_ok(
-        $model->most_specific_subdivision(),
-        'GeoIP2::Record::Subdivision',
-        '$model->most_specific_subdivision',
-    );
-
-    isa_ok(
-        $model->traits(),
-        'GeoIP2::Record::Traits',
-        '$model->traits()'
-    );
-
-    is_deeply(
-        $model->raw(),
-        \%raw,
-        'raw method returns raw input with no added empty values'
-    );
-}
-
-{
-    my %raw = (
-        new_top_level => { foo => 42 },
-        city          => {
-            confidence => 76,
-            geoname_id => 9876,
-            names      => { en => 'Minneapolis' },
-            population => 50,
-        },
-        traits => { ip_address => '5.6.7.8' },
-    );
-
-    my $model;
-    is(
-        exception { $model = GeoIP2::Model::Omni->new(%raw) },
-        undef,
-        'no exception when Omni model gets raw data with unknown keys'
-    );
-
-    is_deeply(
-        $model->raw(),
-        \%raw,
-        'raw method returns raw input'
-    );
+    test_model_class_with_empty_record('GeoIP2::Model::Omni');
+    test_model_class_with_unknown_keys('GeoIP2::Model::Omni');
 }
 
 done_testing();

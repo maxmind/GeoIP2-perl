@@ -18,6 +18,9 @@ use GeoIP2::Model::Country;
             iso_code   => 'US',
             names      => { en => 'United States of America' },
         },
+        maxmind => {
+            queries_remaining => 42,
+        },
         registered_country => {
             geoname_id => 2,
             iso_code   => 'CA',
@@ -46,6 +49,12 @@ use GeoIP2::Model::Country;
         $model->country(),
         'GeoIP2::Record::Country',
         '$model->country()'
+    );
+
+    isa_ok(
+        $model->maxmind(),
+        'GeoIP2::Record::MaxMind',
+        '$model->maxmind()'
     );
 
     isa_ok(
@@ -139,7 +148,6 @@ use GeoIP2::Model::Country;
     );
 
     for my $meth (qw( is_anonymous_proxy is_satellite_provider )) {
-
         is(
             $model->traits()->$meth(),
             0,

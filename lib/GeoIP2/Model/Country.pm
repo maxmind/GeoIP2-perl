@@ -11,7 +11,7 @@ use Moo;
 with 'GeoIP2::Role::Model';
 
 __PACKAGE__->_define_attributes_for_keys(
-    qw( continent country registered_country traits ));
+    qw( continent country maxmind registered_country traits ));
 
 1;
 

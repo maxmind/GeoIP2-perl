@@ -7,6 +7,7 @@ use GeoIP2::Record::City;
 use GeoIP2::Record::Continent;
 use GeoIP2::Record::Country;
 use GeoIP2::Record::Location;
+use GeoIP2::Record::MaxMind;
 use GeoIP2::Record::RepresentedCountry;
 use GeoIP2::Record::Traits;
 use GeoIP2::Types qw( ArrayRef HashRef );
@@ -72,6 +73,7 @@ sub _all_record_names {
         continent
         country
         location
+        maxmind
         registered_country
         represented_country
         traits
@@ -103,16 +105,19 @@ sub _build_record {
         ->new( %{$raw}, languages => $self->languages() );
 }
 
-sub _record_class_for_key {
-    my $self = shift;
-    my $key  = shift;
+{
+    my %key_to_class = (
+        maxmind             => 'MaxMind',
+        registered_country  => 'Country',
+        represented_country => 'RepresentedCountry',
+    );
 
-    return 'GeoIP2::Record::Country' if $key eq 'registered_country';
+    sub _record_class_for_key {
+        my $self = shift;
+        my $key  = shift;
 
-    return 'GeoIP2::Record::RepresentedCountry'
-        if $key eq 'represented_country';
-
-    return 'GeoIP2::Record::' . ucfirst $key;
+        return 'GeoIP2::Record::' . ( $key_to_class{$key} || ucfirst $key );
+    }
 }
 
 1;
