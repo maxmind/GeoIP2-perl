@@ -18,9 +18,9 @@ use GeoIP2::Model::Country;
 
 my %raw = (
     continent => {
-        continent_code => 'NA',
-        geoname_id     => 42,
-        names          => {
+        code       => 'NA',
+        geoname_id => 42,
+        names      => {
             en      => 'North America',
             'zh-CN' => '北美洲',
         },

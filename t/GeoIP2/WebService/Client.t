@@ -12,9 +12,9 @@ my $json = JSON->new()->utf8();
 
 my %country = (
     continent => {
-        continent_code => 'NA',
-        geoname_id     => 42,
-        names          => { en => 'North America' },
+        code       => 'NA',
+        geoname_id => 42,
+        names      => { en => 'North America' },
     },
     country => {
         geoname_id => 1,
@@ -87,7 +87,7 @@ my %responses = (
 
 my $ua = Mock::LWP::UserAgent->new(
     sub {
-        my $self = shift;
+        my $self    = shift;
         my $request = shift;
 
         my ($ip) = $request->uri() =~ m{country/(.+)$};
@@ -117,9 +117,9 @@ my $ua = Mock::LWP::UserAgent->new(
     );
 
     is(
-        $country->continent()->continent_code(),
+        $country->continent()->code(),
         'NA',
-        'continent continent_code is NA'
+        'continent code is NA'
     );
 
     is_deeply(
@@ -341,7 +341,7 @@ my $ua = Mock::LWP::UserAgent->new(
 {
     my $ua = Mock::LWP::UserAgent->new(
         sub {
-            my $self = shift;
+            my $self    = shift;
             my $request = shift;
 
             is(

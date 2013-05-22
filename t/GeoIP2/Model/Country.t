@@ -9,9 +9,9 @@ use GeoIP2::Model::Country;
 {
     my %raw = (
         continent => {
-            continent_code => 'NA',
-            geoname_id     => 42,
-            names          => { en => 'North America' },
+            code       => 'NA',
+            geoname_id => 42,
+            names      => { en => 'North America' },
         },
         country => {
             geoname_id => 1,
@@ -67,9 +67,9 @@ use GeoIP2::Model::Country;
     );
 
     is(
-        $model->continent()->continent_code(),
+        $model->continent()->code(),
         'NA',
-        'continent continent_code is NA'
+        'continent code is NA'
     );
 
     is_deeply(
@@ -138,8 +138,7 @@ use GeoIP2::Model::Country;
         'registered_country name is Canada'
     );
 
-    for my $meth (
-        qw( is_anonymous_proxy is_satellite_provider )) {
+    for my $meth (qw( is_anonymous_proxy is_satellite_provider )) {
 
         is(
             $model->traits()->$meth(),

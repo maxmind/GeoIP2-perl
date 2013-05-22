@@ -14,9 +14,9 @@ use GeoIP2::Model::Omni;
             names      => { en => 'Minneapolis' },
         },
         continent => {
-            continent_code => 'NA',
-            geoname_id     => 42,
-            names          => { en => 'North America' },
+            code       => 'NA',
+            geoname_id => 42,
+            names      => { en => 'North America' },
         },
         country => {
             confidence => 99,

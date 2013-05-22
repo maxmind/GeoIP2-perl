@@ -9,10 +9,10 @@ use Moo;
 
 with 'GeoIP2::Role::Record::HasNames';
 
-has continent_code => (
+has code => (
     is        => 'ro',
     isa       => Str,
-    predicate => 'has_continent_code',
+    predicate => 'has_code',
 );
 
 has geoname_id => (
@@ -53,7 +53,7 @@ This record is returned by all the end points.
 
 This class provides the following methods:
 
-=head2 $continent_rec->continent_code()
+=head2 $continent_rec->code()
 
 This returns a two character continent code like "NA" (North America) or "OC"
 (Oceania).
