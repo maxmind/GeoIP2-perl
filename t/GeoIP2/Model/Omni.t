@@ -41,11 +41,11 @@ use GeoIP2::Model::Omni;
             },
         },
         location => {
-            accuracy_radius   => 1500,
-            latitude          => 44.98,
-            longitude         => 93.2636,
-            metro_code        => 765,
-            time_zone         => 'America/Chicago',
+            accuracy_radius => 1500,
+            latitude        => 44.98,
+            longitude       => 93.2636,
+            metro_code      => 765,
+            time_zone       => 'America/Chicago',
         },
         maxmind => {
             queries_remaining => 42,
