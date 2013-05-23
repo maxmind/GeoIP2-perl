@@ -7,6 +7,8 @@ use Moo;
 
 extends 'Throwable::Error';
 
+# We can't load GeoIP2::Types to get types here because we'd have a circular
+# use in that case.
 has type => (
     is       => 'ro',
     required => 1,
