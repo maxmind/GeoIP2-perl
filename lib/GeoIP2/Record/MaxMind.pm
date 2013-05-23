@@ -32,7 +32,7 @@ __END__
 
   my $city = $client->city_isp_org( ip => '24.24.24.24' );
 
-  my $maxmind_rec = $city->country();
+  my $maxmind_rec = $city->maxmind();
   say $maxmind_rec->queries_remaining();
 
 =head1 DESCRIPTION
@@ -50,7 +50,7 @@ This class provides the following methods:
 
 =head2 $maxmind_rec->queries_remaining()
 
-The number of queries remaining for the end point you just queries. Note that
+The number of queries remaining for the end point you just queried. Note that
 this is an approximation as query counts are only periodically synced across
 all of MaxMind's servers.
 
