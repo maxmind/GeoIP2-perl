@@ -21,6 +21,7 @@ __END__
 
   use GeoIP2::WebService::Client;
   use Scalar::Util qw( blessed );
+  use Try::Tiny;
 
   my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
