@@ -1,4 +1,7 @@
-use Test::More tests => 2;
+use strict;
+use warnings;
+
+use Test::More 0.88;
 
 use GeoIP2::Error::Type;
 use Try::Tiny;
@@ -18,3 +21,5 @@ sub thrower {
         value   => 'bar',
     );
 }
+
+done_testing();
