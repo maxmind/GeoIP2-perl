@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 
+use Test::Fatal qw( success );
 use Test::More 0.88;
 
 use GeoIP2::Error::Type;
@@ -12,6 +13,9 @@ try {
 catch {
     is( $_->type,  'foo', 'correct type thrown' );
     is( $_->value, 'bar', 'correct value thrown' );
+}
+success {
+    fail('Expected an exception');
 };
 
 sub thrower {
