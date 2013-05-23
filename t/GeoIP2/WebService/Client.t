@@ -6,6 +6,7 @@ use Test::More 0.88;
 
 use GeoIP2::WebService::Client;
 use HTTP::Status qw( status_message );
+use IO::Compress::Gzip qw( gzip $GzipError );
 use JSON;
 
 my $json = JSON->new()->utf8();
@@ -82,6 +83,14 @@ my %responses = (
         'Cannot satisfy your Accept-Charset requirements',
         undef,
         'text/plain',
+    ),
+    '1.2.3.13' => _response(
+        'country',
+        200,
+        \%country,
+        0,
+        undef,
+        'gzip',
     ),
 );
 
@@ -163,6 +172,13 @@ my $ua = Mock::LWP::UserAgent->new(
         $ipv6_country,
         'GeoIP2::Model::Country',
         'return value of $client->country for IPv6 address'
+    );
+
+    my $gzip_country = $client->country( ip => '1.2.3.13' );
+    isa_ok(
+        $gzip_country,
+        'GeoIP2::Model::Country',
+        'return value of $client->country with gzipped response'
     );
 }
 
@@ -495,6 +511,7 @@ sub _response {
     my $body         = shift;
     my $bad          = shift;
     my $content_type = shift;
+    my $gzip         = shift;
 
     my $headers = HTTP::Headers->new();
 
@@ -513,6 +530,15 @@ sub _response {
     }
     elsif ($body) {
         $encoded_body = ref $body ? $json->encode($body) : $body;
+    }
+
+    if ($gzip) {
+        $headers->header( 'Content-Encoding', 'gzip' );
+
+        my $gzipped;
+        gzip( \$encoded_body => \$gzipped )
+            or die "gzip failed: $GzipError";
+        $encoded_body = $gzipped;
     }
 
     return HTTP::Response->new(
