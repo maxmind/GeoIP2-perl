@@ -230,7 +230,7 @@ sub _tc_fail {
 
     GeoIP2::Error::Type->throw(
         message => "$value is not a valid $type",
-        name    => $type,
+        type    => $type,
         value   => $value
     );
 }

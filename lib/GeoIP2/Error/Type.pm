@@ -3,11 +3,19 @@ package GeoIP2::Error::Type;
 use strict;
 use warnings;
 
-use GeoIP2::Types qw( Str );
-
 use Moo;
 
 extends 'Throwable::Error';
+
+has type => (
+    is       => 'ro',
+    required => 1,
+);
+
+has value => (
+    is       => 'ro',
+    required => 1,
+);
 
 1;
 
@@ -35,7 +43,7 @@ __END__
       die $_ unless blessed $_;
       if ( $_->isa('GeoIP2::Error::Type') ) {
           log_validation_error(
-              name   => $_->name(),
+              type   => $_->name(),
               value  => $_->value(),
           );
       }
