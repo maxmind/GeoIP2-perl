@@ -2,7 +2,7 @@ NAME
     GeoIP2 - Perl API for MaxMind's GeoIP2 web services
 
 VERSION
-    version 0.0200
+    version 0.0300
 
 DESCRIPTION
     This is an alpha release, and APIs may change before the final
@@ -73,7 +73,7 @@ SUPPORT
     details.
 
 AUTHOR
-    Dave Rolsky <autarch@urth.org>
+    Dave Rolsky <drolsky@maxmind.com>
 
 COPYRIGHT AND LICENSE
     This software is Copyright (c) 2013 by MaxMind, Inc..
