@@ -3,10 +3,10 @@ package GeoIP2::Types;
 use strict;
 use warnings;
 
-use Data::Validate::IP  ();
-use GeoIP2::Error::Type ();
-use List::MoreUtils     ();
-use Scalar::Util        ();
+use Data::Validate::IP ();
+use GeoIP2::Error::Type;
+use List::MoreUtils ();
+use Scalar::Util    ();
 use Sub::Quote qw( quote_sub );
 use URI;
 
