@@ -16,7 +16,7 @@ catch {
 
 sub thrower {
     GeoIP2::Error::Type->throw(
-        message => "x is not y",
+        message => 'x is not y',
         type    => 'foo',
         value   => 'bar',
     );
