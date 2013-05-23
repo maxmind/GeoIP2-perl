@@ -14,6 +14,8 @@
 - Fixed bug in the City & CityISPOrg classes. Their subdivions() method was
   not working.
 
+- Type constraint errors are now thrown as GeoIP2::Type::Error objects.
+
 
 0.0200   2013-05-13
 
