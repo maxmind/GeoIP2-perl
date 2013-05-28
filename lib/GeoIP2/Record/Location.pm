@@ -92,13 +92,13 @@ This attribute is returned by all end points except the Country end point.
 
 This returns the metro code of the location if the location is in the US.
 MaxMind returns the same metro codes as the Google AdWords API
-(https://developers.google.com/adwords/api/docs/appendix/cities-DMAregions).
+(L<https://developers.google.com/adwords/api/docs/appendix/cities-DMAregions>).
 
 This attribute is returned by all end points except the Country end point.
 
 =head2 $location_rec->time_zone()
 
 This returns the time zone associated with location, as specified by the IANA
-Time Zone Database (http://www.iana.org/time-zones), e.g., "America/New_York".
+Time Zone Database (L<http://www.iana.org/time-zones>), e.g., "America/New_York".
 
 This attribute is returned by all end points except the Country end point.

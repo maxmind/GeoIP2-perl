@@ -66,7 +66,7 @@ This attribute is returned by all end points.
 =head2 $country_rec->iso_code()
 
 This returns the two-character ISO 3166-1
-(http://en.wikipedia.org/wiki/ISO_3166-1) alpha code for the country.
+(L<http://en.wikipedia.org/wiki/ISO_3166-1>) alpha code for the country.
 
 This attribute is returned by all end points.
 

@@ -41,7 +41,7 @@ City end point.
 
 The only difference between the City, City/ISP/Org, and Omni model classes is
 which fields in each record may be populated. See
-http://dev.maxmind.com/geoip/geoip2/web-services for more details.
+L<http://dev.maxmind.com/geoip/geoip2/web-services> for more details.
 
 =head1 METHODS
 

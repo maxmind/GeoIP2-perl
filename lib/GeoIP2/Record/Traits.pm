@@ -97,7 +97,7 @@ This class provides the following methods:
 =head2 $traits_rec->autonomous_system_number()
 
 This returns the autonomous system number
-(http://en.wikipedia.org/wiki/Autonomous_system_(Internet)) associated with
+(L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) associated with
 the IP address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
@@ -105,7 +105,7 @@ This attribute is only available from the City/ISP/Org and Omni end points.
 =head2 $traits_rec->autonomous_system_organization()
 
 This returns the organization associated with the registered autonomous system
-number (http://en.wikipedia.org/wiki/Autonomous_system_(Internet)) for the IP
+number (L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) for the IP
 address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
@@ -129,7 +129,7 @@ This attribute is returned by all end points.
 =head2 $traits_rec->is_anonymous_proxy()
 
 This returns true if the IP is an anonymous proxy. See
-http://dev.maxmind.com/faq/geoip#anonproxy for further details.
+L<http://dev.maxmind.com/faq/geoip#anonproxy> for further details.
 
 This attribute is returned by all end points.
 

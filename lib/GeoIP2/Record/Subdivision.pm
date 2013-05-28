@@ -77,7 +77,7 @@ This attribute is returned by all end points except the Country end point.
 =head2 $subdivision_rec->iso_code()
 
 This returns a string up to three characters long contain the subdivision portion
-of the ISO 3166-2 code (http://en.wikipedia.org/wiki/ISO_3166-2).
+of the ISO 3166-2 code (L<http://en.wikipedia.org/wiki/ISO_3166-2>).
 
 This attribute is returned by all end points except the Country end point.
 

@@ -14,7 +14,7 @@ B<This is an alpha release, and APIs may change before the final production
 release, which will be numbered 2.0000>.
 
 This distribution provides an API for the GeoIP2 web services (as documented
-at http://dev.maxmind.com/geoip/geoip2/web-services).
+at L<http://dev.maxmind.com/geoip/geoip2/web-services>).
 
 In the future, this distribution will also provide the same API for the GeoIP2
 downloadable databases. These databases have not yet been released as a
@@ -24,7 +24,7 @@ See L<GeoIP2::WebService::Client> for details on the web service client API.
 
 =head1 INTEGRATION WITH GEONAMES
 
-GeoNames (http://www.geonames.org/) offers web services and downloadable
+GeoNames (L<http://www.geonames.org/>) offers web services and downloadable
 databases with data on geographical features around the world, including
 populated places. They offer both free and paid premium data. Each feature is
 unique identified by a C<geoname_id>, which is an integer.
@@ -40,10 +40,10 @@ GeoNames premium data set.
 =head1 REPORTING DATA PROBLEMS
 
 If the problem you find is that an IP address is incorrectly mapped, please
-submit your correction to MaxMind at http://www.maxmind.com/en/correction.
+submit your correction to MaxMind at L<http://www.maxmind.com/en/correction>.
 
 If you find some other sort of mistake, like an incorrect spelling, please
-check the GeoNames site (http://www.geonames.org/) first. Once you've searched
+check the GeoNames site (L<http://www.geonames.org/>) first. Once you've searched
 for a place and found it on the GeoNames map view, there are a number of links
 you can use to correct data ("move", "edit", "alternate names", etc.). Once
 the correction is part of the GeoNames data set, it will be automatically
@@ -51,12 +51,12 @@ incorporated into future MaxMind releases.
 
 If you are a paying MaxMind customer and you're not sure where to submit a
 correction, please contact MaxMind support at for help. See
-http://www.maxmind.com/en/support for support details.
+L<http://www.maxmind.com/en/support> for support details.
 
 =head1 VERSIONING POLICY
 
 This module uses semantic versioning as described by
-http://semver.org/. Version numbers can be read as X.YYZZ, where X is the
+L<http://semver.org/>. Version numbers can be read as X.YYZZ, where X is the
 major number, YY is the minor number, and ZZ is the patch number.
 
 =head1 PERL VERSION SUPPORT
@@ -73,7 +73,7 @@ version of Perl available.
 =head1 SUPPORT
 
 Please report all issues with this code using the GitHub issue tracker at
-https://github.com/maxmind/GeoIP2-perl/issues
+L<https://github.com/maxmind/GeoIP2-perl/issues>
 
 If you are having an issue with a MaxMind service that is not specific to the
-client API please see http://www.maxmind.com/en/support for details.
+client API please see L<http://www.maxmind.com/en/support> for details.
