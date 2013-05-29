@@ -142,13 +142,13 @@ This attribute is returned by all end points.
 
 =head2 $traits_rec->isp()
 
-This returns the name of the ISP associated the IP address.
+This returns the name of the ISP associated with the IP address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
 
 =head2 $traits_rec->organization()
 
-This returns the name of the organization associated the IP address.
+This returns the name of the organization associated with the IP address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
 
