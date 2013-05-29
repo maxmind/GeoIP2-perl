@@ -83,7 +83,7 @@ the requested IP address.
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
 country data for the requested IP address. This record represents the country
-where the ISP has registered a given IP block in and may differ from the
+where the ISP has registered a given IP block and may differ from the
 user's country.
 
 =head2 $city->represented_country()
