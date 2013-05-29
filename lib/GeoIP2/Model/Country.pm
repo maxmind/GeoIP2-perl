@@ -77,4 +77,4 @@ from the C<country> for things like military bases or embassies.
 =head2 $country->traits()
 
 Returns a L<GeoIP2::Record::Traits> object representing the traits for the
-request IP address.
+requested IP address.

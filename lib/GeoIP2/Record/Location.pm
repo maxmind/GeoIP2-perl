@@ -98,7 +98,7 @@ This attribute is returned by all end points except the Country end point.
 
 =head2 $location_rec->time_zone()
 
-This returns the time zone associated with location, as specified by the IANA
+This returns the time zone associated with a location, as specified by the IANA
 Time Zone Database (L<http://www.iana.org/time-zones>), e.g., "America/New_York".
 
 This attribute is returned by all end points except the Country end point.

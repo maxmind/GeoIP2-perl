@@ -64,7 +64,7 @@ inherited from L<Throwable::Error>. The message will be the value provided by
 the MaxMind web service. See L<http://dev.maxmind.com/geoip/geoip2/web-services> for
 details.
 
-It also provide three methods of its own:
+It also provides three methods of its own:
 
 =head2 $error->code()
 

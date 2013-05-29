@@ -50,7 +50,7 @@ object.
 
 =head2 $city_isp_org->city()
 
-Returns a L<GeoIP2::Record::City> object representing country data for the
+Returns a L<GeoIP2::Record::City> object representing city data for the
 requested IP address.
 
 =head2 $city_isp_org->continent()
@@ -118,4 +118,4 @@ L<GeoIP2::Record::Subdivision> object with no values.
 =head2 $city_isp_org->traits()
 
 Returns a L<GeoIP2::Record::Traits> object representing the traits for the
-request IP address.
+requested IP address.

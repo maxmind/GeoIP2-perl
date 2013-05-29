@@ -27,7 +27,7 @@ See L<GeoIP2::WebService::Client> for details on the web service client API.
 GeoNames (L<http://www.geonames.org/>) offers web services and downloadable
 databases with data on geographical features around the world, including
 populated places. They offer both free and paid premium data. Each feature is
-unique identified by a C<geoname_id>, which is an integer.
+uniquely identified by a C<geoname_id>, which is an integer.
 
 Many of the records returned by the GeoIP web services and databases include a
 C<geoname_id> field. This is the ID of a geographical feature (city, region,

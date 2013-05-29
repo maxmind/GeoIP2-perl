@@ -118,4 +118,4 @@ L<GeoIP2::Record::Subdivision> object with no values.
 =head2 $omni->traits()
 
 Returns a L<GeoIP2::Record::Traits> object representing the traits for the
-request IP address.
+requested IP address.
