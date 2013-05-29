@@ -54,9 +54,9 @@ __END__
       license_key => 'abcdef123456',
   );
 
-  my $city = $client->city_isp_org( ip => '24.24.24.24' );
+  my $omni = $client->omni( ip => '24.24.24.24' );
 
-  my $location_rec = $city->location();
+  my $location_rec = $omni->location();
   say $location_rec->name();
 
 =head1 DESCRIPTION

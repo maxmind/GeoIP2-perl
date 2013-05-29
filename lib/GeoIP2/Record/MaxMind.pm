@@ -30,9 +30,9 @@ __END__
       license_key => 'abcdef123456',
   );
 
-  my $city = $client->city_isp_org( ip => '24.24.24.24' );
+  my $omni = $client->omni( ip => '24.24.24.24' );
 
-  my $maxmind_rec = $city->maxmind();
+  my $maxmind_rec = $omni->maxmind();
   say $maxmind_rec->queries_remaining();
 
 =head1 DESCRIPTION

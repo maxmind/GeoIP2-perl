@@ -29,7 +29,7 @@ __END__
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->city_isp_org( ip => '24.24.24.24' );
+  my $omni = $client->omni( ip => '24.24.24.24' );
 
   my $city_rec = $omni->city();
   say $city_rec->name();
