@@ -54,7 +54,7 @@ the requested IP address.
 
 Returns a L<GeoIP2::Record::Country> object representing country data for the
 requested IP address. This record represents the country where MaxMind
-believes the IP is located in.
+believes the IP is located.
 
 =head2 $country->maxmind()
 
