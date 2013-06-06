@@ -4,10 +4,18 @@ NAME
 VERSION
     version 0.0300
 
-DESCRIPTION
-    This is an alpha release, and APIs may change before the final
-    production release, which will be numbered 2.0000.
+BETA NOTE
 
+    This is a beta release. The API may change before the first production
+    release, which will be numbered 2.0000.
+
+    You may find information on the GeoIP2 beta release process on
+    http://www.maxmind.com/en/geoip2_beta
+
+    To provide feedback or get support during the beta, please see the
+    MaxMind Customer Community at https://getsatisfaction.com/maxmind
+
+DESCRIPTION
     This distribution provides an API for the GeoIP2 web services (as
     documented at http://dev.maxmind.com/geoip/geoip2/web-services).
 

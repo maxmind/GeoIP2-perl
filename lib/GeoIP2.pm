@@ -8,10 +8,18 @@ use 5.008;
 
 __END__
 
-=head1 DESCRIPTION
+=head1 BETA NOTE
 
-B<This is an alpha release, and APIs may change before the final production
-release, which will be numbered 2.0000>.
+This is a beta release. The API may change before the first production
+release, which will be numbered 2.0000.
+
+You may find information on the GeoIP2 beta release process on
+L<our website|http://www.maxmind.com/en/geoip2_beta>.
+
+To provide feedback or get support during the beta, please see the
+L<MaxMind Customer Community|https://getsatisfaction.com/maxmind>.
+
+=head1 DESCRIPTION
 
 This distribution provides an API for the GeoIP2 web services (as documented
 at L<http://dev.maxmind.com/geoip/geoip2/web-services>).
