@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+- The first official beta release of this API.
+
+
 0.0300   2013-05-23
 
 - Allow IPv6 addresses to be passed to the GeoIP2::WebService::Client class's
