@@ -32,10 +32,12 @@ IP
 IP's
 IPv
 ISP
+Knop
 MaxMind
 MaxMind's
 OC
 Omni
+Oschwald
 Oxfordshire
 Rolsky
 SSL
