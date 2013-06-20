@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Make the license section of the docs match the LICENSE file in the repo. We
+  meant to use "same as Perl 5" everywhere.
+
+
 0.0301   2013-06-10
 
 - The first official beta release of this API.
