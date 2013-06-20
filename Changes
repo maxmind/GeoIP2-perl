@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.0302   2013-06-20
+
 - Make the license section of the docs match the LICENSE file in the repo. We
   meant to use "same as Perl 5" everywhere.
 

@@ -2,7 +2,7 @@ NAME
     GeoIP2 - Perl API for MaxMind's GeoIP2 web services
 
 VERSION
-    version 0.0301
+    version 0.0302
 
 DESCRIPTION
     This distribution provides an API for the GeoIP2 web services (as
@@ -91,9 +91,8 @@ CONTRIBUTOR
     Graham Knop <haarg@haarg.org>
 
 COPYRIGHT AND LICENSE
-    This software is Copyright (c) 2013 by MaxMind, Inc..
+    This software is copyright (c) 2013 by MaxMind, Inc..
 
-    This is free software, licensed under:
-
-      The Artistic License 2.0 (GPL Compatible)
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 
