@@ -2,6 +2,8 @@ use strict;
 use warnings;
 
 use Test::More;
+use lib '../MaxMind-DB-perl/MaxMind-DB-Common/lib';
+use lib '../MaxMind-DB-perl/MaxMind-DB-Reader/lib';
 
 use GeoIP2::DatabaseReader;
 
