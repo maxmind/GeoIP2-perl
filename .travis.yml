@@ -6,7 +6,11 @@ perl:
   - "5.12"
   - "5.10"
 before_install:
-  cpanm Devel::Cover::Report::Coveralls
+  - cpanm Devel::Cover::Report::Coveralls
+  - git clone https://github.com/maxmind/libmaxminddb.git
+  - cd libmaxminddb
+  - ./bootstrap && ./configure && make && make install
+  - cd ..
 script:
   perl Makefile.PL build && cover -test
 after_success:
