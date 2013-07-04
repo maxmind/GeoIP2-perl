@@ -6,14 +6,13 @@ perl:
   - "5.12"
   - "5.10"
 before_install:
-  - cd
+  - cpanm --notest Devel::Cover::Report::Coveralls
   - git clone https://github.com/maxmind/libmaxminddb.git
   - cd libmaxminddb
   - ./bootstrap && ./configure && make && sudo make install
-  - cd $HOME/maxmind
+  - cd $TRAVIS_BUILD_DIR/..
   - git clone https://github.com/maxmind/MaxMind-DB-perl.git
-  - cpanm --notest Devel::Cover::Report::Coveralls
-  - cd $HOME/maxmind/GeoIP2-perl
+  - cd $TRAVIS_BUILD_DIR
 script:
   perl Makefile.PL build && cover -test
 after_success:
