@@ -1,7 +1,6 @@
 use strict;
 use warnings;
 
-use Test::Fatal;
 use Test::More 0.88;
 
 use GeoIP2::Model::Country;
