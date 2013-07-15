@@ -7,8 +7,6 @@ use Test::Fatal;
 use GeoIP2::Database::Reader;
 use Path::Class qw( file );
 
-my $file = 't/test-data/GeoIP2-Precision-City.mmdb';
-
 my $languages = [ 'en', 'de', ];
 
 foreach my $file_name ( 'GeoIP2-Precision-City.mmdb', 'GeoIP2-City.mmdb' ) {
