@@ -20,9 +20,14 @@ has file => (
     required => 1,
 );
 
-has _reader => ( is => 'lazy', );
+has _reader => (
+    is      => 'ro',
+    does    => 'MaxMind::DB::Reader::Role::Reader',
+    lazy    => 1,
+    builder => '_build_reader',
+);
 
-sub _build__reader {
+sub _build_reader {
     my $self = shift;
     return MaxMind::DB::Reader->new( file => $self->file );
 }
