@@ -12,7 +12,7 @@ my $file = 't/test-data/GeoIP2-Precision-City.mmdb';
 my $languages = [ 'en', 'de', ];
 
 foreach my $file_name ( 'GeoIP2-Precision-City.mmdb', 'GeoIP2-City.mmdb' ) {
-    test_file( $file_name );
+    test_file($file_name);
 }
 
 sub test_file {
@@ -46,7 +46,8 @@ sub test_file {
         my $ip = '81.2.69.160';
         my $omni = $reader->$endpoint( ip => $ip );
 
-        is( $omni->country->name,
+        is(
+            $omni->country->name,
             'United Kingdom',
             'country name for ' . $endpoint
         );
