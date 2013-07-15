@@ -41,18 +41,18 @@ sub _model_for_address {
     my $ip    = $args{ip};
 
     unless ( defined $ip ) {
-        my ( $method ) = ( caller( 1 ) )[3];
+        my ($method) = ( caller(1) )[3];
         GeoIP2::Error::Generic->throw(
             message => "Required param (ip) was missing in call to $method" );
     }
 
     if ( $ip eq 'me' ) {
-        my ( $method ) = ( caller( 1 ) )[3];
+        my ($method) = ( caller(1) )[3];
         GeoIP2::Error::Generic->throw(
             message => "me is not a valid lookup IP in call to $method" );
     }
 
-    my $record      = $self->_reader->record_for_address( $ip );
+    my $record      = $self->_reader->record_for_address($ip);
     my $model_class = 'GeoIP2::Model::' . $class;
 
     return $model_class->new( %{$record}, languages => $self->languages, );
