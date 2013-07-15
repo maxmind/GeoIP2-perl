@@ -39,7 +39,7 @@ sub test_file {
 
         like(
             exception { $reader->$endpoint( ip => 'x' ) },
-            qr/Invalid IPv6 Address/,
+            qr/\QThe IP address you provided (x) is not a valid IPv4 or IPv6 address/,
             'dies on invalid ip'
         );
 
