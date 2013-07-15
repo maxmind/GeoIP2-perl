@@ -5,7 +5,7 @@ use Test::More;
 use Test::Fatal;
 
 use GeoIP2::Database::Reader;
-use Path::Class::File;
+use Path::Class qw( file );
 
 my $file = 't/test-data/GeoIP2-Precision-City.mmdb';
 
@@ -18,7 +18,7 @@ foreach my $file_name ( 'GeoIP2-Precision-City.mmdb', 'GeoIP2-City.mmdb' ) {
 sub test_file {
     my $file_name = shift;
     my $reader    = GeoIP2::Database::Reader->new(
-        file      => Path::Class::File->new( 't', 'test-data', $file_name ),
+        file      => file( 't', 'test-data', $file_name )->stringify,
         languages => $languages
     );
 

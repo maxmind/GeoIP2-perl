@@ -13,10 +13,12 @@ use GeoIP2::Model::CityISPOrg;
 use GeoIP2::Model::Country;
 use GeoIP2::Model::Omni;
 use GeoIP2::Model::Omni;
+use GeoIP2::Types qw( Str );
 use MaxMind::DB::Reader;
 
 has file => (
     is       => 'ro',
+    isa      => Str,
     required => 1,
 );
 
