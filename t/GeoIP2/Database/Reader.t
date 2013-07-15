@@ -9,18 +9,14 @@ use Path::Class qw( file );
 
 my $languages = [ 'en', 'de', ];
 
-foreach my $file_name ( 'GeoIP2-Precision-City.mmdb', 'GeoIP2-City.mmdb' ) {
-    test_file($file_name);
-}
-
-sub test_file {
-    my $file_name = shift;
-    my $reader    = GeoIP2::Database::Reader->new(
-        file      => file( 't', 'test-data', $file_name )->stringify,
+{
+    my $reader = GeoIP2::Database::Reader->new(
+        file =>
+            file(qw( maxmind-db test-data GeoIP2-City-Test.mmdb))->stringify,
         languages => $languages
     );
 
-    ok( $reader, 'got reader for ' . $file_name );
+    ok( $reader, 'got reader for test database' );
 
     foreach my $endpoint ( 'country', 'city', 'city_isp_org', 'omni' ) {
         like(
