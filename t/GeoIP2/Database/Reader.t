@@ -39,7 +39,7 @@ sub test_file {
 
         like(
             exception { $reader->$endpoint( ip => 'x' ) },
-            qr/me is not a valid lookup IP/,
+            qr/Invalid IPv6 Address/,
             'dies on invalid ip'
         );
 
