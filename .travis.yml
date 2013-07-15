@@ -8,6 +8,8 @@ perl:
 before_install:
   - cpanm --notest Devel::Cover::Report::Coveralls
   - export AUTOMATED_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1 SKIP_POD_LINKCHECK=1
+  - git submodule update --init --recursive
+
 install:
   - cpanm --quiet --notest --skip-satisfied Dist::Zilla Pod::Coverage::Moose Pod::Weaver::Section::Contributors Test::Spelling
   - git clone --branch=master git://github.com/maxmind/MaxMind-DB-Common-perl.git common
