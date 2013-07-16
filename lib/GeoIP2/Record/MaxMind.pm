@@ -8,9 +8,8 @@ use GeoIP2::Types qw( NonNegativeInt );
 use Moo;
 
 has queries_remaining => (
-    is       => 'ro',
-    isa      => NonNegativeInt,
-    required => 1,
+    is  => 'ro',
+    isa => NonNegativeInt,
 );
 
 1;

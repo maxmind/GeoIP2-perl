@@ -18,26 +18,26 @@ my $languages = [ 'en', 'de', ];
 
     ok( $reader, 'got reader for test database' );
 
-    foreach my $method ( 'country', 'city', 'city_isp_org', 'omni' ) {
+    foreach my $model ( 'country', 'city', 'city_isp_org', 'omni' ) {
         like(
-            exception { $reader->$method() },
+            exception { $reader->$model() },
             qr/Required param/,
-            "dies on missing ip - $method method"
+            "dies on missing ip - $model method"
         );
 
         like(
-            exception { $reader->$method( ip => 'me' ) },
+            exception { $reader->$model( ip => 'me' ) },
             qr/me is not a valid IP/,
-            qq{dies on "me" - $method method}
+            qq{dies on "me" - $model method}
         );
 
         like(
-            exception { $reader->$method( ip => '9.10.11.12' ) },
+            exception { $reader->$model( ip => '9.10.11.12' ) },
             qr/\QNo record found for IP address 9.10.11.12/,
-            "dies if IP is not in database - $method method"
+            "dies if IP is not in database - $model method"
         );
 
-        my $e = exception { $reader->$method( ip => '9.10.11.12' ) };
+        my $e = exception { $reader->$model( ip => '9.10.11.12' ) };
         isa_ok(
             $e,
             'GeoIP2::Error::IPAddressNotFound',
@@ -51,29 +51,49 @@ my $languages = [ 'en', 'de', ];
         );
 
         like(
-            exception { $reader->$method( ip => 'x' ) },
+            exception { $reader->$model( ip => 'x' ) },
             qr/\QThe IP address you provided (x) is not a valid IPv4 or IPv6 address/,
-            "dies on invalid ip - $method method"
+            "dies on invalid ip - $model method"
         );
 
         my $ip = '81.2.69.160';
-        my $model = $reader->$method( ip => $ip );
+        my $model_obj = $reader->$model( ip => $ip );
 
         is(
-            $model->country->name,
+            $model_obj->country->name,
             'United Kingdom',
-            "country name - $method method"
+            "country name - $model method"
         );
 
         is(
-            $model->traits->ip_address,
+            $model_obj->traits->ip_address,
             '81.2.69.160',
-            "ip address is filled in - $method method"
+            "ip address is filled in - $model method"
         );
 
-        next if $method eq 'country';
+        my @record_methods = qw(
+            city
+            continent
+            country
+            location
+            maxmind
+            postal
+            registered_country
+            represented_country
+            traits
+        );
 
-        is( $model->city->name, 'London', "city name - $method method" );
+        for my $method ( grep { $model_obj->can($_) } @record_methods ) {
+            is(
+                exception { $model_obj->$method() },
+                undef,
+                "calling \$model_obj->$method() does not throw an error - $model model"
+            );
+        }
+
+        next if $model eq 'country';
+
+        is( $model_obj->city->name, 'London', "city name - $model method" );
     }
 }
 
