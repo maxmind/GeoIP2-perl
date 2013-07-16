@@ -1,5 +1,11 @@
 {{$NEXT}}
 
+- Added the GeoIP2::Database::Reader class. This provides an API for looking
+  up data in a GeoIP2 database, as opposed to making a web service call.
+
+- Switched the version number scheme to X.YYYZZZ.
+
+
 0.0302   2013-06-20
 
 - Make the license section of the docs match the LICENSE file in the repo. We
