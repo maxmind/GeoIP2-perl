@@ -37,6 +37,19 @@ my $languages = [ 'en', 'de', ];
             "dies if IP is not in database - $method method"
         );
 
+        my $e = exception { $reader->$method( ip => '9.10.11.12' ) };
+        isa_ok(
+            $e,
+            'GeoIP2::Error::IPAddressNotFound',
+            'error thrown when IP address cannot be found'
+        );
+
+        is(
+            $e->ip_address,
+            '9.10.11.12',
+            'exception ip_address() method returns the IP address'
+        );
+
         like(
             exception { $reader->$method( ip => 'x' ) },
             qr/\QThe IP address you provided (x) is not a valid IPv4 or IPv6 address/,

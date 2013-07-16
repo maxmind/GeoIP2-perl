@@ -5,6 +5,10 @@
 
 - Switched the version number scheme to X.YYYZZZ.
 
+- If an IP address is not found, whether for a web service call or in a
+  downloaded database, the code always throws a
+  GeoIP2::Error::IPAddressNotFound exception.
+
 
 0.0302   2013-06-20
 

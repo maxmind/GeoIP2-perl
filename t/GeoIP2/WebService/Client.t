@@ -92,6 +92,13 @@ my %responses = (
         undef,
         'gzip',
     ),
+    '1.2.3.14' => _response(
+        'error', 404,
+        {
+            code  => 'IP_ADDRESS_NOT_FOUND',
+            error => q{The ip address "1.2.3.14" was not found in our database},
+        },
+    ),
 );
 
 my $ua = Mock::LWP::UserAgent->new(
@@ -473,6 +480,27 @@ my $ua = Mock::LWP::UserAgent->new(
             qq{client rejects ip address '$bad'}
         );
     }
+}
+
+{
+    my $client = GeoIP2::WebService::Client->new(
+        user_id     => 42,
+        license_key => 'abcdef123456',
+        ua          => $ua,
+    );
+
+    my $e = exception { $client->country( ip => '1.2.3.14' ) };
+    isa_ok(
+        $e,
+        'GeoIP2::Error::IPAddressNotFound',
+        'error thrown when IP address cannot be found'
+    );
+
+    is(
+        $e->ip_address,
+        '1.2.3.14',
+        'exception ip_address() method returns the IP address'
+    );
 }
 
 done_testing();

@@ -8,6 +8,7 @@ with 'GeoIP2::Role::HasLanguages';
 
 use Carp qw( croak );
 use GeoIP2::Error::Generic;
+use GeoIP2::Error::IPAddressNotFound;
 use GeoIP2::Model::City;
 use GeoIP2::Model::CityISPOrg;
 use GeoIP2::Model::Country;
@@ -56,8 +57,10 @@ sub _model_for_address {
 
     my $record = $self->_reader->record_for_address($ip);
     unless ($record) {
-        GeoIP2::Error::Generic->throw(
-            message => "No record found for IP address $ip" );
+        GeoIP2::Error::IPAddressNotFound->throw(
+            message    => "No record found for IP address $ip",
+            ip_address => $ip,
+        );
     }
 
     my $model_class = 'GeoIP2::Model::' . $class;
