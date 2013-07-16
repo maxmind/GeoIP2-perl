@@ -103,7 +103,7 @@ __END__
 
     use 5.008;
 
-    use GeoIP2::Database::Reader
+    use GeoIP2::Database::Reader;
 
     my $reader = GeoIP2::Database::Reader->new(
         file      => '/path/to/database',
