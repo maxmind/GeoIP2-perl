@@ -26,7 +26,9 @@ at L<http://dev.maxmind.com/geoip/geoip2/web-services>) and downloadable
 databases.
 
 See L<GeoIP2::WebService::Client> for details on the web service client API
-and L<GeoIP2::Database::Reader> for the database API.
+and L<GeoIP2::Database::Reader> for the database API. The only downloadable
+database currently available is GeoLite2 City. See
+L<http://dev.maxmind.com/geoip/geoip2/geolite2/> for details.
 
 =head1 INTEGRATION WITH GEONAMES
 
