@@ -62,6 +62,9 @@ sub _model_for_address {
 
     my $model_class = 'GeoIP2::Model::' . $class;
 
+    $record->{traits} ||= {};
+    $record->{traits}{ip_address} = $ip;
+
     return $model_class->new( %{$record}, languages => $self->languages, );
 }
 

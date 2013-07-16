@@ -44,16 +44,23 @@ my $languages = [ 'en', 'de', ];
         );
 
         my $ip = '81.2.69.160';
-        my $omni = $reader->$method( ip => $ip );
+        my $model = $reader->$method( ip => $ip );
 
         is(
-            $omni->country->name,
+            $model->country->name,
             'United Kingdom',
             "country name - $method method"
         );
+
+        is(
+            $model->traits->ip_address,
+            '81.2.69.160',
+            "ip address is filled in - $method method"
+        );
+
         next if $method eq 'country';
 
-        is( $omni->city->name, 'London', "city name - $method method" );
+        is( $model->city->name, 'London', "city name - $method method" );
     }
 }
 
