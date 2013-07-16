@@ -18,36 +18,42 @@ my $languages = [ 'en', 'de', ];
 
     ok( $reader, 'got reader for test database' );
 
-    foreach my $endpoint ( 'country', 'city', 'city_isp_org', 'omni' ) {
+    foreach my $method ( 'country', 'city', 'city_isp_org', 'omni' ) {
         like(
-            exception { $reader->$endpoint() },
+            exception { $reader->$method() },
             qr/Required param/,
-            'dies on missing ip'
+            "dies on missing ip - $method method"
         );
 
         like(
-            exception { $reader->$endpoint( ip => 'me' ) },
-            qr/me is not a valid lookup IP/,
-            'dies on "me"'
+            exception { $reader->$method( ip => 'me' ) },
+            qr/me is not a valid IP/,
+            qq{dies on "me" - $method method}
         );
 
         like(
-            exception { $reader->$endpoint( ip => 'x' ) },
+            exception { $reader->$method( ip => '9.10.11.12' ) },
+            qr/\QNo record found for IP address 9.10.11.12/,
+            "dies if IP is not in database - $method method"
+        );
+
+        like(
+            exception { $reader->$method( ip => 'x' ) },
             qr/\QThe IP address you provided (x) is not a valid IPv4 or IPv6 address/,
-            'dies on invalid ip'
+            "dies on invalid ip - $method method"
         );
 
         my $ip = '81.2.69.160';
-        my $omni = $reader->$endpoint( ip => $ip );
+        my $omni = $reader->$method( ip => $ip );
 
         is(
             $omni->country->name,
             'United Kingdom',
-            'country name for ' . $endpoint
+            "country name - $method method"
         );
-        next if $endpoint eq 'country';
+        next if $method eq 'country';
 
-        is( $omni->city->name, 'London', 'city name for ' . $endpoint );
+        is( $omni->city->name, 'London', "city name - $method method" );
     }
 }
 
