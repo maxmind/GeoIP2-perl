@@ -4,7 +4,7 @@ use 5.008;
 
 1;
 
-# ABSTRACT: Perl API for MaxMind's GeoIP2 web services
+# ABSTRACT: Perl API for MaxMind's GeoIP2 web services and databases
 
 __END__
 
@@ -22,13 +22,11 @@ L<MaxMind Customer Community|https://getsatisfaction.com/maxmind>.
 =head1 DESCRIPTION
 
 This distribution provides an API for the GeoIP2 web services (as documented
-at L<http://dev.maxmind.com/geoip/geoip2/web-services>).
+at L<http://dev.maxmind.com/geoip/geoip2/web-services>) and downloadable
+databases.
 
-In the future, this distribution will also provide the same API for the GeoIP2
-downloadable databases. These databases have not yet been released as a
-downloadable product.
-
-See L<GeoIP2::WebService::Client> for details on the web service client API.
+See L<GeoIP2::WebService::Client> for details on the web service client API
+and L<GeoIP2::Database::Reader> for the database API.
 
 =head1 INTEGRATION WITH GEONAMES
 
@@ -64,8 +62,8 @@ L<http://www.maxmind.com/en/support> for support details.
 =head1 VERSIONING POLICY
 
 This module uses semantic versioning as described by
-L<http://semver.org/>. Version numbers can be read as X.YYZZ, where X is the
-major number, YY is the minor number, and ZZ is the patch number.
+L<http://semver.org/>. Version numbers can be read as X.YYYZZZ, where X is the
+major number, YYY is the minor number, and ZZZ is the patch number.
 
 =head1 PERL VERSION SUPPORT
 

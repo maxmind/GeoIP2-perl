@@ -207,21 +207,26 @@ address.
 
 =back
 
-=head2 $client->country()
+=head2 $reader->country()
 
 This method returns a L<GeoIP2::Model::Country> object.
 
-=head2 $client->city()
+=head2 $reader->city()
 
 This method returns a L<GeoIP2::Model::City> object.
 
-=head2 $client->city_isp_org()
+=head2 $reader->city_isp_org()
 
 This method returns a L<GeoIP2::Model::CityISPOrg> object.
 
-=head2 $client->omni()
+=head2 $reader->omni()
 
 This method returns a L<GeoIP2::Model::Omni> object.
+
+Note that the data which makes the Omni web service different from
+City/ISP/Org is not available in any downloadable database. This means that
+calling the C<< $reader->omni() >> always returns the same data as as C<<
+$reader->city_isp_org() >>.
 
 =head1 EXCEPTIONS
 
@@ -243,8 +248,8 @@ data for any given IP address.
 Because of these factors, it is possible for any model class to return a record
 where some or all of the attributes are unpopulated.
 
-See L<http://dev.maxmind.com/geoip/geoip2/web-services> for details on what data each end
-point I<may> return.
+See L<http://dev.maxmind.com/geoip/geoip2/web-services> for details on what
+data each end point I<may> return.
 
 The only piece of data which is always returned is the C<ip_address> key in
 the C<GeoIP2::Record::Traits> record.
