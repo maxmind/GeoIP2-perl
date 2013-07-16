@@ -1,19 +1,18 @@
 NAME
-    GeoIP2 - Perl API for MaxMind's GeoIP2 web services
+    GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 VERSION
-    version 0.0302
+    version 0.040000
 
 DESCRIPTION
     This distribution provides an API for the GeoIP2 web services (as
-    documented at <http://dev.maxmind.com/geoip/geoip2/web-services>).
+    documented at <http://dev.maxmind.com/geoip/geoip2/web-services>) and
+    downloadable databases.
 
-    In the future, this distribution will also provide the same API for the
-    GeoIP2 downloadable databases. These databases have not yet been
-    released as a downloadable product.
-
-    See GeoIP2::WebService::Client for details on the web service client
-    API.
+    See GeoIP2::WebService::Client for details on the web service client API
+    and GeoIP2::Database::Reader for the database API. The only downloadable
+    database currently available is GeoLite2 City. See
+    <http://dev.maxmind.com/geoip/geoip2/geolite2/> for details.
 
 BETA NOTE
     This is a beta release. The API may change before the first production
@@ -59,8 +58,9 @@ REPORTING DATA PROBLEMS
 
 VERSIONING POLICY
     This module uses semantic versioning as described by
-    <http://semver.org/>. Version numbers can be read as X.YYZZ, where X is
-    the major number, YY is the minor number, and ZZ is the patch number.
+    <http://semver.org/>. Version numbers can be read as X.YYYZZZ, where X
+    is the major number, YYY is the minor number, and ZZZ is the patch
+    number.
 
 PERL VERSION SUPPORT
     MaxMind has tested this API with Perl 5.8.8 and above. Reasonable
