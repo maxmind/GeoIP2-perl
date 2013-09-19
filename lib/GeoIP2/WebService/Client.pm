@@ -321,11 +321,16 @@ __END__
 
   use GeoIP2::WebService::Client;
 
+  # This creates a Client object that can be reused across requests.
+  # Replace "42" with your user id and "abcdef123456" with your license
+  # key.
   my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
       license_key => 'abcdef123456',
   );
 
+  # Replace "omni" with the method corresponding to the web service
+  # that you are using, e.g., "country", "city_isp_org", "city".
   my $omni = $client->omni( ip => '24.24.24.24' );
 
   my $country = $omni->country();
