@@ -138,7 +138,7 @@ my %tests = (
             $OBJECT,
         ],
     },
-    LanguagesArrayRef => {
+    LocalesArrayRef => {
         accept => [
             [],
             [ 'en', 'ru' ],

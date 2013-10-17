@@ -95,8 +95,9 @@ my %responses = (
     '1.2.3.14' => _response(
         'error', 404,
         {
-            code  => 'IP_ADDRESS_NOT_FOUND',
-            error => q{The ip address "1.2.3.14" was not found in our database},
+            code => 'IP_ADDRESS_NOT_FOUND',
+            error =>
+                q{The ip address "1.2.3.14" was not found in our database},
         },
     ),
 );

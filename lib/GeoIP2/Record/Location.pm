@@ -20,8 +20,8 @@ has latitude => (
 );
 
 has longitude => (
-    is       => 'ro',
-    isa      => Num,
+    is        => 'ro',
+    isa       => Num,
     predicate => 'has_longitude',
 );
 
@@ -32,8 +32,8 @@ has metro_code => (
 );
 
 has time_zone => (
-    is       => 'ro',
-    isa      => Str,
+    is        => 'ro',
+    isa       => Str,
     predicate => 'has_time_zone',
 );
 

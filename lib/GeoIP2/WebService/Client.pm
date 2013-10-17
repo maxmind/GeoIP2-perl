@@ -28,7 +28,7 @@ use URI;
 
 use Moo;
 
-with 'GeoIP2::Role::HasLanguages';
+with 'GeoIP2::Role::HasLocales';
 
 has user_id => (
     is       => 'ro',
@@ -163,7 +163,7 @@ sub _response_for {
         my $body = $self->_handle_success( $response, $uri );
         return $model_class->new(
             %{$body},
-            languages => $self->languages(),
+            locales => $self->locales(),
         );
     }
     else {
@@ -394,19 +394,19 @@ see your MaxMind User ID and license key.
 
 This argument is required.
 
-=item * languages
+=item * locales
 
-This is an array reference where each value is a string indicating a
-language. This argument will be passed onto record classes to use when their
-C<name()> methods are called.
+This is an array reference where each value is a string indicating a locale.
+This argument will be passed onto record classes to use when their C<name()>
+methods are called.
 
-The order of the languages is significant. When a record class has multiple
+The order of the locales is significant. When a record class has multiple
 names (country, city, etc.), its C<name()> method will look at each element of
-this array ref and return the first language for which it has a name.
+this array ref and return the first locale for which it has a name.
 
-Note that the only language which is always present in the GeoIP2 data in
-"en". If you do not include this language, the C<name()> method may end up
-returning C<undef> even when the record in question has an English name.
+Note that the only locale which is always present in the GeoIP2 data in "en".
+If you do not include this locale, the C<name()> method may end up returning
+C<undef> even when the record in question has an English name.
 
 Currently, the valid list of locale codes is:
 

@@ -16,14 +16,14 @@ has confidence => (
 );
 
 has geoname_id => (
-    is       => 'ro',
-    isa      => PositiveInt,
+    is        => 'ro',
+    isa       => PositiveInt,
     predicate => 'has_geoname_id',
 );
 
 has iso_code => (
-    is       => 'ro',
-    isa      => Str,
+    is        => 'ro',
+    isa       => Str,
     predicate => 'has_iso_code',
 );
 
@@ -83,12 +83,12 @@ This attribute is returned by all end points except the Country end point.
 
 =head2 $subdivision_rec->name()
 
-This returns a name for the subdivision. The language chosen depends on the
-C<languages> argument that was passed to the record's constructor. This will
-be passed through from the L<GeoIP2::WebService::Client> object you used to
-fetch the data that populated this record.
+This returns a name for the subdivision. The locale chosen depends on the
+C<locales> argument that was passed to the record's constructor. This will be
+passed through from the L<GeoIP2::WebService::Client> object you used to fetch
+the data that populated this record.
 
-If the record does not have a name in any of the languages you asked for, this
+If the record does not have a name in any of the locales you asked for, this
 method returns C<undef>.
 
 This attribute is returned by all end points except the Country end point.

@@ -8,8 +8,8 @@ use GeoIP2::Types qw( NonNegativeInt Str );
 use Moo;
 
 has code => (
-    is       => 'ro',
-    isa      => Str,
+    is        => 'ro',
+    isa       => Str,
     predicate => 'has_code',
 );
 

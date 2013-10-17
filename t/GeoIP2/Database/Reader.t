@@ -7,13 +7,13 @@ use Test::Fatal;
 use GeoIP2::Database::Reader;
 use Path::Class qw( file );
 
-my $languages = [ 'en', 'de', ];
+my $locales = [ 'en', 'de', ];
 
 {
     my $reader = GeoIP2::Database::Reader->new(
         file =>
             file(qw( maxmind-db test-data GeoIP2-City-Test.mmdb))->stringify,
-        languages => $languages
+        locales => $locales
     );
 
     ok( $reader, 'got reader for test database' );

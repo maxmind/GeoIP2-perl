@@ -16,7 +16,7 @@ use Sub::Quote qw( quote_sub );
 
 use Moo::Role;
 
-with 'GeoIP2::Role::HasLanguages';
+with 'GeoIP2::Role::HasLocales';
 
 has raw => (
     is       => 'ro',
@@ -104,7 +104,7 @@ sub _build_record {
     my $raw = $self->$method();
 
     return $self->_record_class_for_key($key)
-        ->new( %{$raw}, languages => $self->languages() );
+        ->new( %{$raw}, locales => $self->locales() );
 }
 
 {

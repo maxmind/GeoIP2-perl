@@ -1,16 +1,16 @@
-package GeoIP2::Role::HasLanguages;
+package GeoIP2::Role::HasLocales;
 
 use strict;
 use warnings;
 
-use GeoIP2::Types qw( LanguagesArrayRef );
+use GeoIP2::Types qw( LocalesArrayRef );
 use Sub::Quote qw( quote_sub );
 
 use Moo::Role;
 
-has languages => (
+has locales => (
     is      => 'ro',
-    isa     => LanguagesArrayRef,
+    isa     => LocalesArrayRef,
     default => quote_sub(q{ ['en'] }),
 );
 

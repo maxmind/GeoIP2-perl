@@ -74,9 +74,9 @@ earlier versions of Perl 5.8 will be applied. We will not accept patches to
 support any version of Perl before 5.8.
 
 The data returned from the GeoIP2 web services includes Unicode characters in
-several languages. This may expose bugs in earlier versions of Perl. If
-Unicode support is important to you, we recommend that you use the most recent
-version of Perl available.
+several locales. This may expose bugs in earlier versions of Perl. If Unicode
+support is important to you, we recommend that you use the most recent version
+of Perl available.
 
 =head1 SUPPORT
 

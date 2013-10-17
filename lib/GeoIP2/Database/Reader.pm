@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Moo;
-with 'GeoIP2::Role::HasLanguages';
+with 'GeoIP2::Role::HasLocales';
 
 use Carp qw( croak );
 use GeoIP2::Error::Generic;
@@ -68,7 +68,7 @@ sub _model_for_address {
     $record->{traits} ||= {};
     $record->{traits}{ip_address} = $ip;
 
-    return $model_class->new( %{$record}, languages => $self->languages, );
+    return $model_class->new( %{$record}, locales => $self->locales, );
 }
 
 sub city {
@@ -107,7 +107,7 @@ __END__
 
   my $reader = GeoIP2::Database::Reader->new(
       file      => '/path/to/database',
-      languages => [ 'en', 'de', ]
+      locales => [ 'en', 'de', ]
   );
 
   my $omni = $reader->omni( ip => '24.24.24.24' );
@@ -135,7 +135,7 @@ all of the attributes for that record class will be empty.
 =head1 USAGE
 
 The basic API for this class is the same for all database types.  First you
-create a database reader object with your C<file> and C<language> params.
+create a database reader object with your C<file> and C<locale> params.
 Then you call the method corresponding to your database type, passing it the
 IP address you want to look up.
 
@@ -159,19 +159,19 @@ This method creates a new object. It accepts the following arguments:
 
 This is the path to the GeoIP2 database file which you'd like to query.
 
-=item * languages
+=item * locales
 
-This is an array reference where each value is a string indicating a language.
+This is an array reference where each value is a string indicating a locale.
 This argument will be passed on to record classes to use when their C<name()>
 methods are called.
 
-The order of the languages is significant. When a record class has multiple
+The order of the locales is significant. When a record class has multiple
 names (country, city, etc.), its C<name()> method will look at each element of
-this array ref and return the first language for which it has a name.
+this array ref and return the first locale for which it has a name.
 
-Note that the only language which is always present in the GeoIP2 data in
-"en". If you do not include this language, the C<name()> method may end up
-returning C<undef> even when the record in question has an English name.
+Note that the only locale which is always present in the GeoIP2 data in "en".
+If you do not include this locale, the C<name()> method may end up returning
+C<undef> even when the record in question has an English name.
 
 Currently, the valid list of locale codes is:
 

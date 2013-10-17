@@ -72,12 +72,12 @@ This attribute is returned by all end points.
 
 =head2 $country_rec->name()
 
-This returns a name for the country. The language chosen depends on the
-C<languages> argument that was passed to the record's constructor. This will
-be passed through from the L<GeoIP2::WebService::Client> object you used to
-fetch the data that populated this record.
+This returns a name for the country. The locale chosen depends on the
+C<locales> argument that was passed to the record's constructor. This will be
+passed through from the L<GeoIP2::WebService::Client> object you used to fetch
+the data that populated this record.
 
-If the record does not have a name in any of the languages you asked for, this
+If the record does not have a name in any of the locales you asked for, this
 method returns C<undef>.
 
 This attribute is returned by all end points.

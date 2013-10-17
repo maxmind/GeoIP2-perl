@@ -9,7 +9,7 @@ use Sub::Quote qw( quote_sub );
 
 use Moo::Role;
 
-with 'GeoIP2::Role::HasLanguages';
+with 'GeoIP2::Role::HasLocales';
 
 has name => (
     is      => 'ro',
@@ -29,7 +29,7 @@ sub _build_name {
 
     my $names = $self->names();
 
-    my $lang = first { exists $names->{$_} } @{ $self->languages() };
+    my $lang = first { exists $names->{$_} } @{ $self->locales() };
 
     return unless $lang;
     return $names->{$lang};

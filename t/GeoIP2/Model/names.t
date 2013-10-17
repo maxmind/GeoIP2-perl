@@ -41,7 +41,7 @@ my %raw = (
 {
     my $model = GeoIP2::Model::Country->new(
         %raw,
-        languages => [ 'ru', 'zh-CN', 'en' ],
+        locales => [ 'ru', 'zh-CN', 'en' ],
     );
 
     is(
@@ -60,7 +60,7 @@ my %raw = (
 {
     my $model = GeoIP2::Model::Country->new(
         %raw,
-        languages => [ 'ru', 'ja' ],
+        locales => [ 'ru', 'ja' ],
     );
 
     is(
@@ -79,7 +79,7 @@ my %raw = (
 {
     my $model = GeoIP2::Model::Country->new(
         %raw,
-        languages => ['ja'],
+        locales => ['ja'],
     );
 
     is(
