@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Renamed the languages constructor parameter to locales for both the Client
+  and Reader classes.
+
+
 0.040000 2013-07-16
 
 - Added the GeoIP2::Database::Reader class. This provides an API for looking
