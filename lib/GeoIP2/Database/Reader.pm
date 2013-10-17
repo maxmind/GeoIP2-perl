@@ -106,7 +106,7 @@ __END__
   use GeoIP2::Database::Reader;
 
   my $reader = GeoIP2::Database::Reader->new(
-      file      => '/path/to/database',
+      file    => '/path/to/database',
       locales => [ 'en', 'de', ]
   );
 
