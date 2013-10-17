@@ -35,13 +35,13 @@ has domain => (
 has is_anonymous_proxy => (
     is      => 'ro',
     isa     => Bool,
-    default => quote_sub(q{ 0 })
+    default => quote_sub(q{ 0 }),
 );
 
 has is_satellite_provider => (
     is      => 'ro',
     isa     => Bool,
-    default => quote_sub(q{ 0 })
+    default => quote_sub(q{ 0 }),
 );
 
 has isp => (

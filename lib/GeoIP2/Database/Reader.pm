@@ -51,7 +51,7 @@ sub _model_for_address {
     if ( $ip eq 'me' ) {
         my ($method) = ( caller(1) )[3];
         GeoIP2::Error::Generic->throw(
-            message => "me is not a valid IP when calling $method on "
+                  message => "me is not a valid IP when calling $method on "
                 . __PACKAGE__ );
     }
 
