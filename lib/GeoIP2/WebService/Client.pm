@@ -408,7 +408,7 @@ Note that the only language which is always present in the GeoIP2 data in
 "en". If you do not include this language, the C<name()> method may end up
 returning C<undef> even when the record in question has an English name.
 
-Currently, the valid list of language codes is:
+Currently, the valid list of locale codes is:
 
 =over 8
 
@@ -433,7 +433,7 @@ spelling in English. In other words, English does not mean ASCII.
 
 =back
 
-Passing any other language code will result in an error.
+Passing any other locale code will result in an error.
 
 The default value for this argument is C<['en']>.
 

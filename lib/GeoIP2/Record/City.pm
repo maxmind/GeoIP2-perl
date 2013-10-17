@@ -80,8 +80,8 @@ This attribute is returned by all end points.
 
 =head2 $city_rec->names()
 
-This returns a hash reference where the keys are language codes and the values
+This returns a hash reference where the keys are locale codes and the values
 are names. See L<GeoIP2::WebService::Client> for a list of the possible
-language codes.
+locale codes.
 
 This attribute is returned by all end points.
