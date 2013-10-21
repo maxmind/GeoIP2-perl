@@ -16,9 +16,6 @@ release, which will be numbered 2.0000.
 You may find information on the GeoIP2 beta release process on
 L<our website|http://www.maxmind.com/en/geoip2_beta>.
 
-To provide feedback or get support during the beta, please see the
-L<MaxMind Customer Community|https://getsatisfaction.com/maxmind>.
-
 =head1 DESCRIPTION
 
 This distribution provides an API for the GeoIP2 web services (as documented
