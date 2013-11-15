@@ -18,14 +18,15 @@ L<our website|http://www.maxmind.com/en/geoip2_beta>.
 
 =head1 DESCRIPTION
 
-This distribution provides an API for the GeoIP2 web services (as documented
-at L<http://dev.maxmind.com/geoip/geoip2/web-services>) and downloadable
-databases.
+
+This distribution provides an API for the GeoIP2
+L<web services|http://dev.maxmind.com/geoip/geoip2/web-services> and
+L<databases|http://dev.maxmind.com/geoip/geoip2/downloadable>. The API also
+works with the free
+L<GeoLite2 databases|http://dev.maxmind.com/geoip/geoip2/geolite2/>.
 
 See L<GeoIP2::WebService::Client> for details on the web service client API
-and L<GeoIP2::Database::Reader> for the database API. The only downloadable
-database currently available is GeoLite2 City. See
-L<http://dev.maxmind.com/geoip/geoip2/geolite2/> for details.
+and L<GeoIP2::Database::Reader> for the database API.
 
 =head1 INTEGRATION WITH GEONAMES
 
