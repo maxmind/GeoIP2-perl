@@ -18,7 +18,6 @@ L<our website|http://www.maxmind.com/en/geoip2_beta>.
 
 =head1 DESCRIPTION
 
-
 This distribution provides an API for the GeoIP2
 L<web services|http://dev.maxmind.com/geoip/geoip2/web-services> and
 L<databases|http://dev.maxmind.com/geoip/geoip2/downloadable>. The API also
@@ -27,6 +26,15 @@ L<GeoLite2 databases|http://dev.maxmind.com/geoip/geoip2/geolite2/>.
 
 See L<GeoIP2::WebService::Client> for details on the web service client API
 and L<GeoIP2::Database::Reader> for the database API.
+
+=head1 SPEEDING UP DATABASE READING
+
+This module only depends on the pure Perl implementation of the MaxMind
+database reader (L<MaxMind::DB::Reader>). If you install the libmaxminddb
+library (L<http://maxmind.github.io/libmaxminddb/>) and
+L<MaxMind::DB::Reader::XS>, then the XS implementation will be loaded
+automatically. The XS implementation is approximately 60x faster than the pure
+Perl implementation.
 
 =head1 INTEGRATION WITH GEONAMES
 
