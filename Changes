@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+- Updated the docs to mention the MaxMind::DB::Reader::XS module.
+
 - Renamed the languages constructor parameter to locales for both the Client
   and Reader classes.
 
