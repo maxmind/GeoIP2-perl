@@ -3,9 +3,6 @@ package GeoIP2::Database::Reader;
 use strict;
 use warnings;
 
-use Moo;
-with 'GeoIP2::Role::HasLocales';
-
 use Carp qw( croak );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
@@ -16,6 +13,10 @@ use GeoIP2::Model::Omni;
 use GeoIP2::Model::Omni;
 use GeoIP2::Types qw( Str );
 use MaxMind::DB::Reader;
+
+use Moo;
+
+with 'GeoIP2::Role::HasLocales';
 
 has file => (
     is       => 'ro',
