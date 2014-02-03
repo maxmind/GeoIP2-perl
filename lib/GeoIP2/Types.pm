@@ -58,7 +58,11 @@ sub Bool () {
 sub BoolCoercion () {
     return quote_sub(
         q{ defined $_[0] && Scalar::Util::blessed($_[0])
-               && $_[0]->isa('JSON::Boolean') ? $_[0] + 0 : $_[0] }
+               && ( $_[0]->isa('JSON::Boolean')
+                    || $_[0]->isa('JSON::PP::Boolean')
+                    || $_[0]->isa('JSON::XS::Boolean')
+                  )
+                ? $_[0] + 0 : $_[0] }
     );
 }
 
