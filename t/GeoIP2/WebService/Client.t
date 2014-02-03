@@ -24,6 +24,7 @@ my %country = (
     },
     traits => {
         ip_address => '1.2.3.4',
+        is_anonymous_proxy => JSON::true
     },
 );
 
@@ -125,6 +126,12 @@ my $ua = Mock::LWP::UserAgent->new(
         $country,
         'GeoIP2::Model::Country',
         'return value of $client->country'
+    );
+
+    is(
+        $country->traits->is_anonymous_proxy,
+        1,
+        'is_anonymous_proxy is 1'
     );
 
     is(

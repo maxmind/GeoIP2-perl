@@ -3,7 +3,7 @@ package GeoIP2::Record::Traits;
 use strict;
 use warnings;
 
-use GeoIP2::Types qw( Bool IPAddress NonNegativeInt Str );
+use GeoIP2::Types qw( Bool BoolCoercion IPAddress NonNegativeInt Str );
 use Sub::Quote qw( quote_sub );
 
 use Moo;
@@ -36,12 +36,14 @@ has is_anonymous_proxy => (
     is      => 'ro',
     isa     => Bool,
     default => quote_sub(q{ 0 }),
+    coerce  => BoolCoercion,
 );
 
 has is_satellite_provider => (
     is      => 'ro',
     isa     => Bool,
     default => quote_sub(q{ 0 }),
+    coerce  => BoolCoercion,
 );
 
 has isp => (

@@ -15,6 +15,7 @@ use Exporter qw( import );
 our @EXPORT_OK = qw(
     ArrayRef
     Bool
+    BoolCoercion
     HTTPStatus
     HashRef
     IPAddress
@@ -51,6 +52,13 @@ sub Bool () {
         q{ GeoIP2::Types::_tc_fail( $_[0], 'Bool' )
               unless ( ( defined $_[0] && !ref $_[0] && $_[0] =~ /^(?:0|1|)$/ )
               || !defined $_[0] ); }
+    );
+}
+
+sub BoolCoercion () {
+    return quote_sub(
+        q{ defined $_[0] && ref($_[0]) =~ /^JSON/
+               && $_[0]->isa('JSON::Boolean') ? $_[0] + 0 : $_[0] }
     );
 }
 
