@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.040002 2014-02-03
+
 - Any webservice response with boolean values in the response caused a type
   error to be thrown.
 
