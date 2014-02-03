@@ -57,7 +57,7 @@ sub Bool () {
 
 sub BoolCoercion () {
     return quote_sub(
-        q{ defined $_[0] && ref($_[0]) =~ /^JSON/
+        q{ defined $_[0] && Scalar::Util::blessed($_[0])
                && $_[0]->isa('JSON::Boolean') ? $_[0] + 0 : $_[0] }
     );
 }
