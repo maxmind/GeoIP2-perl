@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Any webservice response with boolean values in the response caused a type
+  error to be thrown.
+
+
 0.040001 2014-01-14
 
 - Updated the docs to mention the MaxMind::DB::Reader::XS module.
