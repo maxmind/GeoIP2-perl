@@ -87,7 +87,7 @@ of Perl available.
 =head1 SUPPORT
 
 Please report all issues with this code using the GitHub issue tracker at
-L<https://github.com/maxmind/GeoIP2-perl/issues>
+L<https://github.com/maxmind/GeoIP2-perl/issues>.
 
 If you are having an issue with a MaxMind service that is not specific to the
 client API please see L<http://www.maxmind.com/en/support> for details.
