@@ -13,6 +13,7 @@ use GeoIP2::Record::RepresentedCountry;
 use GeoIP2::Record::Traits;
 use GeoIP2::Types qw( ArrayRef HashRef );
 use Sub::Quote qw( quote_sub );
+use B;
 
 use Moo::Role;
 
