@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.040003 2014-05-28
+
 - Explicitly import the B module when we use it. This didn't break on our Perl
   but broke elsewhere. Reported by Wes Young. GitHub PR #3.
 

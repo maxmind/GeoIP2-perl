@@ -2,7 +2,7 @@ NAME
     GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 VERSION
-    version 0.040002
+    version 0.040003
 
 DESCRIPTION
     This distribution provides an API for the GeoIP2 web services
@@ -26,7 +26,7 @@ SPEEDING UP DATABASE READING
     database reader (MaxMind::DB::Reader). If you install the libmaxminddb
     library (<http://maxmind.github.io/libmaxminddb/>) and
     MaxMind::DB::Reader::XS, then the XS implementation will be loaded
-    automatically. The XS implementation is approximately 60x faster than
+    automatically. The XS implementation is approximately 100x faster than
     the pure Perl implementation.
 
 INTEGRATION WITH GEONAMES
@@ -79,7 +79,7 @@ PERL VERSION SUPPORT
 
 SUPPORT
     Please report all issues with this code using the GitHub issue tracker
-    at <https://github.com/maxmind/GeoIP2-perl/issues>
+    at <https://github.com/maxmind/GeoIP2-perl/issues>.
 
     If you are having an issue with a MaxMind service that is not specific
     to the client API please see <http://www.maxmind.com/en/support> for
