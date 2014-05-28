@@ -3,6 +3,7 @@ package GeoIP2::Role::Model;
 use strict;
 use warnings;
 
+use B;
 use GeoIP2::Record::City;
 use GeoIP2::Record::Continent;
 use GeoIP2::Record::Country;
