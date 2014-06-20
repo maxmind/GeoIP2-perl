@@ -8,7 +8,7 @@ use Sub::Quote qw( quote_sub );
 
 use Moo;
 
-with 'GeoIP2::Role::Model';
+with 'GeoIP2::Role::Model::Location';
 
 __PACKAGE__->_define_attributes_for_keys(
     qw( continent country maxmind registered_country traits ));

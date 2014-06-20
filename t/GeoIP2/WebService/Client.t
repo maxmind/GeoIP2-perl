@@ -23,7 +23,7 @@ my %country = (
         names      => { en => 'United States of America' },
     },
     traits => {
-        ip_address => '1.2.3.4',
+        ip_address         => '1.2.3.4',
         is_anonymous_proxy => JSON::true
     },
 );

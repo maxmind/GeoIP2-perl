@@ -8,7 +8,10 @@ use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
 use GeoIP2::Model::City;
 use GeoIP2::Model::CityISPOrg;
+use GeoIP2::Model::ConnectionType;
 use GeoIP2::Model::Country;
+use GeoIP2::Model::Domain;
+use GeoIP2::Model::ISP;
 use GeoIP2::Model::Omni;
 use GeoIP2::Model::Omni;
 use GeoIP2::Types qw( Str );
@@ -22,6 +25,7 @@ has file => (
     is       => 'ro',
     isa      => Str,
     required => 1,
+    coerce   => sub { "$_[0]" },
 );
 
 has _reader => (
@@ -66,8 +70,13 @@ sub _model_for_address {
 
     my $model_class = 'GeoIP2::Model::' . $class;
 
-    $record->{traits} ||= {};
-    $record->{traits}{ip_address} = $ip;
+    if ( $args{is_flat} ) {
+        $record->{ip_address} = $ip;
+    }
+    else {
+        $record->{traits} ||= {};
+        $record->{traits}{ip_address} = $ip;
+    }
 
     return $model_class->new( %{$record}, locales => $self->locales, );
 }
@@ -90,6 +99,21 @@ sub country {
 sub omni {
     my $self = shift;
     return $self->_model_for_address( 'Omni', @_ );
+}
+
+sub connection_type {
+    my $self = shift;
+    return $self->_model_for_address( 'ConnectionType', is_flat => 1, @_ );
+}
+
+sub domain {
+    my $self = shift;
+    return $self->_model_for_address( 'Domain', is_flat => 1, @_ );
+}
+
+sub isp {
+    my $self = shift;
+    return $self->_model_for_address( 'ISP', is_flat => 1, @_ );
 }
 
 1;
@@ -117,21 +141,11 @@ __END__
 
 =head1 DESCRIPTION
 
-This class provides a reader API for all GeoIP2 databases.  The methods
-provided by this reader (C<country()>, C<city()>, C<city_isp_org()> and
-C<omni()>), correspond to the web service endpoints (Country, City,
-City/ISP/Org, and Omni). Each method returns a different set of data about an
-IP address, with country returning the least data and omni the most.
-
-Each method returns a different model class, and these model classes in turn
-contain multiple record classes. The record classes have attributes which
-contain data about the IP address.
+This class provides a reader API for all GeoIP2 databases. Each method returns
+a different model class.
 
 If the database does not return a particular piece of data for an IP address,
 the associated attribute is not populated.
-
-The database may not return any information for an entire record, in which case
-all of the attributes for that record class will be empty.
 
 =head1 USAGE
 
@@ -141,8 +155,7 @@ Then you call the method corresponding to your database type, passing it the
 IP address you want to look up.
 
 If the request succeeds, the method call will return a model class for the
-method point you called. This model, in turn, contains multiple record classes,
-each of which represents part of the data returned by the database.
+method point you called.
 
 If the database cannot be read, the reader class throws an exception.
 
@@ -221,6 +234,10 @@ address.
 
 =back
 
+=head2 $reader->connection_type()
+
+This method returns a L<GeoIP2::Model::ConnectionType> object.
+
 =head2 $reader->country()
 
 This method returns a L<GeoIP2::Model::Country> object.
@@ -232,6 +249,14 @@ This method returns a L<GeoIP2::Model::City> object.
 =head2 $reader->city_isp_org()
 
 This method returns a L<GeoIP2::Model::CityISPOrg> object.
+
+=head2 $reader->domain()
+
+This method returns a L<GeoIP2::Model::Domain> object.
+
+=head2 $reader->isp()
+
+This method returns a L<GeoIP2::Model::ISP> object.
 
 =head2 $reader->omni()
 
@@ -264,9 +289,6 @@ where some or all of the attributes are unpopulated.
 
 See L<http://dev.maxmind.com/geoip/geoip2/web-services> for details on what
 data each end point I<may> return.
-
-The only piece of data which is always returned is the C<ip_address> key in
-the C<GeoIP2::Record::Traits> record.
 
 Every record class attribute has a corresponding predicate method so you can
 check to see if the attribute is set.
