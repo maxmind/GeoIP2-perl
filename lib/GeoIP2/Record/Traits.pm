@@ -8,11 +8,7 @@ use Sub::Quote qw( quote_sub );
 
 use Moo;
 
-has ip_address => (
-    is       => 'ro',
-    isa      => IPAddress,
-    required => 1,
-);
+with 'GeoIP2::Role::HasIPAddress';
 
 has autonomous_system_number => (
     is        => 'ro',
