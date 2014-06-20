@@ -234,7 +234,7 @@ address.
 
 =back
 
-=head2 $reader->coonnection_type()
+=head2 $reader->connection_type()
 
 This method returns a L<GeoIP2::Model::ConnectionType> object.
 
