@@ -14,6 +14,7 @@ before_install:
   - source perl-travis-helper/init
   - build-perl
   - perl -V
+  - sudo apt-get install spell
   - cpanm --notest Devel::Cover::Report::Coveralls
   - export AUTOMATED_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1 SKIP_POD_LINKCHECK=1
   - git submodule update --init --recursive
