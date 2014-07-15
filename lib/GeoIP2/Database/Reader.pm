@@ -7,13 +7,11 @@ use Carp qw( croak );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
 use GeoIP2::Model::City;
-use GeoIP2::Model::CityISPOrg;
 use GeoIP2::Model::ConnectionType;
 use GeoIP2::Model::Country;
 use GeoIP2::Model::Domain;
+use GeoIP2::Model::Insights;
 use GeoIP2::Model::ISP;
-use GeoIP2::Model::Omni;
-use GeoIP2::Model::Omni;
 use GeoIP2::Types qw( Str );
 use MaxMind::DB::Reader;
 
@@ -88,7 +86,7 @@ sub city {
 
 sub city_isp_org {
     my $self = shift;
-    return $self->_model_for_address( 'CityISPOrg', @_ );
+    return $self->city(@_);
 }
 
 sub country {
@@ -96,9 +94,14 @@ sub country {
     return $self->_model_for_address( 'Country', @_ );
 }
 
+sub insights {
+    my $self = shift;
+    return $self->_model_for_address( 'Insights', @_ );
+}
+
 sub omni {
     my $self = shift;
-    return $self->_model_for_address( 'Omni', @_ );
+    return $self->insights(@_);
 }
 
 sub connection_type {
@@ -246,26 +249,22 @@ This method returns a L<GeoIP2::Model::Country> object.
 
 This method returns a L<GeoIP2::Model::City> object.
 
-=head2 $reader->city_isp_org()
-
-This method returns a L<GeoIP2::Model::CityISPOrg> object.
-
 =head2 $reader->domain()
 
 This method returns a L<GeoIP2::Model::Domain> object.
 
+=head2 $reader->insights()
+
+This method returns a L<GeoIP2::Model::Insights> object.
+
+Note that the data which makes the Insights web service different from
+City is not available in any downloadable database. This means that
+calling the C<< $reader->insights() >> always returns the same data as as C<<
+$reader->city() >>.
+
 =head2 $reader->isp()
 
 This method returns a L<GeoIP2::Model::ISP> object.
-
-=head2 $reader->omni()
-
-This method returns a L<GeoIP2::Model::Omni> object.
-
-Note that the data which makes the Omni web service different from
-City/ISP/Org is not available in any downloadable database. This means that
-calling the C<< $reader->omni() >> always returns the same data as as C<<
-$reader->city_isp_org() >>.
 
 =head1 EXCEPTIONS
 

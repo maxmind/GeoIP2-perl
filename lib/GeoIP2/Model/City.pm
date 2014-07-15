@@ -14,7 +14,7 @@ __PACKAGE__->_define_attributes_for_keys( __PACKAGE__->_all_record_names() );
 
 1;
 
-# ABSTRACT: Model class for the GeoIP2 Precision City end point
+# ABSTRACT: Model class for GeoIP2 Precision: City and GeoIP2 City
 
 __END__
 
@@ -36,11 +36,11 @@ __END__
 
 =head1 DESCRIPTION
 
-This class provides a model for the data returned by the GeoIP2 Precision
-City end point.
+This class provides a model for the data returned by the GeoIP2 Precision:
+City web service and the GeoIP2 City database.
 
-The only difference between the City, City/ISP/Org, and Omni model classes is
-which fields in each record may be populated. See
+The only difference between the City and Insights model classes is which
+fields in each record may be populated. See
 L<http://dev.maxmind.com/geoip/geoip2/web-services> for more details.
 
 =head1 METHODS

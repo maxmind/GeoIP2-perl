@@ -15,7 +15,7 @@ __PACKAGE__->_define_attributes_for_keys(
 
 1;
 
-# ABSTRACT: Model class for the GeoIP2 Country end point
+# ABSTRACT: Model class for the GeoIP2 Precision: Country and GeoIP2 Country
 
 __END__
 
@@ -37,8 +37,8 @@ __END__
 
 =head1 DESCRIPTION
 
-This class provides a model for the data returned by the GeoIP2 Country end
-point.
+This class provides a model for the data returned by the GeoIP2 Precision:
+Country web service and the GeoIP2 Country database.
 
 =head1 METHODS
 
