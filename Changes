@@ -2,10 +2,11 @@
 
 - The web service client API has been updated for the v2.1 release of the web
   service. In particular, the city_isp_org() and omni() methods on
-  GeoIP2::WebService::Client should be considered deprecated. The city method
-  now provides all of the data formerly provided by city_isp_org, and the omni
-  method has been replaced by the insights method. Note that the
+  GeoIP2::WebService::Client should be considered deprecated. The city()
+  method now provides all of the data formerly provided by city_isp_org(), and
+  the omni() method has been replaced by the insights method. Note that the
   city_isp_org() and omni() methods may start warning when used in the future.
+
 
 0.040003 2014-05-28
 
