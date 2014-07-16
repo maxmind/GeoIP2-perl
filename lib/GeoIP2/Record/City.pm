@@ -58,7 +58,7 @@ This class provides the following methods:
 This returns a value from 0-100 indicating MaxMind's confidence that the city
 is correct.
 
-This attribute is only available from the Omni end point.
+This attribute is only available from the Insights end point.
 
 =head2 $city_rec->geoname_id()
 

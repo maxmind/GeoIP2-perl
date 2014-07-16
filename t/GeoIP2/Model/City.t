@@ -69,8 +69,13 @@ use GeoIP2::Model::City;
             }
         ],
         traits => {
-            ip_address            => '1.2.3.4',
-            is_satellite_provider => 1,
+            autonomous_system_number       => 1234,
+            autonomous_system_organization => 'AS Organization',
+            domain                         => 'example.com',
+            ip_address                     => '1.2.3.4',
+            is_satellite_provider          => 1,
+            isp                            => 'Comcast',
+            organization                   => 'Blorg',
         },
     );
 

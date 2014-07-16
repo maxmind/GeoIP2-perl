@@ -18,7 +18,7 @@ my $locales = [ 'en', 'de', ];
 
     ok( $reader, 'got reader for test database' );
 
-    foreach my $model ( 'country', 'city', 'city_isp_org', 'omni' ) {
+    for my $model ( 'country', 'city', 'city_isp_org', 'insights', 'omni', ) {
         like(
             exception { $reader->$model() },
             qr/Required param/,

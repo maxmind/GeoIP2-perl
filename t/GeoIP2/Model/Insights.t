@@ -10,7 +10,7 @@ use Test::GeoIP2 qw(
 );
 use Test::More 0.88;
 
-use GeoIP2::Model::Omni;
+use GeoIP2::Model::Insights;
 
 {
     my %raw = (
@@ -84,12 +84,12 @@ use GeoIP2::Model::Omni;
         },
     );
 
-    test_model_class( 'GeoIP2::Model::Omni', \%raw );
+    test_model_class( 'GeoIP2::Model::Insights', \%raw );
 }
 
 {
-    test_model_class_with_empty_record('GeoIP2::Model::Omni');
-    test_model_class_with_unknown_keys('GeoIP2::Model::Omni');
+    test_model_class_with_empty_record('GeoIP2::Model::Insights');
+    test_model_class_with_unknown_keys('GeoIP2::Model::Insights');
 }
 
 done_testing();
