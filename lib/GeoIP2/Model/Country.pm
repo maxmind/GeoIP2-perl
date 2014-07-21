@@ -72,7 +72,7 @@ user's country.
 
 Returns a L<GeoIP2::Record::RepresentedCountry> object for the country
 represented by the requested IP address. The represented country may differ
-from the C<country> for things like military bases or embassies.
+from the C<country> for things like military bases.
 
 =head2 $country->traits()
 

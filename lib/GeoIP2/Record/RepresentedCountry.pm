@@ -42,7 +42,7 @@ __END__
 
 This class contains the country-level data associated with an IP address for
 the IP's represented country. The represented country is the country
-represented by something like a military base or embassy.
+represented by something like a military base.
 
 This record is returned by all the end points.
 
@@ -94,6 +94,6 @@ This attribute is returned by all end points.
 
 This returns a string indicating the type of entity that is representing the
 country. Currently we only return C<military> but this could expand to include
-other types such as C<embassy> in the future.
+other types in the future.
 
 This attribute is returned by all end points.
