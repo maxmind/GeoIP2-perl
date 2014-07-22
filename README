@@ -2,7 +2,7 @@ NAME
     GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 VERSION
-    version 0.040004
+    version 0.040005
 
 DESCRIPTION
     This distribution provides an API for the GeoIP2 web services
