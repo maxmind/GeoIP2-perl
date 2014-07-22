@@ -1,5 +1,6 @@
 .\#*
 .build
+.tidyall.d
 Build
 Debian_CPANTS.txt
 GeoIP2-*
@@ -10,6 +11,8 @@ MYMETA.yml
 Makefile
 Makefile.PL
 Makefile.old
+perltidy.LOG
+pod2htmd.tmp
 README
 \#*\#
 _build
