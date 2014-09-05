@@ -35,7 +35,7 @@ __END__
   );
 
   try {
-      $client->omni( ip => '24.24.24.24' );
+      $client->insights( ip => '24.24.24.24' );
   }
   catch {
       die $_ unless blessed $_;
