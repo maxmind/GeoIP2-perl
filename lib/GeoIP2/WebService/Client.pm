@@ -136,7 +136,7 @@ my %spec = (
                     && ( $_[0] eq 'me'
                     || is_public_ipv4( $_[0] )
                     || is_public_ipv6( $_[0] ) );
-                }
+            }
         },
     },
 );

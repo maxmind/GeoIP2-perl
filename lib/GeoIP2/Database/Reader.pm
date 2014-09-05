@@ -3,7 +3,8 @@ package GeoIP2::Database::Reader;
 use strict;
 use warnings;
 
-use Carp qw( croak );
+use Data::Validate::IP 0.16
+    qw( is_ipv4 is_ipv6 is_private_ipv4 is_private_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
 use GeoIP2::Model::City;
@@ -55,6 +56,14 @@ sub _model_for_address {
         my ($method) = ( caller(1) )[3];
         GeoIP2::Error::Generic->throw(
                   message => "me is not a valid IP when calling $method on "
+                . __PACKAGE__ );
+    }
+
+    if ( is_private_ipv4($ip) || is_private_ipv6($ip) ) {
+        my ($method) = ( caller(1) )[3];
+        GeoIP2::Error::Generic->throw(
+                  message => "The IP address you provided ($ip) is not a "
+                . "public IP address when calling $method on "
                 . __PACKAGE__ );
     }
 

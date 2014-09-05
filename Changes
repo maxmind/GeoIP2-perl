@@ -1,5 +1,10 @@
 {{$NEXT}}
 
+- When looking up a private IP address in GeoIP2::Database::Reader, a
+  GeoIP2::Error::Generic exception is now thrown by that class rather than
+  relying on MaxMind::DB::Reader to throw an exception.
+
+
 0.040005 2014-07-22
 
 - No changes. Re-release to fix PAUSE permission issues.
