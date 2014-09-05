@@ -36,9 +36,9 @@ __END__
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $postal_rec = $omni->postal();
+  my $postal_rec = $insights->postal();
   say $postal_rec->code();
 
 =head1 DESCRIPTION

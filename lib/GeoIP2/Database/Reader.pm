@@ -86,6 +86,10 @@ sub city {
 
 sub city_isp_org {
     my $self = shift;
+
+    warnings::warnif('deprecated',
+                     'city_isp_org is deprecated. Use city instead.');
+
     return $self->city(@_);
 }
 
@@ -101,6 +105,10 @@ sub insights {
 
 sub omni {
     my $self = shift;
+
+    warnings::warnif('deprecated',
+                     'omni is deprecated. Use insights instead.');
+
     return $self->insights(@_);
 }
 
@@ -138,8 +146,8 @@ __END__
       locales => [ 'en', 'de', ]
   );
 
-  my $omni = $reader->omni( ip => '24.24.24.24' );
-  my $country = $omni->country();
+  my $insights = $reader->insights( ip => '24.24.24.24' );
+  my $country = $insights->country();
   say $country->is_code();
 
 =head1 DESCRIPTION

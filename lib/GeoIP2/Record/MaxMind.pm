@@ -29,9 +29,9 @@ __END__
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $maxmind_rec = $omni->maxmind();
+  my $maxmind_rec = $insights->maxmind();
   say $maxmind_rec->queries_remaining();
 
 =head1 DESCRIPTION

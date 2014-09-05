@@ -38,9 +38,9 @@ __END__
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $city_rec = $omni->city();
+  my $city_rec = $insights->city();
   say $city_rec->name();
 
 =head1 DESCRIPTION

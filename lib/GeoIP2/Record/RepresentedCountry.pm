@@ -32,9 +32,9 @@ __END__
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $country_rec = $omni->reprented_country();
+  my $country_rec = $insights->reprented_country();
   say $country_rec->name();
   say $country_rec->type();
 
