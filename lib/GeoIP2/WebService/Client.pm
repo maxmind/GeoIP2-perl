@@ -109,6 +109,9 @@ sub city {
 sub city_isp_org {
     my $self = shift;
 
+    warnings::warnif('deprecated',
+                     'city_isp_org is deprecated. Use city instead.');
+
     return $self->city(@_);
 }
 
@@ -124,6 +127,9 @@ sub insights {
 
 sub omni {
     my $self = shift;
+
+    warnings::warnif('deprecated',
+                     'omni is deprecated. Use insights instead.');
 
     return $self->insights(@_);
 }
@@ -331,7 +337,7 @@ __END__
   );
 
   # Replace "insights" with the method corresponding to the web service
-  # that you are using, e.g., "country", "city_isp_org", "city".
+  # that you are using, e.g., "country", "city".
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $country = $insights->country();
