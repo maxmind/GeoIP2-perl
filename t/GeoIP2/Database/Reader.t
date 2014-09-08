@@ -34,6 +34,12 @@ my $locales = [ 'en', 'de', ];
         );
 
         like(
+            exception { $reader->$model( ip => '10.0.0.0' ) },
+            qr/not a public IP/,
+            qq{dies on private IP - $model method}
+        );
+
+        like(
             exception { $reader->$model( ip => '9.10.11.12' ) },
             qr/\QNo record found for IP address 9.10.11.12/,
             "dies if IP is not in database - $model method"
