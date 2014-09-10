@@ -106,15 +106,6 @@ sub city {
     );
 }
 
-sub city_isp_org {
-    my $self = shift;
-
-    warnings::warnif('deprecated',
-                     'city_isp_org is deprecated. Use city instead.');
-
-    return $self->city(@_);
-}
-
 sub insights {
     my $self = shift;
 
@@ -123,15 +114,6 @@ sub insights {
         'GeoIP2::Model::Insights',
         @_,
     );
-}
-
-sub omni {
-    my $self = shift;
-
-    warnings::warnif('deprecated',
-                     'omni is deprecated. Use insights instead.');
-
-    return $self->insights(@_);
 }
 
 my %spec = (

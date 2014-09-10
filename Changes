@@ -1,10 +1,10 @@
 {{$NEXT}}
 
+- IMPORTANT: The deprecated city_isp_org() and omni() methods have been
+  removed. Also, the insights() on GeoIP2::Database::Reader has been removed.
 - When looking up a private IP address in GeoIP2::Database::Reader, a
   GeoIP2::Error::Generic exception is now thrown by that class rather than
   relying on MaxMind::DB::Reader to throw an exception.
-- The city_isp_org(), omni(), and insights() methods on
-  GeoIP2::Database::Reader have been removed.
 - The GeoIP2::Database::Reader lookup methods (e.g., city(), isp()) now throw
   a GeoIP2::Error::Generic if they are used with a database that does not
   match the method. In particular, doing a city() lookup on a GeoIP2 Country
