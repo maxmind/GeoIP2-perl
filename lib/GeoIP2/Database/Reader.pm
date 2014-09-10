@@ -283,6 +283,13 @@ This method returns a L<GeoIP2::Model::Domain> object.
 
 This method returns a L<GeoIP2::Model::ISP> object.
 
+=head1 OTHER METHODS
+
+=head2 $reader->metadata()
+
+This method returns a L<MaxMind::DB:Metadata> object containing information
+about the database.
+
 =head1 EXCEPTIONS
 
 In the case of a fatal error, the reader will throw a L<GeoIP2::Error::Generic>
