@@ -14,7 +14,6 @@ use GeoIP2::Model::Domain;
 use GeoIP2::Model::Insights;
 use GeoIP2::Model::ISP;
 use GeoIP2::Types qw( Str );
-use List::MoreUtils qw( any );
 use MaxMind::DB::Reader;
 
 use Moo;
@@ -54,8 +53,7 @@ sub _model_for_address {
                 . __PACKAGE__ );
     }
 
-    unless ( any { $_ eq $self->metadata->database_type } @{ $args{types} } )
-    {
+    unless ( $self->metadata->database_type =~ $args{type_check} ) {
         my ($method) = ( caller(1) )[3];
         GeoIP2::Error::Generic->throw( message => "The $method() on "
                 . __PACKAGE__
@@ -104,7 +102,7 @@ sub city {
     my $self = shift;
     return $self->_model_for_address(
         'City',
-        types => [ 'GeoIP2-City', 'GeoLite2-City' ],
+        type_check => qr/^(?:GeoLite2|GeoIP2)-City/,
         @_
     );
 }
@@ -113,7 +111,7 @@ sub country {
     my $self = shift;
     return $self->_model_for_address(
         'Country',
-        types => [ 'GeoIP2-Country', 'GeoLite2-Country' ],
+        type_check => qr/^(?:GeoLite2|GeoIP2)-Country$/,
         @_
     );
 }
@@ -122,8 +120,8 @@ sub connection_type {
     my $self = shift;
     return $self->_model_for_address(
         'ConnectionType',
-        types   => ['GeoIP2-Connection-Type'],
-        is_flat => 1,
+        type_check => qr/^GeoIP2-Connection-Type$/,
+        is_flat    => 1,
         @_
     );
 }
@@ -131,8 +129,10 @@ sub connection_type {
 sub domain {
     my $self = shift;
     return $self->_model_for_address(
-        'Domain', types => ['GeoIP2-Domain'],
-        is_flat => 1, @_
+        'Domain',
+        type_check => qr/^GeoIP2-Domain$/,
+        is_flat    => 1,
+        @_
     );
 }
 
@@ -140,8 +140,9 @@ sub isp {
     my $self = shift;
     return $self->_model_for_address(
         'ISP',
-        types   => ['GeoIP2-ISP'],
-        is_flat => 1, @_
+        type_check => qr/^GeoIP2-ISP$/,
+        is_flat    => 1,
+        @_
     );
 }
 
