@@ -32,6 +32,7 @@ has _reader => (
     does    => 'MaxMind::DB::Reader::Role::Reader',
     lazy    => 1,
     builder => '_build_reader',
+    handles => ['metadata'],
 );
 
 sub _build_reader {
@@ -50,6 +51,15 @@ sub _model_for_address {
         GeoIP2::Error::Generic->throw( message =>
                 "Required param (ip) was missing when calling $method on "
                 . __PACKAGE__ );
+    }
+
+    unless ( $self->metadata->database_type =~ $args{type_check} ) {
+        my ($method) = ( caller(1) )[3];
+        GeoIP2::Error::Generic->throw( message => "The $method() on "
+                . __PACKAGE__
+                . ' cannot be used with the '
+                . $self->metadata->database_type
+                . ' database' );
     }
 
     if ( $ip eq 'me' ) {
@@ -90,50 +100,50 @@ sub _model_for_address {
 
 sub city {
     my $self = shift;
-    return $self->_model_for_address( 'City', @_ );
-}
-
-sub city_isp_org {
-    my $self = shift;
-
-    warnings::warnif('deprecated',
-                     'city_isp_org is deprecated. Use city instead.');
-
-    return $self->city(@_);
+    return $self->_model_for_address(
+        'City',
+        type_check => qr/^(?:GeoLite2|GeoIP2)-City/,
+        @_
+    );
 }
 
 sub country {
     my $self = shift;
-    return $self->_model_for_address( 'Country', @_ );
-}
-
-sub insights {
-    my $self = shift;
-    return $self->_model_for_address( 'Insights', @_ );
-}
-
-sub omni {
-    my $self = shift;
-
-    warnings::warnif('deprecated',
-                     'omni is deprecated. Use insights instead.');
-
-    return $self->insights(@_);
+    return $self->_model_for_address(
+        'Country',
+        type_check => qr/^(?:GeoLite2|GeoIP2)-Country$/,
+        @_
+    );
 }
 
 sub connection_type {
     my $self = shift;
-    return $self->_model_for_address( 'ConnectionType', is_flat => 1, @_ );
+    return $self->_model_for_address(
+        'ConnectionType',
+        type_check => qr/^GeoIP2-Connection-Type$/,
+        is_flat    => 1,
+        @_
+    );
 }
 
 sub domain {
     my $self = shift;
-    return $self->_model_for_address( 'Domain', is_flat => 1, @_ );
+    return $self->_model_for_address(
+        'Domain',
+        type_check => qr/^GeoIP2-Domain$/,
+        is_flat    => 1,
+        @_
+    );
 }
 
 sub isp {
     my $self = shift;
-    return $self->_model_for_address( 'ISP', is_flat => 1, @_ );
+    return $self->_model_for_address(
+        'ISP',
+        type_check => qr/^GeoIP2-ISP$/,
+        is_flat    => 1,
+        @_
+    );
 }
 
 1;
@@ -270,18 +280,16 @@ This method returns a L<GeoIP2::Model::City> object.
 
 This method returns a L<GeoIP2::Model::Domain> object.
 
-=head2 $reader->insights()
-
-This method returns a L<GeoIP2::Model::Insights> object.
-
-Note that the data which makes the Insights web service different from
-City is not available in any downloadable database. This means that
-calling the C<< $reader->insights() >> always returns the same data as as C<<
-$reader->city() >>.
-
 =head2 $reader->isp()
 
 This method returns a L<GeoIP2::Model::ISP> object.
+
+=head1 OTHER METHODS
+
+=head2 $reader->metadata()
+
+This method returns a L<MaxMind::DB:Metadata> object containing information
+about the database.
 
 =head1 EXCEPTIONS
 

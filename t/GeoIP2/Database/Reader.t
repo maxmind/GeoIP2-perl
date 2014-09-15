@@ -10,16 +10,16 @@ use Path::Class qw( file );
 my $locales = [ 'en', 'de', ];
 
 {
-    my $reader = GeoIP2::Database::Reader->new(
-        file =>
-            file(qw( maxmind-db test-data GeoIP2-City-Test.mmdb))->stringify,
-        locales => $locales
-    );
+    for my $type ( 'Country', 'City', ) {
 
-    ok( $reader, 'got reader for test database' );
+        my $reader = GeoIP2::Database::Reader->new(
+            file =>
+                file( 'maxmind-db', 'test-data', "GeoIP2-$type-Test.mmdb" )
+                ->stringify,
+            locales => $locales
+        );
 
-    for my $model ( 'country', 'city', 'city_isp_org', 'insights', 'omni', ) {
-        no warnings 'deprecated';
+        my $model = lc $type;
 
         like(
             exception { $reader->$model() },
