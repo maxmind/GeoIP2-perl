@@ -14,7 +14,7 @@ use GeoIP2::Model::Domain;
 use GeoIP2::Model::Insights;
 use GeoIP2::Model::ISP;
 use GeoIP2::Types qw( Str );
-use MaxMind::DB::Reader;
+use MaxMind::DB::Reader 0.060001;
 
 use Moo;
 
