@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+- Relaxed city() database check to accept more databases. This change has no
+  effect for customers using currently released MaxMind databases.
+
 0.050000 2014-09-15
 
 [BACKWARDS INCOMPATIBILITIES]
