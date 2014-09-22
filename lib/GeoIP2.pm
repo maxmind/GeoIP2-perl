@@ -8,14 +8,6 @@ use 5.008;
 
 __END__
 
-=head1 BETA NOTE
-
-This is a beta release. The API may change before the first production
-release, which will be numbered 2.0000.
-
-You may find information on the GeoIP2 beta release process on
-L<our website|http://www.maxmind.com/en/geoip2_beta>.
-
 =head1 DESCRIPTION
 
 This distribution provides an API for the GeoIP2
