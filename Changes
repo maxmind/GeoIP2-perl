@@ -1,9 +1,13 @@
 {{$NEXT}}
 
+- First production release.
+
+
 0.050001 2014-09-17
 
 - Relaxed city() database check to accept more databases. This change has no
   effect for customers using currently released MaxMind databases.
+
 
 0.050000 2014-09-15
 
