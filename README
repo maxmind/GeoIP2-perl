@@ -2,7 +2,7 @@ NAME
     GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 VERSION
-    version 2.000000
+    version 2.000001
 
 DESCRIPTION
     This distribution provides an API for the GeoIP2 web services
@@ -13,13 +13,6 @@ DESCRIPTION
 
     See GeoIP2::WebService::Client for details on the web service client API
     and GeoIP2::Database::Reader for the database API.
-
-BETA NOTE
-    This is a beta release. The API may change before the first production
-    release, which will be numbered 2.0000.
-
-    You may find information on the GeoIP2 beta release process on our
-    website <http://www.maxmind.com/en/geoip2_beta>.
 
 SPEEDING UP DATABASE READING
     This module only depends on the pure Perl implementation of the MaxMind
