@@ -45,7 +45,7 @@ __END__
 
   use GeoIP2::Model::ISP;
 
-  my $record = GeoIP2::Model::ISP->new(
+  my $isp = GeoIP2::Model::ISP->new(
       raw => {
           autonomous_system_number => '217',
           autonomous_system_organization => 'University of Minnesota',
@@ -55,40 +55,40 @@ __END__
       }
   );
 
-  say $record->autonomous_system_number();
-  say $record->autonomous_system_organization();
-  say $record->isp();
-  say $record->organization();
+  say $isp->autonomous_system_number();
+  say $isp->autonomous_system_organization();
+  say $isp->isp();
+  say $isp->organization();
 
 =head1 DESCRIPTION
 
-This class provides a model for GeoIP2 Connection-Type.
+This class provides a model for the data returned by the GeoIP2 ISP database.
 
 =head1 METHODS
 
 This class provides the following methods:
 
-=head2 $record->autonomous_system_number()
+=head2 $isp->autonomous_system_number()
 
 This returns the autonomous system number
 (L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) associated with
 the IP address.
 
-=head2 $record->autonomous_system_organization()
+=head2 $isp->autonomous_system_organization()
 
 This returns the organization associated with the registered autonomous system
 number (L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) for the IP
 address.
 
-=head2 $record->ip_address()
+=head2 $isp->ip_address()
 
 Returns the IP address used in the lookup.
 
-=head2 $record->isp()
+=head2 $isp->isp()
 
 This returns the name of the ISP associated with the IP address.
 
-=head2 $record->organization()
+=head2 $isp->organization()
 
 This returns the name of the organization associated with the IP address.
 

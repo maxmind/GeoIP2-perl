@@ -27,24 +27,25 @@ __END__
 
   use GeoIP2::Model::Domain;
 
-  my $record = GeoIP2::Model::Domain->new(
+  my $domain = GeoIP2::Model::Domain->new(
       raw  => { domain => 'maxmind.com', ip_address => '24.24.24.24'}
   );
 
-  say $record->domain();
+  say $domain->domain();
 
 =head1 DESCRIPTION
 
-This class provides a model for GeoIP2 Domain.
+This class provides a model for the data returned by the GeoIP2 Domain
+database.
 
 =head1 METHODS
 
 This class provides the following methods:
 
-=head2 $record->domain()
+=head2 $domain->domain()
 
 Returns the domain as a string.
 
-=head2 $record->ip_address()
+=head2 $domain->ip_address()
 
 Returns the IP address used in the lookup.

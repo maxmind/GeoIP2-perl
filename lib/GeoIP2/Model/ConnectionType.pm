@@ -27,24 +27,25 @@ __END__
 
   use GeoIP2::Model::ConnectionType;
 
-  my $record = GeoIP2::Model::ConnectionType->new(
+  my $conn = GeoIP2::Model::ConnectionType->new(
       raw => { connection_type => 'Corporate', ip_address => '24.24.24.24'}
   );
 
-  say $record->connection_type();
+  say $conn->connection_type();
 
 =head1 DESCRIPTION
 
-This class provides a model for GeoIP2 Connection-Type.
+This class provides a model for the data returned by the GeoIP2 Connection
+Type database.
 
 =head1 METHODS
 
 This class provides the following methods:
 
-=head2 $record->connection_type()
+=head2 $conn->connection_type()
 
 Returns the connection type as a string.
 
-=head2 $record->ip_address()
+=head2 $conn->ip_address()
 
 Returns the IP address used in the lookup.
