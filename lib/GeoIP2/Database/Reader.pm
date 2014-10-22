@@ -7,6 +7,7 @@ use Data::Validate::IP 0.24
     qw( is_ipv4 is_ipv6 is_private_ipv4 is_private_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
+use GeoIP2::Model::AnonymousIP;
 use GeoIP2::Model::City;
 use GeoIP2::Model::ConnectionType;
 use GeoIP2::Model::Country;
@@ -143,6 +144,16 @@ sub isp {
         type_check => qr/^GeoIP2-ISP$/,
         is_flat    => 1,
         @_
+    );
+}
+
+sub anonymous_ip {
+    my $self = shift;
+    return $self->_model_for_address(
+        'AnonymousIP',
+        type_check => qr/^GeoIP2-Anonymous-IP$/,
+        is_flat    => 1,
+        @_,
     );
 }
 
@@ -283,6 +294,10 @@ This method returns a L<GeoIP2::Model::Domain> object.
 =head2 $reader->isp()
 
 This method returns a L<GeoIP2::Model::ISP> object.
+
+=head2 $reader->anonymous_ip()
+
+This method returns a L<GeoIP2::Model::AnonymousIP> object.
 
 =head1 OTHER METHODS
 
