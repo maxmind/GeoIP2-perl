@@ -4,7 +4,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 # VERSION
 
-version 2.000001
+version 2.001000
 
 # DESCRIPTION
 
@@ -94,7 +94,7 @@ Graham Knop <haarg@haarg.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by MaxMind, Inc..
+This software is copyright (c) 2013 - 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

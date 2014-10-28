@@ -34,6 +34,7 @@ on 'test' => sub {
   requires "Test::Fatal" => "0";
   requires "Test::More" => "0.88";
   requires "base" => "0";
+  requires "perl" => "5.008";
   requires "utf8" => "0";
 };
 
@@ -43,6 +44,7 @@ on 'test' => sub {
 
 on 'configure' => sub {
   requires "ExtUtils::MakeMaker" => "0";
+  requires "perl" => "5.008";
 };
 
 on 'develop' => sub {
