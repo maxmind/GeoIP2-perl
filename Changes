@@ -1,5 +1,10 @@
 {{$NEXT}}
 
+- Added support for the GeoIP2 Anonymous IP database. The
+  GeoIP2::Database::Reader class now has an anonymous_ip() method which
+  returns a GeoIP2::Model::AnonymousIP object.
+
+
 2.000001 2014-09-22
 
 - Removed beta notice from documentation.
