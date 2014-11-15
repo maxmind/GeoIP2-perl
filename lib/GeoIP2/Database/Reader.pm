@@ -176,9 +176,9 @@ __END__
       locales => [ 'en', 'de', ]
   );
 
-  my $insights = $reader->insights( ip => '24.24.24.24' );
-  my $country = $insights->country();
-  say $country->is_code();
+  my $city = $reader->city( ip => '24.24.24.24' );
+  my $country = $city->country();
+  say $country->iso_code();
 
 =head1 DESCRIPTION
 
