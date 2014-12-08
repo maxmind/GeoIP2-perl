@@ -2,6 +2,9 @@
 
 2.001001 2014-12-08
 
+- Fixed a SYNOPSIS error in GeoIP2::Database::Reader. GitHub #11.
+
+
 2.001000 2014-10-28
 
 - Added support for the GeoIP2 Anonymous IP database. The
