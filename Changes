@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+- Forgot to include Changes for 2.001001.
+
+
 2.001001 2014-12-08
 
 - Fixed a SYNOPSIS error in GeoIP2::Database::Reader. GitHub #11.
