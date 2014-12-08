@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.001001 2014-12-08
+
 2.001000 2014-10-28
 
 - Added support for the GeoIP2 Anonymous IP database. The

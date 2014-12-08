@@ -19,7 +19,7 @@ requires "Throwable::Error" => "0";
 requires "Try::Tiny" => "0";
 requires "URI" => "0";
 requires "lib" => "0";
-requires "perl" => "5.008";
+requires "perl" => "5.010";
 requires "strict" => "0";
 requires "warnings" => "0";
 
@@ -34,7 +34,7 @@ on 'test' => sub {
   requires "Test::Fatal" => "0";
   requires "Test::More" => "0.88";
   requires "base" => "0";
-  requires "perl" => "5.008";
+  requires "perl" => "5.010";
   requires "utf8" => "0";
 };
 
@@ -44,7 +44,7 @@ on 'test' => sub {
 
 on 'configure' => sub {
   requires "ExtUtils::MakeMaker" => "0";
-  requires "perl" => "5.008";
+  requires "perl" => "5.010";
 };
 
 on 'develop' => sub {
