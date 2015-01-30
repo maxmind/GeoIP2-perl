@@ -94,7 +94,7 @@ from the C<country> for things like military bases.
 
 =head2 $insights->subdivisions()
 
-Returns an array of L<GeoIP2::Record::Subdvision> objects representing the
+Returns an array of L<GeoIP2::Record::Subdivision> objects representing the
 country subdivisions for the requested IP address. The number and type of
 subdivisions varies by country, but a subdivision is typically a state,
 province, county, etc.
