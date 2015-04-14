@@ -103,7 +103,7 @@ sub city {
     my $self = shift;
     return $self->_model_for_address(
         'City',
-        type_check => qr/City/,
+        type_check => qr/^(?:GeoLite2|GeoIP2)-(?:Precision-)?City$/,
         @_
     );
 }
@@ -112,7 +112,7 @@ sub country {
     my $self = shift;
     return $self->_model_for_address(
         'Country',
-        type_check => qr/^(?:GeoLite2|GeoIP2)-Country$/,
+        type_check => qr/^(?:GeoLite2|GeoIP2)-(?:Precision-)?Country$/,
         @_
     );
 }
@@ -121,7 +121,7 @@ sub connection_type {
     my $self = shift;
     return $self->_model_for_address(
         'ConnectionType',
-        type_check => qr/^GeoIP2-Connection-Type$/,
+        type_check => qr/^GeoIP2-(?:Precision-)?Connection-Type$/,
         is_flat    => 1,
         @_
     );
@@ -131,7 +131,7 @@ sub domain {
     my $self = shift;
     return $self->_model_for_address(
         'Domain',
-        type_check => qr/^GeoIP2-Domain$/,
+        type_check => qr/^GeoIP2-(?:Precision-)?Domain$/,
         is_flat    => 1,
         @_
     );
@@ -141,7 +141,7 @@ sub isp {
     my $self = shift;
     return $self->_model_for_address(
         'ISP',
-        type_check => qr/^GeoIP2-ISP$/,
+        type_check => qr/^GeoIP2-(?:Precision-)?ISP$/,
         is_flat    => 1,
         @_
     );
@@ -151,7 +151,7 @@ sub anonymous_ip {
     my $self = shift;
     return $self->_model_for_address(
         'AnonymousIP',
-        type_check => qr/^GeoIP2-Anonymous-IP$/,
+        type_check => qr/^GeoIP2-(?:Precision-)?Anonymous-IP$/,
         is_flat    => 1,
         @_,
     );

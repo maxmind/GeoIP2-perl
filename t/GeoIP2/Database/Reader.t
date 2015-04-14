@@ -7,19 +7,19 @@ use Test::Fatal;
 use GeoIP2::Database::Reader;
 use Path::Class qw( file );
 
-my $locales = [ 'en', 'de', ];
+my @locales = qw( en de );
 
 {
-    for my $type ( 'Country', 'City', ) {
+    for my $type ( qw( Country City Precision-City ) ) {
 
         my $reader = GeoIP2::Database::Reader->new(
             file =>
                 file( 'maxmind-db', 'test-data', "GeoIP2-$type-Test.mmdb" )
                 ->stringify,
-            locales => $locales
+            locales => \@locales
         );
 
-        my $model = lc $type;
+        ( my $model = lc $type ) =~ s/^precision-//;
 
         like(
             exception { $reader->$model() },
