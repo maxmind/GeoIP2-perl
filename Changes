@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Relaxed all database checks to accept more databases. This change has no
+  effect for customers using currently released MaxMind databases.
+
+
 2.001002 2014-12-08
 
 - Forgot to include Changes for 2.001001.
