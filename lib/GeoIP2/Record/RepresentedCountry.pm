@@ -35,8 +35,8 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $country_rec = $insights->reprented_country();
-  say $country_rec->name();
-  say $country_rec->type();
+  print $country_rec->name(), "\n";
+  print $country_rec->type(), "\n";
 
 =head1 DESCRIPTION
 

@@ -31,7 +31,7 @@ __END__
       raw  => { domain => 'maxmind.com', ip_address => '24.24.24.24'}
   );
 
-  say $domain->domain();
+  print $domain->domain(), "\n";
 
 =head1 DESCRIPTION
 

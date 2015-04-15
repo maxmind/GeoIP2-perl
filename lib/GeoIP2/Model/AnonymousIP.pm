@@ -41,7 +41,7 @@ __END__
       }
   );
 
-  say $anon->is_anonymous();
+  print $anon->is_anonymous(), "\n";
 
 =head1 DESCRIPTION
 

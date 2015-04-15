@@ -55,10 +55,10 @@ __END__
       }
   );
 
-  say $isp->autonomous_system_number();
-  say $isp->autonomous_system_organization();
-  say $isp->isp();
-  say $isp->organization();
+  print $isp->autonomous_system_number(), "\n";
+  print $isp->autonomous_system_organization(), "\n";
+  print $isp->isp(), "\n";
+  print $isp->organization(), "\n";
 
 =head1 DESCRIPTION
 

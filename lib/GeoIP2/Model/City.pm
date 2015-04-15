@@ -32,7 +32,7 @@ __END__
   my $city = $client->city( ip => '24.24.24.24' );
 
   my $city_rec = $city->city();
-  say $city_rec->name();
+  print $city_rec->name(), "\n";
 
 =head1 DESCRIPTION
 

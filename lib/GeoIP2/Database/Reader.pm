@@ -178,7 +178,7 @@ __END__
 
   my $city = $reader->city( ip => '24.24.24.24' );
   my $country = $city->country();
-  say $country->iso_code();
+  print $country->iso_code(), "\n";
 
 =head1 DESCRIPTION
 

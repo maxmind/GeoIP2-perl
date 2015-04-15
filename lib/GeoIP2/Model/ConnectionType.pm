@@ -31,7 +31,7 @@ __END__
       raw => { connection_type => 'Corporate', ip_address => '24.24.24.24'}
   );
 
-  say $conn->connection_type();
+  print $conn->connection_type(), "\n";
 
 =head1 DESCRIPTION
 

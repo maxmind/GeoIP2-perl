@@ -47,7 +47,7 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $subdivision_rec = $insights->subdivision();
-  say $subdivision_rec->name();
+  print $subdivision_rec->name(), "\n";
 
 =head1 DESCRIPTION
 

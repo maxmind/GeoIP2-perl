@@ -32,7 +32,7 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $city_rec = $insights->city();
-  say $city_rec->name();
+  print $city_rec->name(), "\n";
 
 =head1 DESCRIPTION
 

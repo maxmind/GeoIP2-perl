@@ -3,6 +3,9 @@
 - Relaxed all database checks to accept more databases. This change has no
   effect for customers using currently released MaxMind databases.
 
+- Replaced use of say in synopsis code so as to make it clear that this module
+  works with Perl 5.8. Reported by Kevin Falcone. GitHub #12.
+
 
 2.001002 2014-12-08
 

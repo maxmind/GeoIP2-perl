@@ -57,7 +57,7 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $location_rec = $insights->location();
-  say $location_rec->name();
+  print $location_rec->name(), "\n";
 
 =head1 DESCRIPTION
 

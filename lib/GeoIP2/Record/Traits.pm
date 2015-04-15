@@ -80,7 +80,7 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $traits_rec = $insights->country();
-  say $traits_rec->name();
+  print $traits_rec->name(), "\n";
 
 =head1 DESCRIPTION
 

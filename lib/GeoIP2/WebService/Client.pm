@@ -323,7 +323,7 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $country = $insights->country();
-  say $country->iso_code();
+  print $country->iso_code(), "\n";
 
 =head1 DESCRIPTION
 

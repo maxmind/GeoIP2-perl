@@ -27,7 +27,7 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $country_rec = $insights->country();
-  say $country_rec->name();
+  print $country_rec->name(), "\n";
 
 =head1 DESCRIPTION
 

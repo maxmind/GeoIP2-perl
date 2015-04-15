@@ -39,7 +39,7 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $postal_rec = $insights->postal();
-  say $postal_rec->code();
+  print $postal_rec->code(), "\n";
 
 =head1 DESCRIPTION
 

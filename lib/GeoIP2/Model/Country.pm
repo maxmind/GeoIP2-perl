@@ -33,7 +33,7 @@ __END__
   my $country = $client->country( ip => '24.24.24.24' );
 
   my $country_rec = $country->country();
-  say $country_rec->iso_code();
+  print $country_rec->iso_code(), "\n";
 
 =head1 DESCRIPTION
 

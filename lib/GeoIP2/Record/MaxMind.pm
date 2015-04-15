@@ -32,7 +32,7 @@ __END__
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $maxmind_rec = $insights->maxmind();
-  say $maxmind_rec->queries_remaining();
+  print $maxmind_rec->queries_remaining(), "\n";
 
 =head1 DESCRIPTION
 
