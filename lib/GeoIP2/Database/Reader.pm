@@ -104,7 +104,7 @@ sub city {
     my $self = shift;
     return $self->_model_for_address(
         'City',
-        type_check => qr/^(?:GeoLite2|GeoIP2)-(?:Precision-|)?City(-[a-zA-Z]+)?$/,
+        type_check => qr/^(?:GeoLite2|GeoIP2)-(?:Precision-|)?City(-[a-zA-Z\-]+)?$/,
         @_
     );
 }

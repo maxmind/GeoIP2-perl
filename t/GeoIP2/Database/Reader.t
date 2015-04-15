@@ -132,6 +132,7 @@ my @locales = qw( en de );
         'GeoIP2-City'                      => { city            => 1 },
         'GeoIP2-Precision-City'            => { city            => 1 },
         'GeoIP2-City-Europe'               => { city            => 1 },
+        'GeoIP2-City-South-America'        => { city            => 1 },
         'GeoLite2-City'                    => { city            => 1 },
         'GeoIP2-Country'                   => { country         => 1 },
         'GeoIP2-Precision-Country'         => { country         => 1 },
