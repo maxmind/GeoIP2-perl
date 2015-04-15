@@ -41,6 +41,7 @@ sub _define_attributes_for_keys {
             ),
         );
 
+        ## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
         $has->(
             $key => (
                 is  => 'ro',
@@ -57,9 +58,10 @@ sub _define_attributes_for_keys {
                         q{ $_[0]->_build_record( %s, %s ) },
                         map { B::perlstring($_) } $key, $raw_attr
                     )
-                )
-            )
+                ),
+            ),
         );
+        ## use critic
     }
 }
 

@@ -5,6 +5,7 @@ use Test::More;
 use Test::Fatal;
 
 use GeoIP2::Database::Reader;
+use MaxMind::DB::Metadata;
 use Path::Class qw( file );
 
 my @locales = qw( en de );
@@ -116,7 +117,7 @@ my @locales = qw( en de );
 
     my $reader
         = GeoIP2::Database::Reader->new(
-        file => file( 'maxmind-db', 'test-data', "GeoIP2-City-Test.mmdb" )
+        file => file( 'maxmind-db', 'test-data', 'GeoIP2-City-Test.mmdb' )
             ->stringify );
 
     my @model_methods = qw(

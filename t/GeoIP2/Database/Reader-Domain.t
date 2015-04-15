@@ -12,9 +12,9 @@ use Path::Class qw( file );
         file => file(qw( maxmind-db test-data GeoIP2-Domain-Test.mmdb)) );
 
     my $ip_address = '1.2.0.0';
-    my $record = $reader->domain( ip => $ip_address );
-    is( $record->domain, 'maxmind.com', 'correct domain in Domain database' );
-    is( $record->ip_address, $ip_address, 'correct IP in Domain database' );
+    my $domain = $reader->domain( ip => $ip_address );
+    is( $domain->domain, 'maxmind.com', 'correct domain in Domain database' );
+    is( $domain->ip_address, $ip_address, 'correct IP in Domain database' );
 }
 
 done_testing();

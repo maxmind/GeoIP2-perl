@@ -39,6 +39,7 @@ our @EXPORT_OK = qw(
 
 our %EXPORT_TAGS = ( all => \@EXPORT_OK );
 
+## no critic (NamingConventions::Capitalization, ValuesAndExpressions::ProhibitImplicitNewlines)
 sub ArrayRef () {
     return quote_sub(
         q{ GeoIP2::Types::_tc_fail( $_[0], 'ArrayRef' )
@@ -100,6 +101,7 @@ sub JSONObject () {
 }
 
 {
+    ## no critic (Variables::ProhibitPackageVars)
     our %_SupportedLangs = map { $_ => 1 } qw(
         de
         en
@@ -209,6 +211,8 @@ sub UserAgentObject () {
     return quote_sub(
         q{ GeoIP2::Types::object_can_type( $_[0], 'agent', 'request' ) });
 }
+
+## use critic
 
 sub object_can_type {
     my $thing   = shift;

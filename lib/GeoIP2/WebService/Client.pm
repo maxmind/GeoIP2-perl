@@ -17,6 +17,8 @@ use GeoIP2::Model::Country;
 use GeoIP2::Model::Insights;
 use GeoIP2::Types
     qw( JSONObject MaxMindID MaxMindLicenseKey Str URIObject UserAgentObject );
+use HTTP::Headers;
+use HTTP::Request;
 use JSON;
 use MIME::Base64 qw( encode_base64 );
 use LWP::Protocol::https;
@@ -72,11 +74,10 @@ has _json => (
 sub BUILD {
     my $self = shift;
 
-    local $@;
-    my $self_version = eval { 'v' . $self->VERSION() } || 'v?';
+    my $self_version = try { 'v' . $self->VERSION() } || 'v?';
 
     my $ua = $self->ua();
-    my $ua_version = eval { 'v' . $ua->VERSION() } || 'v?';
+    my $ua_version = try { 'v' . $ua->VERSION() } || 'v?';
 
     my $agent
         = blessed($self)

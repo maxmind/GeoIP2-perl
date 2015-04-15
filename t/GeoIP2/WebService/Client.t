@@ -5,6 +5,8 @@ use Test::Fatal;
 use Test::More 0.88;
 
 use GeoIP2::WebService::Client;
+use HTTP::Headers;
+use HTTP::Response;
 use HTTP::Status qw( status_message );
 use IO::Compress::Gzip qw( gzip $GzipError );
 use JSON;
@@ -23,8 +25,10 @@ my %country = (
         names      => { en => 'United States of America' },
     },
     traits => {
-        ip_address         => '1.2.3.4',
+        ip_address => '1.2.3.4',
+        ## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
         is_anonymous_proxy => JSON::true
+            ## use critic
     },
 );
 
@@ -370,7 +374,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $ua = Mock::LWP::UserAgent->new(
+    my $test_ua = Mock::LWP::UserAgent->new(
         sub {
             my $self    = shift;
             my $request = shift;
@@ -404,7 +408,7 @@ my $ua = Mock::LWP::UserAgent->new(
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
-        ua          => $ua,
+        ua          => $test_ua,
     );
 
     $client->country( ip => '1.2.3.4' );

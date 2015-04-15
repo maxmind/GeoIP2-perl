@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use utf8;
 
+use Test::Builder;
 use Test::More 0.88;
 
 use GeoIP2::Model::Country;
@@ -9,10 +10,12 @@ use GeoIP2::Model::Country;
 {
     my $tb = Test::Builder->new();
 
+    ## no critic (InputOutput::RequireCheckedSyscalls
     binmode $_, ':encoding(UTF-8)'
         for $tb->output(),
         $tb->failure_output(),
         $tb->todo_output();
+    ## use critic
 }
 
 my %raw = (

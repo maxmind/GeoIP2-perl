@@ -12,21 +12,21 @@ use Path::Class qw( file );
         file => file(qw( maxmind-db test-data GeoIP2-ISP-Test.mmdb )) );
 
     my $ip_address = '1.128.0.0';
-    my $record = $reader->isp( ip => $ip_address );
+    my $isp = $reader->isp( ip => $ip_address );
     is(
-        $record->autonomous_system_number, 1221,
+        $isp->autonomous_system_number, 1221,
         'correct ASN in ISP database'
     );
     is(
-        $record->autonomous_system_organization,
+        $isp->autonomous_system_organization,
         'Telstra Pty Ltd', 'correct AS Org in ISP database'
     );
-    is( $record->isp, 'Telstra Internet', 'correct ISP in ISP database' );
+    is( $isp->isp, 'Telstra Internet', 'correct ISP in ISP database' );
     is(
-        $record->organization, 'Telstra Internet',
+        $isp->organization, 'Telstra Internet',
         'correct Org in ISP database'
     );
-    is( $record->ip_address, $ip_address, 'correct IP in ISP database' );
+    is( $isp->ip_address, $ip_address, 'correct IP in ISP database' );
 
 }
 

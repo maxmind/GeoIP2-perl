@@ -14,13 +14,13 @@ use Path::Class qw( file );
         );
 
     my $ip_address = '1.0.1.0';
-    my $record = $reader->connection_type( ip => $ip_address );
+    my $ct = $reader->connection_type( ip => $ip_address );
     is(
-        $record->connection_type, 'Cable/DSL',
+        $ct->connection_type, 'Cable/DSL',
         'correct connection type in Connection-Type database'
     );
     is(
-        $record->ip_address, $ip_address,
+        $ct->ip_address, $ip_address,
         'correct IP in Connection-Type database'
     );
 }

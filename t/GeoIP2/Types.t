@@ -380,7 +380,9 @@ sub _describe {
 
         $val =~ s/\n/\\n/g;
 
+        ## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
         return looks_like_number($val) ? $val : B::perlstring($val);
+        ## use critic
     }
 
     if ( blessed $val ) {

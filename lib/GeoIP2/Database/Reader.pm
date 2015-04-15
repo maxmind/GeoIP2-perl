@@ -57,7 +57,7 @@ sub _model_for_address {
     }
 
     unless ( $self->metadata->database_type =~ $args{type_check} ) {
-        (my $method = ( caller(1) )[3] ) =~ s/.+:://;
+        ( my $method = ( caller(1) )[3] ) =~ s/.+:://;
         GeoIP2::Error::Generic->throw( message => 'The '
                 . ( ref $self )
                 . "->$method()"
@@ -81,8 +81,8 @@ sub _model_for_address {
                 . __PACKAGE__ );
     }
 
-    my $record = $self->_reader->record_for_address($ip);
-    unless ($record) {
+    my $geoip_record = $self->_reader->record_for_address($ip);
+    unless ($geoip_record) {
         GeoIP2::Error::IPAddressNotFound->throw(
             message    => "No record found for IP address $ip",
             ip_address => $ip,
@@ -92,21 +92,25 @@ sub _model_for_address {
     my $model_class = 'GeoIP2::Model::' . $class;
 
     if ( $args{is_flat} ) {
-        $record->{ip_address} = $ip;
+        $geoip_record->{ip_address} = $ip;
     }
     else {
-        $record->{traits} ||= {};
-        $record->{traits}{ip_address} = $ip;
+        $geoip_record->{traits} ||= {};
+        $geoip_record->{traits}{ip_address} = $ip;
     }
 
-    return $model_class->new( %{$record}, locales => $self->locales, );
+    return $model_class->new(
+        %{$geoip_record},
+        locales => $self->locales,
+    );
 }
 
 sub city {
     my $self = shift;
     return $self->_model_for_address(
         'City',
-        type_check => qr/^(?:GeoLite2|GeoIP2)-(?:Precision-|)?City(-[a-zA-Z\-]+)?$/,
+        type_check =>
+            qr/^(?:GeoLite2|GeoIP2)-(?:Precision-|)?City(-[a-zA-Z\-]+)?$/,
         @_
     );
 }
