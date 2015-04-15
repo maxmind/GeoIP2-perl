@@ -3,7 +3,7 @@ package GeoIP2::Error::Type;
 use strict;
 use warnings;
 
-our $VERSION = '2.001003';
+our $VERSION = '2.001004';
 
 use Moo;
 

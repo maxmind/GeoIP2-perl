@@ -3,7 +3,7 @@ package GeoIP2::Model::City;
 use strict;
 use warnings;
 
-our $VERSION = '2.001003';
+our $VERSION = '2.001004';
 
 use GeoIP2::Types qw( HashRef object_isa_type );
 use Sub::Quote qw( quote_sub );

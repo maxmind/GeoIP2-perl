@@ -3,7 +3,7 @@ package GeoIP2::Record::Location;
 use strict;
 use warnings;
 
-our $VERSION = '2.001003';
+our $VERSION = '2.001004';
 
 use GeoIP2::Types qw( NonNegativeInt Num PositiveInt Str );
 
