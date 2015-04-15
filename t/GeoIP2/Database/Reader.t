@@ -10,7 +10,7 @@ use Path::Class qw( file );
 my @locales = qw( en de );
 
 {
-    for my $type ( qw( Country City Precision-City ) ) {
+    for my $type (qw( Country City Precision-City )) {
 
         my $reader = GeoIP2::Database::Reader->new(
             file =>
@@ -102,6 +102,70 @@ my @locales = qw( en de );
         next if $model eq 'country';
 
         is( $model_obj->city->name, 'London', "city name - $model method" );
+    }
+}
+
+{
+    # We want to test the type checking in _model_for_address without having
+    # to actually having test files for all the different database types.
+    my $force_type;
+    {
+        no warnings 'redefine';
+        *MaxMind::DB::Metadata::database_type = sub { $force_type };
+    }
+
+    my $reader
+        = GeoIP2::Database::Reader->new(
+        file => file( 'maxmind-db', 'test-data', "GeoIP2-City-Test.mmdb" )
+            ->stringify );
+
+    my @model_methods = qw(
+        city
+        country
+        connection_type
+        domain
+        isp
+        anonymous_ip
+    );
+
+    my %type_to_model = (
+        'GeoIP2-City'                      => { city            => 1 },
+        'GeoIP2-Precision-City'            => { city            => 1 },
+        'GeoIP2-City-Europe'               => { city            => 1 },
+        'GeoIP2-City-South-America'        => { city            => 1 },
+        'GeoLite2-City'                    => { city            => 1 },
+        'GeoIP2-Country'                   => { country         => 1 },
+        'GeoIP2-Precision-Country'         => { country         => 1 },
+        'GeoLite2-Country'                 => { country         => 1 },
+        'GeoIP2-Connection-Type'           => { connection_type => 1 },
+        'GeoIP2-Precision-Connection-Type' => { connection_type => 1 },
+        'GeoIP2-Domain'                    => { domain          => 1 },
+        'GeoIP2-Precision-Domain'          => { domain          => 1 },
+        'GeoIP2-ISP'                       => { isp             => 1 },
+        'GeoIP2-Precision-ISP'             => { isp             => 1 },
+        'GeoIP2-Anonymous-IP'              => { anonymous_ip    => 1 },
+        'GeoIP2-Precision-Anonymous-IP'    => { anonymous_ip    => 1 },
+    );
+
+    for my $type ( sort keys %type_to_model ) {
+        $force_type = $type;
+
+        for my $method (@model_methods) {
+            if ( $type_to_model{$type}{$method} ) {
+                like(
+                    exception { $reader->$method( ip => '9.10.11.12' ) },
+                    qr/\QNo record found for IP address 9.10.11.12/,
+                    "the $method method accepts $type database"
+                );
+            }
+            else {
+                like(
+                    exception { $reader->$method( ip => '9.10.11.12' ) },
+                    qr/\QThe GeoIP2::Database::Reader->$method() method cannot be called with a $type database/,
+                    "the $method method rejected $type database"
+                );
+            }
+        }
     }
 }
 
