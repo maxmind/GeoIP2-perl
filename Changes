@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.001003 2015-04-15
+
 - Relaxed all database checks to accept more databases. This change has no
   effect for customers using currently released MaxMind databases.
 
