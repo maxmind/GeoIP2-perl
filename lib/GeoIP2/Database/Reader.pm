@@ -55,10 +55,11 @@ sub _model_for_address {
     }
 
     unless ( $self->metadata->database_type =~ $args{type_check} ) {
-        my ($method) = ( caller(1) )[3];
-        GeoIP2::Error::Generic->throw( message => "The $method() on "
-                . __PACKAGE__
-                . ' cannot be used with the '
+        (my $method = ( caller(1) )[3] ) =~ s/.+:://;
+        GeoIP2::Error::Generic->throw( message => 'The '
+                . ( ref $self )
+                . "->$method()"
+                . ' method cannot be called with a '
                 . $self->metadata->database_type
                 . ' database' );
     }
@@ -103,7 +104,7 @@ sub city {
     my $self = shift;
     return $self->_model_for_address(
         'City',
-        type_check => qr/^(?:GeoLite2|GeoIP2)-(?:Precision-|)?City(-[a-zA-Z])?$/,
+        type_check => qr/^(?:GeoLite2|GeoIP2)-(?:Precision-|)?City(-[a-zA-Z]+)?$/,
         @_
     );
 }
