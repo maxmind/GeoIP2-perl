@@ -5,6 +5,8 @@ use 5.008;
 use strict;
 use warnings;
 
+our $VERSION = '2.001003';
+
 use Data::Validate::IP 0.19 qw( is_public_ipv4 is_public_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::HTTP;

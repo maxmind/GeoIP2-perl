@@ -3,6 +3,8 @@ package GeoIP2::Error::Type;
 use strict;
 use warnings;
 
+our $VERSION = '2.001003';
+
 use Moo;
 
 extends 'Throwable::Error';

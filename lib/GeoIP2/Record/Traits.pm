@@ -3,6 +3,8 @@ package GeoIP2::Record::Traits;
 use strict;
 use warnings;
 
+our $VERSION = '2.001003';
+
 use GeoIP2::Types qw( Bool BoolCoercion IPAddress NonNegativeInt Str );
 use Sub::Quote qw( quote_sub );
 

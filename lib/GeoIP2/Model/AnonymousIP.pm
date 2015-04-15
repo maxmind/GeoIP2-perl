@@ -3,6 +3,8 @@ package GeoIP2::Model::AnonymousIP;
 use strict;
 use warnings;
 
+our $VERSION = '2.001003';
+
 use GeoIP2::Types qw( Bool );
 
 use Moo;

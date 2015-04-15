@@ -2,6 +2,8 @@ package GeoIP2;
 
 use 5.008;
 
+our $VERSION = '2.001003';
+
 1;
 
 # ABSTRACT: Perl API for MaxMind's GeoIP2 web services and databases

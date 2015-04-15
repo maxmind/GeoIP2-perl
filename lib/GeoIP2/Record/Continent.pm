@@ -3,6 +3,8 @@ package GeoIP2::Record::Continent;
 use strict;
 use warnings;
 
+our $VERSION = '2.001003';
+
 use GeoIP2::Types qw( PositiveInt Str );
 
 use Moo;

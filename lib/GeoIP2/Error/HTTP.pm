@@ -3,6 +3,8 @@ package GeoIP2::Error::HTTP;
 use strict;
 use warnings;
 
+our $VERSION = '2.001003';
+
 use Moo;
 
 with 'GeoIP2::Role::Error::HTTP';

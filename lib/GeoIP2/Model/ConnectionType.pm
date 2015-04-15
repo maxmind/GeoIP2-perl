@@ -3,6 +3,8 @@ package GeoIP2::Model::ConnectionType;
 use strict;
 use warnings;
 
+our $VERSION = '2.001003';
+
 use GeoIP2::Types qw( IPAddress Str );
 
 use Moo;

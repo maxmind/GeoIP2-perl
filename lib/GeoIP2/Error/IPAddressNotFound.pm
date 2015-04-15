@@ -3,6 +3,8 @@ package GeoIP2::Error::IPAddressNotFound;
 use strict;
 use warnings;
 
+our $VERSION = '2.001003';
+
 use GeoIP2::Types qw( Str );
 
 use Moo;
