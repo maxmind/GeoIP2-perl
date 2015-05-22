@@ -17,6 +17,7 @@ our @EXPORT_OK = qw(
 sub test_model_class {
     my $class = shift;
     my $raw   = shift;
+    my $uboat = shift;
 
     my $model = $class->new($raw);
 
@@ -36,6 +37,8 @@ sub test_model_class {
             "\$model->subdivisions()[$i]"
         );
     }
+
+    $uboat->($model) if $uboat;
 }
 
 sub test_model_class_with_empty_record {
