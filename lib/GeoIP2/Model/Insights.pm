@@ -47,8 +47,7 @@ L<http://dev.maxmind.com/geoip/geoip2/web-services> for more details.
 
 =head1 METHODS
 
-This class provides the following methods, each of which returns a record
-object.
+This class provides the following methods.
 
 =head2 $insights->city()
 
