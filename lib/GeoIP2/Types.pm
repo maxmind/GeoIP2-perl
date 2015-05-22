@@ -116,8 +116,7 @@ sub JSONObject () {
     sub LocalesArrayRef () {
         return quote_sub(
             q{ GeoIP2::Types::_tc_fail( $_[0], 'LocalesArrayRef' )
-                   unless defined $_[0]
-                   && ref $_[0]
+                   unless ref $_[0]
                    && Scalar::Util::reftype( $_[0] ) eq 'ARRAY'
                    && !Scalar::Util::blessed( $_[0] )
                    && List::MoreUtils::all(
@@ -149,17 +148,14 @@ sub MaxMindLicenseKey () {
 sub MaybeStr () {
     return quote_sub(
         q{ GeoIP2::Types::_tc_fail( $_[0], 'StrOrUndef' )
-               unless !defined $_[0]
-               || ( defined $_[0]
-               && !ref $_[0] ); }
+               unless !ref $_[0]; }
     );
 }
 
 sub NameHashRef () {
     return quote_sub(
         q{ GeoIP2::Types::_tc_fail( $_[0], 'NameHashRef' )
-               unless defined $_[0]
-               && ref $_[0]
+               unless ref $_[0]
                && Scalar::Util::reftype( $_[0] ) eq 'HASH'
                && ! Scalar::Util::blessed( $_[0] )
                && &List::MoreUtils::all( sub { defined $_ && ! ref $_ }, values %{ $_[0] } ); }
