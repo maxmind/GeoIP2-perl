@@ -7,8 +7,6 @@ our $VERSION = '2.001004';
 
 use Moo::Role;
 
-with 'GeoIP2::Role::Model::Flat';
-
 around BUILDARGS => sub {
     my $orig = shift;
     my $self = shift;
