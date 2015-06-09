@@ -100,7 +100,7 @@ This attribute is only available from the Insights end point.
 =head2 $location_rec->estimated_population()
 
 Returns a non-negative integer representing the estimated population per square
-mile associated with the requested IP address.
+kilometer associated with the requested IP address.
 
 This attribute is only available from the Insights end point.
 
