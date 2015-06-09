@@ -3,7 +3,7 @@ package GeoIP2::Model::Insights;
 use strict;
 use warnings;
 
-our $VERSION = '2.001004';
+our $VERSION = '2.002000';
 
 use GeoIP2::Types qw( HashRef object_isa_type );
 use Sub::Quote qw( quote_sub );
@@ -47,8 +47,7 @@ L<http://dev.maxmind.com/geoip/geoip2/web-services> for more details.
 
 =head1 METHODS
 
-This class provides the following methods, each of which returns a record
-object.
+This class provides the following methods.
 
 =head2 $insights->city()
 

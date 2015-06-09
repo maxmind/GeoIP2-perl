@@ -3,7 +3,7 @@ package GeoIP2::Record::Location;
 use strict;
 use warnings;
 
-our $VERSION = '2.001004';
+our $VERSION = '2.002000';
 
 use GeoIP2::Types qw( NonNegativeInt Num PositiveInt Str );
 
@@ -13,6 +13,18 @@ has accuracy_radius => (
     is        => 'ro',
     isa       => PositiveInt,
     predicate => 'has_accuracy_radius',
+);
+
+has average_income => (
+    is        => 'ro',
+    isa       => NonNegativeInt,
+    predicate => 'has_average_income',
+);
+
+has estimated_population => (
+    is        => 'ro',
+    isa       => NonNegativeInt,
+    predicate => 'has_estimated_population',
 );
 
 has latitude => (
@@ -75,6 +87,20 @@ This class provides the following methods:
 
 This returns the radius in kilometers around the specified location where the
 IP address is likely to be.
+
+This attribute is only available from the Insights end point.
+
+=head2 $location_rec->average_income()
+
+This returns a non-negative integer representing the average income in US
+dollars associated with the requested IP address.
+
+This attribute is only available from the Insights end point.
+
+=head2 $location_rec->estimated_population()
+
+Returns a non-negative integer representing the estimated population per square
+kilometer associated with the requested IP address.
 
 This attribute is only available from the Insights end point.
 

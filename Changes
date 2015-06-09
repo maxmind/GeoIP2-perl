@@ -1,5 +1,11 @@
 {{$NEXT}}
 
+- Added support for 'average_income' and 'estimated_population' in the
+  Insights location record
+
+- Minor optomizations in the type checks
+
+
 2.001003 2015-04-15
 
 - Relaxed all database checks to accept more databases. This change has no

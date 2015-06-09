@@ -15,8 +15,9 @@ our @EXPORT_OK = qw(
 );
 
 sub test_model_class {
-    my $class = shift;
-    my $raw   = shift;
+    my $class                        = shift;
+    my $raw                          = shift;
+    my $further_model_tests_callback = shift;
 
     my $model = $class->new($raw);
 
@@ -36,6 +37,8 @@ sub test_model_class {
             "\$model->subdivisions()[$i]"
         );
     }
+
+    $further_model_tests_callback->($model) if $further_model_tests_callback;
 }
 
 sub test_model_class_with_empty_record {

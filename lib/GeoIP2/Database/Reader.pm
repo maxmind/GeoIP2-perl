@@ -3,7 +3,7 @@ package GeoIP2::Database::Reader;
 use strict;
 use warnings;
 
-our $VERSION = '2.001004';
+our $VERSION = '2.002000';
 
 use Data::Validate::IP 0.24
     qw( is_ipv4 is_ipv6 is_private_ipv4 is_private_ipv6 );
