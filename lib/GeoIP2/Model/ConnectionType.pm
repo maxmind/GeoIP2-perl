@@ -3,7 +3,7 @@ package GeoIP2::Model::ConnectionType;
 use strict;
 use warnings;
 
-our $VERSION = '2.001004';
+our $VERSION = '2.002000';
 
 use GeoIP2::Types qw( IPAddress Str );
 

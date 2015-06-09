@@ -3,7 +3,7 @@ package GeoIP2::Role::HasLocales;
 use strict;
 use warnings;
 
-our $VERSION = '2.001004';
+our $VERSION = '2.002000';
 
 use GeoIP2::Types qw( LocalesArrayRef );
 use Sub::Quote qw( quote_sub );
