@@ -9,9 +9,9 @@ use HTTP::Headers;
 use HTTP::Response;
 use HTTP::Status qw( status_message );
 use IO::Compress::Gzip qw( gzip $GzipError );
-use JSON;
+use JSON::MaybeXS;
 
-my $json = JSON->new()->utf8();
+my $json = JSON::MaybeXS->new( utf8 => 1 );
 
 my %country = (
     continent => {
@@ -27,7 +27,7 @@ my %country = (
     traits => {
         ip_address => '1.2.3.4',
         ## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
-        is_anonymous_proxy => JSON::true
+        is_anonymous_proxy => JSON->true
             ## use critic
     },
 );

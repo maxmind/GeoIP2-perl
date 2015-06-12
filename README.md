@@ -89,9 +89,10 @@ client API please see [http://www.maxmind.com/en/support](http://www.maxmind.com
 - Mark Fowler <mfowler@maxmind.com>
 - Olaf Alders <oalders@maxmind.com>
 
-# CONTRIBUTOR
+# CONTRIBUTORS
 
-Graham Knop <haarg@haarg.org>
+- Graham Knop <haarg@haarg.org>
+- Mateu X Hunter <hunter@missoula.org>
 
 # COPYRIGHT AND LICENSE
 

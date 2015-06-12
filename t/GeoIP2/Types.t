@@ -6,7 +6,7 @@ use Test::More 0.88;
 
 use B ();
 use GeoIP2::Types qw( :all );
-use JSON;
+use JSON::MaybeXS;
 use LWP::UserAgent;
 use Scalar::Util qw( blessed looks_like_number );
 use URI;
