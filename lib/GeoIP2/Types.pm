@@ -64,6 +64,7 @@ sub BoolCoercion () {
                && ( $_[0]->isa('JSON::Boolean')
                     || $_[0]->isa('JSON::PP::Boolean')
                     || $_[0]->isa('JSON::XS::Boolean')
+                    || $_[0]->isa('Cpanel::JSON::XS::Boolean')
                   )
                 ? $_[0] + 0 : $_[0] }
     );

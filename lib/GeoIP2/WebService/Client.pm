@@ -19,7 +19,7 @@ use GeoIP2::Types
     qw( JSONObject MaxMindID MaxMindLicenseKey Str URIObject UserAgentObject );
 use HTTP::Headers;
 use HTTP::Request;
-use JSON;
+use JSON::MaybeXS;
 use MIME::Base64 qw( encode_base64 );
 use LWP::Protocol::https;
 use LWP::UserAgent;
@@ -68,7 +68,7 @@ has _json => (
     is       => 'ro',
     isa      => JSONObject,
     init_arg => undef,
-    default  => quote_sub(q{ JSON->new()->utf8() }),
+    default  => quote_sub(q{ JSON::MaybeXS->new(utf8 => 1) }),
 );
 
 sub BUILD {
