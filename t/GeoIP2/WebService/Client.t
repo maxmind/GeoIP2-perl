@@ -543,6 +543,10 @@ done_testing();
 
         return $self->$meth(@_);
     }
+
+    sub VERSION {
+        return 1;
+    }
 }
 
 sub _response {
