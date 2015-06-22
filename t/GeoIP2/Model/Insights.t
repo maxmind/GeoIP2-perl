@@ -41,13 +41,13 @@ use GeoIP2::Model::Insights;
             },
         },
         location => {
-            average_income       => 12345,
-            accuracy_radius      => 1500,
-            estimated_population => 45678,
-            latitude             => 44.98,
-            longitude            => 93.2636,
-            metro_code           => 765,
-            time_zone            => 'America/Chicago',
+            average_income     => 12345,
+            accuracy_radius    => 1500,
+            latitude           => 44.98,
+            longitude          => 93.2636,
+            metro_code         => 765,
+            population_density => 45678,
+            time_zone          => 'America/Chicago',
         },
         maxmind => {
             queries_remaining => 42,
@@ -97,8 +97,8 @@ use GeoIP2::Model::Insights;
                 'check average_income'
             );
             is(
-                $model->location->estimated_population, 45678,
-                'check estimated_population'
+                $model->location->population_density, 45678,
+                'check population_density'
             );
         }
     );
