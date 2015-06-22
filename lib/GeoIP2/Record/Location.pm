@@ -21,12 +21,6 @@ has average_income => (
     predicate => 'has_average_income',
 );
 
-has estimated_population => (
-    is        => 'ro',
-    isa       => NonNegativeInt,
-    predicate => 'has_estimated_population',
-);
-
 has latitude => (
     is        => 'ro',
     isa       => Num,
@@ -43,6 +37,12 @@ has metro_code => (
     is        => 'ro',
     isa       => PositiveInt,
     predicate => 'has_metro_code',
+);
+
+has population_density => (
+    is        => 'ro',
+    isa       => NonNegativeInt,
+    predicate => 'has_population_density',
 );
 
 has time_zone => (
@@ -97,13 +97,6 @@ dollars associated with the requested IP address.
 
 This attribute is only available from the Insights end point.
 
-=head2 $location_rec->estimated_population()
-
-Returns a non-negative integer representing the estimated population per square
-kilometer associated with the requested IP address.
-
-This attribute is only available from the Insights end point.
-
 =head2 $location_rec->latitude()
 
 This returns the latitude of the location as a floating point number.
@@ -123,6 +116,13 @@ MaxMind returns the same metro codes as the Google AdWords API
 (L<https://developers.google.com/adwords/api/docs/appendix/cities-DMAregions>).
 
 This attribute is returned by all end points except the Country end point.
+
+=head2 $location_rec->population_density()
+
+Returns a non-negative integer representing the estimated population per square
+kilometer associated with the requested IP address.
+
+This attribute is only available from the Insights end point.
 
 =head2 $location_rec->time_zone()
 
