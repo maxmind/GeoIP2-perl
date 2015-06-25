@@ -131,15 +131,16 @@ This attribute is returned by all end points.
 
 =head2 $traits_rec->is_anonymous_proxy()
 
-This returns true if the IP is an anonymous proxy. See
-L<http://dev.maxmind.com/faq/geoip#anonproxy> for further details.
+I<Deprecated.> Please see our L<GeoIP2 Anonymous IP
+database|https://www.maxmind.com/en/geoip2-anonymous-ip-database GeoIP2> to
+determine whether the IP address is used by an anonymizing service.
 
 This attribute is returned by all end points.
 
 =head2 $traits_rec->is_satellite_provider()
 
-This returns true if the IP is a from a satellite provider that provides
-service to multiple countries.
+I<Deprecated.> Please see our L<GeoIP2 Anonymous IP
+database|https://www.maxmind.com/en/geoip2-anonymous-ip-database GeoIP2>.
 
 This attribute is returned by all end points.
 
