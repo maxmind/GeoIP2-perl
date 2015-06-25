@@ -51,7 +51,7 @@ This class provides the following methods.
 
 =head2 $insights->city()
 
-Returns a L<GeoIP2::Record::City> object representing country data for the
+Returns a L<GeoIP2::Record::City> object representing city data for the
 requested IP address.
 
 =head2 $insights->continent()
@@ -67,7 +67,7 @@ believes the IP is located.
 
 =head2 $insights->location()
 
-Returns a L<GeoIP2::Record::Location> object representing country data for the
+Returns a L<GeoIP2::Record::Location> object representing location data for the
 requested IP address.
 
 =head2 $insights->maxmind()
