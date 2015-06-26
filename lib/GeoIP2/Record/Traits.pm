@@ -132,7 +132,7 @@ This attribute is returned by all end points.
 =head2 $traits_rec->is_anonymous_proxy()
 
 I<Deprecated.> Please see our L<GeoIP2 Anonymous IP
-database|https://www.maxmind.com/en/geoip2-anonymous-ip-database GeoIP2> to
+database|https://www.maxmind.com/en/geoip2-anonymous-ip-database> to
 determine whether the IP address is used by an anonymizing service.
 
 This attribute is returned by all end points.
