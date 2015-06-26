@@ -140,7 +140,7 @@ This attribute is returned by all end points.
 =head2 $traits_rec->is_satellite_provider()
 
 I<Deprecated.> Please see our L<GeoIP2 Anonymous IP
-database|https://www.maxmind.com/en/geoip2-anonymous-ip-database GeoIP2>.
+database|https://www.maxmind.com/en/geoip2-anonymous-ip-database>.
 
 This attribute is returned by all end points.
 
