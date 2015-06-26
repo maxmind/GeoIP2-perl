@@ -3,7 +3,12 @@
 - Added support for 'average_income' and 'population_density' in the
   Insights location record
 
-- Minor optomizations in the type checks
+- Minor optimizations in the type checks
+
+- The is_anonymous_proxy() and is_satellite_provider() attributes on
+  GeoIP2::Record::Traits have been deprecated. Please use our GeoIP2 Anonymous
+  IP database to determine whether an IP address is used by an anonymizing
+  service.
 
 
 2.001003 2015-04-15
