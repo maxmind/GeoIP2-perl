@@ -91,6 +91,7 @@ client API please see [http://www.maxmind.com/en/support](http://www.maxmind.com
 
 # CONTRIBUTORS
 
+- Andy Jack <github@veracity.ca>
 - Graham Knop <haarg@haarg.org>
 - Mateu X Hunter <hunter@missoula.org>
 

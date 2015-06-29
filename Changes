@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.002000 2015-06-29
+
 - Added support for 'average_income' and 'population_density' in the
   Insights location record
 
