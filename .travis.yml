@@ -1,32 +1,34 @@
+---
+sudo: false
+addons:
+  apt:
+    packages:
+      - aspell
+      - aspell-en
 language: perl
-
 perl:
-  - "blead"
-  - "5.20"
-  - "5.18"
-  - "5.16"
-  - "5.14"
-  - "5.12"
-  - "5.10"
-
+  - blead
+  - dev
+  - '5.22'
+  - '5.20'
+  - '5.18'
+  - '5.16'
+  - '5.14'
+  - '5.12'
+  - '5.10'
+matrix:
+  allow_failures:
+    - perl: blead
+  include:
+    - env: COVERAGE=1
+      perl: '5.22'
+env:
+  global:
+    - RELEASE_TESTING=1
+    - AUTHOR_TESTING=1
 before_install:
-  - git clone git://github.com/travis-perl/helpers ~/travis-perl-helpers
-  - source ~/travis-perl-helpers/init
-  - build-perl
-  - perl -V
-  - cpanm --notest Devel::Cover::Report::Coveralls
-  - export AUTOMATED_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1 SKIP_POD_LINKCHECK=1
   - git submodule update --init --recursive
-
-install:
-  - cpan-install --deps
-
-script:
-  perl Makefile.PL build && cover -test
-
-after_success:
-  cover -report coveralls
-
+  - eval $(curl https://travis-perl.github.io/init) --auto
 notifications:
   email:
     recipients:
