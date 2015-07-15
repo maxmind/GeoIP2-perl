@@ -54,11 +54,11 @@ database.
 
 This class provides the following methods:
 
-=head2 $anon->is_anonynous()
+=head2 $anon->is_anonymous()
 
 Returns true if the IP address belongs to any sort of anonymous network.
 
-=head2 $anon->is_anonynous_vpn()
+=head2 $anon->is_anonymous_vpn()
 
 Returns true if the IP address belongs to an anonymous VPN system.
 
