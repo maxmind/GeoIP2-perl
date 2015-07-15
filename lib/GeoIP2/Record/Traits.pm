@@ -139,8 +139,9 @@ This attribute is returned by all end points.
 
 =head2 $traits_rec->is_satellite_provider()
 
-I<Deprecated.> Please see our L<GeoIP2 Anonymous IP
-database|https://www.maxmind.com/en/geoip2-anonymous-ip-database>.
+I<Deprecated.> Due to the increased coverage by mobile carriers, very few
+satellite providers now serve multiple countries. As a result, the
+output does not provide sufficiently relevant data for us to maintain it.
 
 This attribute is returned by all end points.
 
