@@ -122,6 +122,7 @@ my %tests = (
     },
     JSONObject => {
         accept => [
+            ## no critic (Modules::RequireExplicitInclusion)
             JSON->new(),
         ],
         reject => [

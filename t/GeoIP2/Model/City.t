@@ -16,7 +16,7 @@ use GeoIP2::Model::City;
     my %raw = (
         city => {
             geoname_id => 9876,
-            names      => { en => 'Minneapolis' },
+            names => { en => 'Minneapolis' },
         },
         continent => {
             code       => 'NA',

@@ -11,8 +11,7 @@ use GeoIP2::Model::Country;
     my $tb = Test::Builder->new();
 
     ## no critic (InputOutput::RequireCheckedSyscalls
-    binmode $_, ':encoding(UTF-8)'
-        for $tb->output(),
+    binmode $_, ':encoding(UTF-8)' for $tb->output(),
         $tb->failure_output(),
         $tb->todo_output();
     ## use critic

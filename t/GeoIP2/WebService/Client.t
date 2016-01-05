@@ -26,7 +26,7 @@ my %country = (
     },
     traits => {
         ip_address => '1.2.3.4',
-        ## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
+        ## no critic (Modules::RequireExplicitInclusion)
         is_anonymous_proxy => JSON->true
             ## use critic
     },
