@@ -32,6 +32,26 @@ L<MaxMind::DB::Reader::XS>, then the XS implementation will be loaded
 automatically. The XS implementation is approximately 100x faster than the
 pure Perl implementation.
 
+=head1 VALUES TO USE FOR DATABASE OR HASH KEYS
+
+B<We strongly discourage your from using a value from any C<names> accessor as
+a key in a database or hash.>
+
+These names may change between releases. Instead we recommend using one of the
+following:
+
+=over 4
+
+=item * L<GeoIP2::Record::City> - C<< $city->geoname_id >>
+
+=item * L<GeoIP2::Record::Continent> - C<< $continent->code >> or C<< $continent->geoname_id >>
+
+=item * L<GeoIP2::Record::Country> and L<GeoIP2::Record::RepresentedCountry> - C<< $country->iso_code >> or C<< $country->geoname_id >>
+
+=item * L<GeoIP2::Record::Subdivision> - C<< $subdivision->iso_code >> or C<< $subdivision->geoname_id >>
+
+=back
+
 =head1 INTEGRATION WITH GEONAMES
 
 GeoNames (L<http://www.geonames.org/>) offers web services and downloadable
