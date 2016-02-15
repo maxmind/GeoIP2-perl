@@ -34,7 +34,7 @@ pure Perl implementation.
 
 =head1 VALUES TO USE FOR DATABASE OR HASH KEYS
 
-B<We strongly discourage your from using a value from any C<names> accessor as
+B<We strongly discourage you from using a value from any C<names> accessor as
 a key in a database or hash.>
 
 These names may change between releases. Instead we recommend using one of the
