@@ -310,7 +310,7 @@ This method returns a L<GeoIP2::Model::AnonymousIP> object.
 
 =head2 $reader->metadata()
 
-This method returns a L<MaxMind::DB:Metadata> object containing information
+This method returns a L<MaxMind::DB::Metadata> object containing information
 about the database.
 
 =head1 EXCEPTIONS
