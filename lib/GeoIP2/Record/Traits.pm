@@ -24,6 +24,12 @@ has autonomous_system_organization => (
     predicate => 'has_autonomous_system_organization',
 );
 
+has connection_type => (
+    is        => 'ro',
+    isa       => Str,
+    predicate => 'has_connection_type',
+);
+
 has domain => (
     is        => 'ro',
     isa       => Str,
@@ -31,6 +37,13 @@ has domain => (
 );
 
 has is_anonymous_proxy => (
+    is      => 'ro',
+    isa     => Bool,
+    default => quote_sub(q{ 0 }),
+    coerce  => BoolCoercion,
+);
+
+has is_legitimate_proxy => (
     is      => 'ro',
     isa     => Bool,
     default => quote_sub(q{ 0 }),
@@ -101,7 +114,7 @@ This returns the autonomous system number
 the IP address.
 
 This attribute is only available from the City and Insights web service
-endpoints.
+endpoints and the GeoIP2 Enterprise database.
 
 =head2 $traits_rec->autonomous_system_organization()
 
@@ -110,7 +123,15 @@ number (L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) for the IP
 address.
 
 This attribute is only available from the City and Insights web service
-endpoints.
+endpoints and the GeoIP2 Enterprise database.
+
+=head2 $traits_rec->connection_type()
+
+This returns the connection type associated with the IP address. It may take
+the following values: C<Dialup>, C<Cable/DSL>, C<Corporate>, or C<Cellular>.
+Additional values may be added in the future.
+
+This attribute is only available in the GeoIP2 Enterprise database.
 
 =head2 $traits_rec->domain()
 
@@ -118,7 +139,7 @@ This returns the second level domain associated with the IP address. This will
 be something like "example.com" or "example.co.uk", not "foo.example.com".
 
 This attribute is only available from the City and Insights web service
-endpoints.
+endpoints and the GeoIP2 Enterprise database.
 
 =head2 $traits_rec->ip_address()
 
@@ -137,6 +158,13 @@ determine whether the IP address is used by an anonymizing service.
 
 This attribute is returned by all end points.
 
+=head2 $traits_rec->is_legitimate_proxy()
+
+This attribute returns true if MaxMind believes this IP address to be a
+legitimate proxy, such as an internal VPN used by a corporation
+
+This attribute is only available in the GeoIP2 Enterprise database.
+
 =head2 $traits_rec->is_satellite_provider()
 
 I<Deprecated.> Due to the increased coverage by mobile carriers, very few
@@ -150,14 +178,14 @@ This attribute is returned by all end points.
 This returns the name of the ISP associated with the IP address.
 
 This attribute is only available from the City and Insights web service
-endpoints.
+endpoints and the GeoIP2 Enterprise database.
 
 =head2 $traits_rec->organization()
 
 This returns the name of the organization associated with the IP address.
 
 This attribute is only available from the City and Insights web service
-endpoints.
+endpoints and the GeoIP2 Enterprise database.
 
 =head2 $traits_rec->user_type()
 
@@ -198,4 +226,5 @@ the following values:
 
 =back
 
-This attribute is only available from the Insights end point.
+This attribute is only available from the Insights end point and the GeoIP2
+Enterprise database.

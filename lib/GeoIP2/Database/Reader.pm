@@ -14,6 +14,7 @@ use GeoIP2::Model::City;
 use GeoIP2::Model::ConnectionType;
 use GeoIP2::Model::Country;
 use GeoIP2::Model::Domain;
+use GeoIP2::Model::Enterprise;
 use GeoIP2::Model::Insights;
 use GeoIP2::Model::ISP;
 use GeoIP2::Types qw( Str );
@@ -140,6 +141,15 @@ sub domain {
         'Domain',
         type_check => qr/^GeoIP2-(?:Precision-)?Domain$/,
         is_flat    => 1,
+        @_
+    );
+}
+
+sub enterprise {
+    my $self = shift;
+    return $self->_model_for_address(
+        'Enterprise',
+        type_check => qr/^GeoIP2-Enterprise$/,
         @_
     );
 }
