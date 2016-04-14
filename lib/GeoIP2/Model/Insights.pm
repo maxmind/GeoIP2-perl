@@ -5,9 +5,6 @@ use warnings;
 
 our $VERSION = '2.002000';
 
-use GeoIP2::Types qw( HashRef object_isa_type );
-use Sub::Quote qw( quote_sub );
-
 use Moo;
 
 with 'GeoIP2::Role::Model::Location', 'GeoIP2::Role::Model::HasSubdivisions';
