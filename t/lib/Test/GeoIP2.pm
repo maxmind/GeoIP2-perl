@@ -144,7 +144,7 @@ sub test_model_class_with_unknown_keys {
 
     my %raw = (
         new_top_level => { foo => 42 },
-        city => {
+        city          => {
             confidence => 76,
             geoname_id => 9876,
             names      => { en => 'Minneapolis' },
