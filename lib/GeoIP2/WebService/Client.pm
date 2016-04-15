@@ -362,6 +362,12 @@ which represents part of the data returned by the web service.
 
 If the request fails, the client class throws an exception.
 
+=head1 IP GEOLOCATION USAGE
+
+IP geolocation is inherently imprecise. Locations are often near the center of
+the population. Any location provided by a GeoIP2 web service should not be
+used to identify a particular address or household.
+
 =head1 CONSTRUCTOR
 
 This class has a single constructor method:

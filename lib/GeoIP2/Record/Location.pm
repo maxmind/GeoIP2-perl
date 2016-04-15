@@ -99,15 +99,21 @@ This attribute is only available from the Insights end point.
 
 =head2 $location_rec->latitude()
 
-This returns the latitude of the location as a floating point number.
+The approximate latitude of the location associated with the IP address. This
+value is not precise and should not be used to identify a particular address
+or household.
 
-This attribute is returned by all end points except the Country end point.
+This attribute is returned by all end points and location databases except
+Country.
 
 =head2 $location_rec->longitude()
 
-This returns the longitude of the location as a floating point number.
+The approximate longitude of the location associated with the IP address. This
+value is not precise and should not be used to identify a particular address
+or household.
 
-This attribute is returned by all end points except the Country end point.
+This attribute is returned by all end points and location databases except
+Country.
 
 =head2 $location_rec->metro-code()
 
