@@ -6,6 +6,7 @@ CN
 GEONAMES
 GeoIP
 GeoLite
+GEOLOCATION
 GeoNames
 GitHub
 IANA
@@ -44,6 +45,7 @@ es
 foo
 fr
 geoip
+geolocation
 geoname_id
 hostname
 ip
