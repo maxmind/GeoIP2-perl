@@ -88,14 +88,16 @@ This class provides the following methods:
 This returns the radius in kilometers around the specified location where the
 IP address is likely to be.
 
-This attribute is only available from the Insights end point.
+This attribute is only available from the Insights end point and the GeoIP2
+Enterprise database.
 
 =head2 $location_rec->average_income()
 
 This returns a non-negative integer representing the average income in US
 dollars associated with the requested IP address.
 
-This attribute is only available from the Insights end point.
+This attribute is only available from the Insights end point and the GeoIP2
+Enterprise database.
 
 =head2 $location_rec->latitude()
 
@@ -128,7 +130,8 @@ This attribute is returned by all end points except the Country end point.
 Returns a non-negative integer representing the estimated population per square
 kilometer associated with the requested IP address.
 
-This attribute is only available from the Insights end point.
+This attribute is only available from the Insights end point and the GeoIP2
+Enterprise database.
 
 =head2 $location_rec->time_zone()
 
