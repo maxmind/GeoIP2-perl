@@ -23,12 +23,12 @@ __END__
 
   use GeoIP2::WebService::Client;
 
-  my $client = GeoIP2::WebService::Client->new(
-      user_id     => 42,
-      license_key => 'abcdef123456',
+  my $reader = GeoIP2::Database::Reader->new(
+      file    => '/path/to/database',
+      locales => [ 'en', 'de', ]
   );
 
-  my $enterprise = $client->enterprise( ip => '24.24.24.24' );
+  my $enterprise = $reader->enterprise( ip => '24.24.24.24' );
 
   my $city_rec = $enterprise->city();
   print $city_rec->name(), "\n";
