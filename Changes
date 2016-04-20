@@ -1,6 +1,7 @@
 {{$NEXT}}
 
-- Added support for the GeoIP Enterprise database.
+- Added support for the GeoIP2 Enterprise database.
+
 
 2.002000 2015-06-29
 

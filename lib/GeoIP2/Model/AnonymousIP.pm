@@ -3,7 +3,7 @@ package GeoIP2::Model::AnonymousIP;
 use strict;
 use warnings;
 
-our $VERSION = '2.002000';
+our $VERSION = '2.003000';
 
 use GeoIP2::Types qw( Bool );
 

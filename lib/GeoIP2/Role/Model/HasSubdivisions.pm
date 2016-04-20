@@ -3,7 +3,7 @@ package GeoIP2::Role::Model::HasSubdivisions;
 use strict;
 use warnings;
 
-our $VERSION = '2.002000';
+our $VERSION = '2.003000';
 
 use GeoIP2::Record::Subdivision;
 use GeoIP2::Types qw( ArrayRef object_isa_type );

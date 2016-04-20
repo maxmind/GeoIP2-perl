@@ -3,7 +3,7 @@ package GeoIP2::Role::Model;
 use strict;
 use warnings;
 
-our $VERSION = '2.002000';
+our $VERSION = '2.003000';
 
 use GeoIP2::Types qw( HashRef );
 
