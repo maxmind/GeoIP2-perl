@@ -66,4 +66,5 @@ This attribute is returned by all end points except the Country end point.
 This returns a value from 0-100 indicating MaxMind's confidence that the
 postal code is correct.
 
-This attribute is only available from the Insights end point.
+This attribute is only available from the Insights end point and the GeoIP2
+Enterprise database.

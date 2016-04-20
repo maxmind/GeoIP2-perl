@@ -26,6 +26,19 @@ library ([http://maxmind.github.io/libmaxminddb/](http://maxmind.github.io/libma
 automatically. The XS implementation is approximately 100x faster than the
 pure Perl implementation.
 
+# VALUES TO USE FOR DATABASE OR HASH KEYS
+
+**We strongly discourage you from using a value from any `names` accessor as
+a key in a database or hash.**
+
+These names may change between releases. Instead we recommend using one of the
+following:
+
+- [GeoIP2::Record::City](https://metacpan.org/pod/GeoIP2::Record::City) - `$city->geoname_id`
+- [GeoIP2::Record::Continent](https://metacpan.org/pod/GeoIP2::Record::Continent) - `$continent->code` or `$continent->geoname_id`
+- [GeoIP2::Record::Country](https://metacpan.org/pod/GeoIP2::Record::Country) and [GeoIP2::Record::RepresentedCountry](https://metacpan.org/pod/GeoIP2::Record::RepresentedCountry) - `$country->iso_code` or `$country->geoname_id`
+- [GeoIP2::Record::Subdivision](https://metacpan.org/pod/GeoIP2::Record::Subdivision) - `$subdivision->iso_code` or `$subdivision->geoname_id`
+
 # INTEGRATION WITH GEONAMES
 
 GeoNames ([http://www.geonames.org/](http://www.geonames.org/)) offers web services and downloadable
@@ -84,20 +97,21 @@ client API please see [http://www.maxmind.com/en/support](http://www.maxmind.com
 
 # AUTHORS
 
-- Dave Rolsky <drolsky@maxmind.com>
-- Greg Oschwald <goschwald@maxmind.com>
-- Mark Fowler <mfowler@maxmind.com>
-- Olaf Alders <oalders@maxmind.com>
+- Dave Rolsky &lt;drolsky@maxmind.com>
+- Greg Oschwald &lt;goschwald@maxmind.com>
+- Mark Fowler &lt;mfowler@maxmind.com>
+- Olaf Alders &lt;oalders@maxmind.com>
 
 # CONTRIBUTORS
 
-- Andy Jack <github@veracity.ca>
-- Graham Knop <haarg@haarg.org>
-- Mateu X Hunter <hunter@missoula.org>
+- Andy Jack &lt;github@veracity.ca>
+- E. Choroba &lt;choroba@matfyz.cz>
+- Graham Knop &lt;haarg@haarg.org>
+- Mateu X Hunter &lt;mhunter@maxmind.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 - 2015 by MaxMind, Inc..
+This software is copyright (c) 2013 - 2016 by MaxMind, Inc.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
