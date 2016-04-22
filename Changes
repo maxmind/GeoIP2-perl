@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- In 2.003000, Code::TidyAll::Plugin::SortLines::Naturally was mistakenly
+  included as a test dependency. It is now a develop dependency. GitHub #35.
+
+
 2.003000 2016-04-20
 
 - Added support for the GeoIP2 Enterprise database.
