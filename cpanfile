@@ -36,6 +36,7 @@ on 'test' => sub {
   requires "Test::Builder" => "0";
   requires "Test::Fatal" => "0";
   requires "Test::More" => "0.96";
+  requires "Test::Number::Delta" => "0";
   requires "base" => "0";
   requires "perl" => "5.010";
   requires "utf8" => "0";
@@ -51,7 +52,6 @@ on 'configure' => sub {
 };
 
 on 'develop' => sub {
-  requires "Code::TidyAll" => "0.24";
   requires "Code::TidyAll::Plugin::SortLines::Naturally" => "0";
   requires "File::Spec" => "0";
   requires "IO::Handle" => "0";

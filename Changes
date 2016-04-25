@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.003001 2016-04-25
+
 - In 2.003000, Code::TidyAll::Plugin::SortLines::Naturally was mistakenly
   included as a test dependency. It is now a develop dependency. GitHub #35.
 - Fixed test failures due to comparison of floating point numbers. GitHub #34.
