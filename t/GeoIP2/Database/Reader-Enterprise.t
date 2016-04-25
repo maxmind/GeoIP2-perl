@@ -3,6 +3,7 @@ use warnings;
 
 use Test::More;
 use Test::Fatal;
+use Test::Number::Delta;
 
 use GeoIP2::Database::Reader;
 use Path::Class qw( file );
@@ -74,8 +75,8 @@ use Path::Class qw( file );
 
     subtest location => sub {
         my $item = $enterprise->location;
-        is( $item->longitude,       -73.5549,           'longitude' );
-        is( $item->latitude,        42.3478,            'latitude' );
+        delta_ok( $item->longitude, -73.5549, 'longitude' );
+        delta_ok( $item->latitude,  42.3478,  'latitude' );
         is( $item->accuracy_radius, 27,                 'accuracy_radius' );
         is( $item->metro_code,      532,                'metro_code' );
         is( $item->time_zone,       'America/New_York', 'time_zone' );
