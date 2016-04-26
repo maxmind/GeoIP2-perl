@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Updated documentation to reflect that the accuracy radius is now included
+  in City.
+
+
 2.003001 2016-04-25
 
 - In 2.003000, Code::TidyAll::Plugin::SortLines::Naturally was mistakenly
