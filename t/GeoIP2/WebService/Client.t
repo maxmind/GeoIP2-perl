@@ -299,13 +299,13 @@ my $ua = Mock::LWP::UserAgent->new(
     my $e = exception { $client->country( ip => '1.2.3.8' ) };
     isa_ok(
         $e,
-        'GeoIP2::Error::HTTP',
+        'GeoIP2::Error::Generic',
         'exception thrown when web service returns a 4xx error with a JSON body but no code and error keys'
     );
 
     like(
         $e->message(),
-        qr/\Qit did not include the expected JSON body: Response contains JSON but it does not specify code or error keys/,
+        qr/\QResponse contains JSON but it does not specify code or error keys/,
         'error contains expected text'
     );
 }
