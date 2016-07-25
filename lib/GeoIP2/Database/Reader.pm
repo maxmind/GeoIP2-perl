@@ -331,7 +331,8 @@ about the database.
 
 =head1 EXCEPTIONS
 
-In the case of a fatal error, the reader will throw a L<GeoIP2::Error::Generic>
+In the case of a fatal error, the reader will throw a
+L<GeoIP2::Error::Generic> or L<GeoIP2::Error::IPAddressNotFound> exception
 object.
 
 This error class has an C<< $error->message() >> method and overload
