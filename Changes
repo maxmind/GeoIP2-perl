@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.003002 2016-11-21
+
 [ BUGFIXES ]
 
 - Exceptions are now correctly thrown for responses containing JSON but no code
