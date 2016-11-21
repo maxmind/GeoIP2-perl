@@ -7,6 +7,7 @@ use Test::More 0.88;
 use GeoIP2::Error::Type;
 use Try::Tiny;
 
+## no critic (TryTiny::RequireBlockTermination)
 try {
     thrower();
 }

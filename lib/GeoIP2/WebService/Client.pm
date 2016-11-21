@@ -74,6 +74,7 @@ has _json => (
 sub BUILD {
     my $self = shift;
 
+    ## no critic (TryTiny::RequireBlockTermination)
     my $self_version = try { 'v' . $self->VERSION() } || 'v?';
 
     my $ua = $self->ua();

@@ -4,7 +4,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 # VERSION
 
-version 2.003001
+version 2.003002
 
 # DESCRIPTION
 
@@ -97,17 +97,18 @@ client API please see [http://www.maxmind.com/en/support](http://www.maxmind.com
 
 # AUTHORS
 
-- Dave Rolsky &lt;drolsky@maxmind.com>
-- Greg Oschwald &lt;goschwald@maxmind.com>
-- Mark Fowler &lt;mfowler@maxmind.com>
-- Olaf Alders &lt;oalders@maxmind.com>
+- Dave Rolsky <drolsky@maxmind.com>
+- Greg Oschwald <goschwald@maxmind.com>
+- Mark Fowler <mfowler@maxmind.com>
+- Olaf Alders <oalders@maxmind.com>
 
 # CONTRIBUTORS
 
-- Andy Jack &lt;github@veracity.ca>
-- E. Choroba &lt;choroba@matfyz.cz>
-- Graham Knop &lt;haarg@haarg.org>
-- Mateu X Hunter &lt;mhunter@maxmind.com>
+- Andy Jack <github@veracity.ca>
+- E. Choroba <choroba@matfyz.cz>
+- Florian Ragwitz <rafl@debian.org>
+- Graham Knop <haarg@haarg.org>
+- Mateu X Hunter <mhunter@maxmind.com>
 
 # COPYRIGHT AND LICENSE
 
