@@ -1,9 +1,14 @@
 {{$NEXT}}
 
-- Updated documentation to clarify what the accuracy radius is and that it
-  is now included in City.
+[ BUGFIXES ]
+
 - Exceptions are now correctly thrown for responses containing JSON but no code
   or error keys.
+
+[ OTHER ]
+
+- Updated documentation to clarify what the accuracy radius is and that it
+  is now included in City.
 
 
 2.003001 2016-04-25
