@@ -1,5 +1,11 @@
 {{$NEXT}}
 
+[ ENHANCEMENTS ]
+
+- The enterprise() method on GeoIP2::Database::Reader now supports GeoIP2
+  Precision Enterprise databases.
+
+
 2.003002 2016-11-21
 
 [ BUGFIXES ]

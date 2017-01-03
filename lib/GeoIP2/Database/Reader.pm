@@ -149,7 +149,7 @@ sub enterprise {
     my $self = shift;
     return $self->_model_for_address(
         'Enterprise',
-        type_check => qr/^GeoIP2-Enterprise$/,
+        type_check => qr/^GeoIP2-(?:Precision-)?Enterprise$/,
         @_
     );
 }

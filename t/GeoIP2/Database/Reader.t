@@ -134,6 +134,7 @@ my @locales = qw( en de );
         country
         connection_type
         domain
+        enterprise
         isp
         anonymous_ip
     );
@@ -151,6 +152,8 @@ my @locales = qw( en de );
         'GeoIP2-Precision-Connection-Type' => { connection_type => 1 },
         'GeoIP2-Domain'                    => { domain          => 1 },
         'GeoIP2-Precision-Domain'          => { domain          => 1 },
+        'GeoIP2-Enterprise'                => { enterprise      => 1 },
+        'GeoIP2-Precision-Enterprise'      => { enterprise      => 1 },
         'GeoIP2-ISP'                       => { isp             => 1 },
         'GeoIP2-Precision-ISP'             => { isp             => 1 },
         'GeoIP2-Anonymous-IP'              => { anonymous_ip    => 1 },
