@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.010;
+use 5.008;
 
 use ExtUtils::MakeMaker;
 
@@ -17,7 +17,7 @@ my %WriteMakefileArgs = (
     "bin/web-service-request"
   ],
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.010",
+  "MIN_PERL_VERSION" => "5.008",
   "NAME" => "GeoIP2",
   "PREREQ_PM" => {
     "B" => 0,
@@ -43,6 +43,8 @@ my %WriteMakefileArgs = (
     "Try::Tiny" => 0,
     "URI" => 0,
     "lib" => 0,
+    "namespace::autoclean" => 0,
+    "namespace::clean" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -104,6 +106,8 @@ my %FallbackPrereqs = (
   "URI" => 0,
   "base" => 0,
   "lib" => 0,
+  "namespace::autoclean" => 0,
+  "namespace::clean" => 0,
   "strict" => 0,
   "utf8" => 0,
   "warnings" => 0
