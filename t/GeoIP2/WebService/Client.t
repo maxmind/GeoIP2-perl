@@ -549,6 +549,7 @@ done_testing();
     }
 }
 
+## no critic (Subroutines::ProhibitManyArgs)
 sub _response {
     my $endpoint     = shift;
     my $status       = shift;
@@ -592,3 +593,4 @@ sub _response {
         $encoded_body,
     );
 }
+## use critic

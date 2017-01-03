@@ -197,10 +197,10 @@ sub _handle_error_status {
         $self->_handle_4xx_status( $response, $status, $uri, $ip );
     }
     elsif ( $status =~ /^5/ ) {
-        $self->_handle_5xx_status( $response, $status, $uri );
+        $self->_handle_5xx_status( $status, $uri );
     }
     else {
-        $self->_handle_non_200_status( $response, $status, $uri );
+        $self->_handle_non_200_status( $status, $uri );
     }
 }
 
@@ -265,10 +265,9 @@ sub _handle_4xx_status {
 }
 
 sub _handle_5xx_status {
-    my $self     = shift;
-    my $response = shift;
-    my $status   = shift;
-    my $uri      = shift;
+    my $self   = shift;
+    my $status = shift;
+    my $uri    = shift;
 
     GeoIP2::Error::HTTP->throw(
         message     => "Received a server error ($status) for $uri",
@@ -278,10 +277,9 @@ sub _handle_5xx_status {
 }
 
 sub _handle_non_200_status {
-    my $self     = shift;
-    my $response = shift;
-    my $status   = shift;
-    my $uri      = shift;
+    my $self   = shift;
+    my $status = shift;
+    my $uri    = shift;
 
     GeoIP2::Error::HTTP->throw(
         message =>

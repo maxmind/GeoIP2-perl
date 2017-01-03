@@ -22,6 +22,7 @@ use Sub::Quote qw( quote_sub );
 
 with 'GeoIP2::Role::Model', 'GeoIP2::Role::HasLocales';
 
+## no critic (ProhibitUnusedPrivateSubroutines)
 sub _define_attributes_for_keys {
     my $class = shift;
     my @keys  = @_;

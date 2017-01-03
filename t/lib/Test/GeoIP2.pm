@@ -27,7 +27,7 @@ sub test_model_class {
         "$class->new returns"
     );
 
-    _shared_model_tests( $model, $class, $raw );
+    _shared_model_tests( $model, $raw );
 
     my @subdivisions = $model->subdivisions();
     for my $i ( 0 .. $#subdivisions ) {
@@ -57,9 +57,8 @@ sub test_model_class_with_empty_record {
         "$class object with no data except maxmind.queries_remaining & traits.ip_address"
     );
 
-    _shared_model_tests( $model, $class, \%raw );
+    _shared_model_tests( $model, \%raw );
 
-    my @subdivisions = $model->subdivisions();
     is(
         scalar $model->subdivisions(),
         0,
@@ -69,7 +68,6 @@ sub test_model_class_with_empty_record {
 
 sub _shared_model_tests {
     my $model = shift;
-    my $class = shift;
     my $raw   = shift;
 
     isa_ok(
