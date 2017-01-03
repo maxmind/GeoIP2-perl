@@ -6,8 +6,13 @@ use warnings;
 our $VERSION = '2.003003';
 
 use Moo;
+use namespace::autoclean;
 
 with 'GeoIP2::Role::Model::Location', 'GeoIP2::Role::Model::HasSubdivisions';
+
+## no critic (ProhibitUnusedPrivateSubroutines)
+sub _has { has(@_) }
+## use critic
 
 __PACKAGE__->_define_attributes_for_keys( __PACKAGE__->_all_record_names() );
 

@@ -7,6 +7,9 @@ use warnings;
 
 our $VERSION = '2.003003';
 
+use Moo;
+use namespace::autoclean;
+
 use Data::Validate::IP 0.19 qw( is_public_ipv4 is_public_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::HTTP;
@@ -28,8 +31,6 @@ use Scalar::Util qw( blessed );
 use Sub::Quote qw( quote_sub );
 use Try::Tiny;
 use URI;
-
-use Moo;
 
 with 'GeoIP2::Role::HasLocales';
 

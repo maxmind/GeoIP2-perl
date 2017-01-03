@@ -5,6 +5,9 @@ use warnings;
 
 our $VERSION = '2.003003';
 
+use Moo::Role;
+use namespace::autoclean;
+
 use B;
 use GeoIP2::Record::City;
 use GeoIP2::Record::Continent;
@@ -17,15 +20,13 @@ use GeoIP2::Record::Traits;
 use GeoIP2::Types qw( ArrayRef HashRef );
 use Sub::Quote qw( quote_sub );
 
-use Moo::Role;
-
 with 'GeoIP2::Role::Model', 'GeoIP2::Role::HasLocales';
 
 sub _define_attributes_for_keys {
     my $class = shift;
     my @keys  = @_;
 
-    my $has = $class->can('has');
+    my $has = $class->can('_has');
 
     for my $key (@keys) {
         my $record_class = __PACKAGE__->_record_class_for_key($key);

@@ -6,6 +6,7 @@ use warnings;
 our $VERSION = '2.003003';
 
 use Moo;
+use namespace::autoclean;
 
 extends 'Throwable::Error';
 
@@ -72,4 +73,3 @@ Returns the name of the type which failed validation.
 =head2 $error->value()
 
 Returns the value which triggered the validation failure.
-

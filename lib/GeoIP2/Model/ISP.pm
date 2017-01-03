@@ -5,9 +5,10 @@ use warnings;
 
 our $VERSION = '2.003003';
 
-use GeoIP2::Types qw( IPAddress NonNegativeInt Str );
-
 use Moo;
+use namespace::autoclean;
+
+use GeoIP2::Types qw( IPAddress NonNegativeInt Str );
 
 with 'GeoIP2::Role::Model::Flat', 'GeoIP2::Role::HasIPAddress';
 
@@ -93,4 +94,3 @@ This returns the name of the ISP associated with the IP address.
 =head2 $isp->organization()
 
 This returns the name of the organization associated with the IP address.
-
