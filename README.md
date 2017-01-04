@@ -111,6 +111,7 @@ Bugs may be submitted through [https://github.com/maxmind/GeoIP2-perl/issues](ht
 - Florian Ragwitz <rafl@debian.org>
 - Graham Knop <haarg@haarg.org>
 - Mateu X Hunter <mhunter@maxmind.com>
+- Narsimham Chelluri <nchelluri@users.noreply.github.com>
 
 # COPYRIGHT AND LICENSE
 

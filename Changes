@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.003003 2017-01-04
+
 [ ENHANCEMENTS ]
 
 - The enterprise() method on GeoIP2::Database::Reader now supports GeoIP2
