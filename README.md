@@ -4,7 +4,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 # VERSION
 
-version 2.003002
+version 2.003003
 
 # DESCRIPTION
 
@@ -95,6 +95,8 @@ Please report all issues with this code using the GitHub issue tracker at
 If you are having an issue with a MaxMind service that is not specific to the
 client API please see [http://www.maxmind.com/en/support](http://www.maxmind.com/en/support) for details.
 
+Bugs may be submitted through [https://github.com/maxmind/GeoIP2-perl/issues](https://github.com/maxmind/GeoIP2-perl/issues).
+
 # AUTHORS
 
 - Dave Rolsky <drolsky@maxmind.com>
@@ -112,7 +114,7 @@ client API please see [http://www.maxmind.com/en/support](http://www.maxmind.com
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 - 2016 by MaxMind, Inc.
+This software is copyright (c) 2013 - 2017 by MaxMind, Inc.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -5,12 +5,17 @@ use warnings;
 
 our $VERSION = '2.003003';
 
+use Moo;
+use namespace::autoclean;
+
 use GeoIP2::Types qw( HashRef object_isa_type );
 use Sub::Quote qw( quote_sub );
 
-use Moo;
-
 with 'GeoIP2::Role::Model::Location';
+
+## no critic (ProhibitUnusedPrivateSubroutines)
+sub _has { has(@_) }
+## use critic
 
 __PACKAGE__->_define_attributes_for_keys(
     qw( continent country maxmind registered_country traits ));

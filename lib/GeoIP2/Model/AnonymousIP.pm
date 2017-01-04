@@ -5,9 +5,10 @@ use warnings;
 
 our $VERSION = '2.003003';
 
-use GeoIP2::Types qw( Bool );
-
 use Moo;
+use namespace::autoclean;
+
+use GeoIP2::Types qw( Bool );
 
 with 'GeoIP2::Role::Model::Flat', 'GeoIP2::Role::HasIPAddress';
 

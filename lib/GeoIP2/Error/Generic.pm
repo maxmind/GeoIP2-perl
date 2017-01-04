@@ -6,6 +6,7 @@ use warnings;
 our $VERSION = '2.003003';
 
 use Moo;
+use namespace::autoclean;
 
 extends 'Throwable::Error';
 
@@ -47,4 +48,3 @@ not add any additional attributes.
 
 This class has two methods, C<< $error->message() >>, and C<<
 $error->stack_trace() >>. Both methods are inherited from L<Throwable::Error>.
-

@@ -5,9 +5,10 @@ use warnings;
 
 our $VERSION = '2.003003';
 
-use GeoIP2::Types qw( HashRef );
-
 use Moo::Role;
+use namespace::autoclean;
+
+use GeoIP2::Types qw( HashRef );
 
 has raw => (
     is       => 'ro',

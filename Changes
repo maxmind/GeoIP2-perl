@@ -1,5 +1,16 @@
 {{$NEXT}}
 
+[ ENHANCEMENTS ]
+
+- The enterprise() method on GeoIP2::Database::Reader now supports GeoIP2
+  Precision Enterprise databases.
+
+[ OTHER ]
+
+- namespace::autoclean is now used to remove imported functions from class
+  namespaces.
+
+
 2.003002 2016-11-21
 
 [ BUGFIXES ]

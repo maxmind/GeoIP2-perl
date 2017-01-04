@@ -7,6 +7,9 @@ use warnings;
 
 our $VERSION = '2.003003';
 
+use Moo;
+use namespace::autoclean;
+
 use Data::Validate::IP 0.19 qw( is_public_ipv4 is_public_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::HTTP;
@@ -28,8 +31,6 @@ use Scalar::Util qw( blessed );
 use Sub::Quote qw( quote_sub );
 use Try::Tiny;
 use URI;
-
-use Moo;
 
 with 'GeoIP2::Role::HasLocales';
 
@@ -196,10 +197,10 @@ sub _handle_error_status {
         $self->_handle_4xx_status( $response, $status, $uri, $ip );
     }
     elsif ( $status =~ /^5/ ) {
-        $self->_handle_5xx_status( $response, $status, $uri );
+        $self->_handle_5xx_status( $status, $uri );
     }
     else {
-        $self->_handle_non_200_status( $response, $status, $uri );
+        $self->_handle_non_200_status( $status, $uri );
     }
 }
 
@@ -264,10 +265,9 @@ sub _handle_4xx_status {
 }
 
 sub _handle_5xx_status {
-    my $self     = shift;
-    my $response = shift;
-    my $status   = shift;
-    my $uri      = shift;
+    my $self   = shift;
+    my $status = shift;
+    my $uri    = shift;
 
     GeoIP2::Error::HTTP->throw(
         message     => "Received a server error ($status) for $uri",
@@ -277,10 +277,9 @@ sub _handle_5xx_status {
 }
 
 sub _handle_non_200_status {
-    my $self     = shift;
-    my $response = shift;
-    my $status   = shift;
-    my $uri      = shift;
+    my $self   = shift;
+    my $status = shift;
+    my $uri    = shift;
 
     GeoIP2::Error::HTTP->throw(
         message =>

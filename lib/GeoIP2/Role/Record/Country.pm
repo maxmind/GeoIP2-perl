@@ -5,9 +5,10 @@ use warnings;
 
 our $VERSION = '2.003003';
 
-use GeoIP2::Types qw( NonNegativeInt PositiveInt Str );
-
 use Moo::Role;
+use namespace::autoclean;
+
+use GeoIP2::Types qw( NonNegativeInt PositiveInt Str );
 
 with 'GeoIP2::Role::Record::HasNames';
 

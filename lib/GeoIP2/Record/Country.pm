@@ -6,6 +6,7 @@ use warnings;
 our $VERSION = '2.003003';
 
 use Moo;
+use namespace::autoclean;
 
 with 'GeoIP2::Role::Record::Country';
 

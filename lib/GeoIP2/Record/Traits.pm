@@ -5,10 +5,11 @@ use warnings;
 
 our $VERSION = '2.003003';
 
+use Moo;
+use namespace::autoclean;
+
 use GeoIP2::Types qw( Bool BoolCoercion IPAddress NonNegativeInt Str );
 use Sub::Quote qw( quote_sub );
-
-use Moo;
 
 with 'GeoIP2::Role::HasIPAddress';
 

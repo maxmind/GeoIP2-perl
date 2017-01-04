@@ -12,6 +12,8 @@ use Scalar::Util    ();
 use Sub::Quote qw( quote_sub );
 use URI;
 
+use namespace::clean;
+
 use Exporter qw( import );
 
 our @EXPORT_OK = qw(
