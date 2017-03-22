@@ -6,7 +6,8 @@ use warnings;
 our $VERSION = '2.003004';
 
 use Moo::Role;
-use namespace::autoclean;
+
+use namespace::clean;
 
 around BUILDARGS => sub {
     my $orig = shift;

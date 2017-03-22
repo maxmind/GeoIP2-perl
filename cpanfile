@@ -21,7 +21,6 @@ requires "Throwable::Error" => "0";
 requires "Try::Tiny" => "0";
 requires "URI" => "0";
 requires "lib" => "0";
-requires "namespace::autoclean" => "0";
 requires "namespace::clean" => "0";
 requires "perl" => "5.008";
 requires "strict" => "0";

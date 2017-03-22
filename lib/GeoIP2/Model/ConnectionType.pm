@@ -6,9 +6,10 @@ use warnings;
 our $VERSION = '2.003004';
 
 use Moo;
-use namespace::autoclean;
 
 use GeoIP2::Types qw( IPAddress Str );
+
+use namespace::clean -except => 'meta';
 
 with 'GeoIP2::Role::Model::Flat', 'GeoIP2::Role::HasIPAddress';
 

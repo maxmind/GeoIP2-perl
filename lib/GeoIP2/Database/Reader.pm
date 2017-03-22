@@ -6,7 +6,6 @@ use warnings;
 our $VERSION = '2.003004';
 
 use Moo;
-use namespace::autoclean;
 
 use Data::Validate::IP 0.24
     qw( is_ipv4 is_ipv6 is_private_ipv4 is_private_ipv6 );
@@ -22,6 +21,8 @@ use GeoIP2::Model::Insights;
 use GeoIP2::Model::ISP;
 use GeoIP2::Types qw( Str );
 use MaxMind::DB::Reader 1.000000;
+
+use namespace::clean -except => 'meta';
 
 with 'GeoIP2::Role::HasLocales';
 
