@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.003004 2017-03-23
+
 - Replace use of namespace::autoclean with namespace::clean.
   namespace::autoclean appears to be causing occasional load-order compilation
   failures when the GeoIP2 Moo classes are inflated into Moose classes.
