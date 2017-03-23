@@ -6,9 +6,10 @@ use warnings;
 our $VERSION = '2.003004';
 
 use Moo;
-use namespace::autoclean;
 
 use GeoIP2::Types qw( NonNegativeInt Num PositiveInt Str );
+
+use namespace::clean -except => 'meta';
 
 has accuracy_radius => (
     is        => 'ro',

@@ -6,7 +6,8 @@ use warnings;
 our $VERSION = '2.003004';
 
 use Moo;
-use namespace::autoclean;
+
+use namespace::clean -except => 'meta';
 
 with 'GeoIP2::Role::Error::HTTP';
 

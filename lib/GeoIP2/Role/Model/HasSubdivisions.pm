@@ -6,11 +6,12 @@ use warnings;
 our $VERSION = '2.003004';
 
 use Moo::Role;
-use namespace::autoclean;
 
 use GeoIP2::Record::Subdivision;
 use GeoIP2::Types qw( ArrayRef object_isa_type );
 use Sub::Quote qw( quote_sub );
+
+use namespace::clean;
 
 with 'GeoIP2::Role::HasLocales';
 

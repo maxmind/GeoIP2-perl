@@ -6,7 +6,6 @@ use warnings;
 our $VERSION = '2.003004';
 
 use Moo::Role;
-use namespace::autoclean;
 
 use B;
 use GeoIP2::Record::City;
@@ -19,6 +18,8 @@ use GeoIP2::Record::RepresentedCountry;
 use GeoIP2::Record::Traits;
 use GeoIP2::Types qw( ArrayRef HashRef );
 use Sub::Quote qw( quote_sub );
+
+use namespace::clean;
 
 with 'GeoIP2::Role::Model', 'GeoIP2::Role::HasLocales';
 

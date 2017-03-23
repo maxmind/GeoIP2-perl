@@ -6,10 +6,11 @@ use warnings;
 our $VERSION = '2.003004';
 
 use Moo;
-use namespace::autoclean;
 
 use GeoIP2::Types qw( HashRef object_isa_type );
 use Sub::Quote qw( quote_sub );
+
+use namespace::clean -except => 'meta';
 
 with 'GeoIP2::Role::Model::Location';
 
