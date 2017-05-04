@@ -113,7 +113,7 @@ sub asn {
     my $self = shift;
     return $self->_model_for_address(
         'ASN',
-        type_check => qr/^(?:GeoLite2|GeoIP2)-(?:Precision-)?ASN$/,
+        type_check => qr/^GeoLite2-ASN$/,
         is_flat    => 1,
         @_
     );
