@@ -11,7 +11,7 @@ use Path::Class qw( file );
 my @locales = qw( en de );
 
 {
-    for my $type (qw( Country City Precision-City )) {
+    for my $type (qw( Country City Precision-Enterprise )) {
 
         subtest "GeoIP2-$type" => sub {
             my $reader = GeoIP2::Database::Reader->new(
