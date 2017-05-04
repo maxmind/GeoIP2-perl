@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+- Added support for the GeoIP2 ASN database.
+
 2.003004 2017-03-23
 
 - Replace use of namespace::autoclean with namespace::clean.
