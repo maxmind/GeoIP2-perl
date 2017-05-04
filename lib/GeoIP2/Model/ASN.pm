@@ -25,12 +25,6 @@ has autonomous_system_organization => (
     predicate => 'has_autonomous_system_organization',
 );
 
-has organization => (
-    is        => 'ro',
-    isa       => Str,
-    predicate => 'has_organization',
-);
-
 1;
 
 # ABSTRACT: Model class for the GeoIP2 ASN database
