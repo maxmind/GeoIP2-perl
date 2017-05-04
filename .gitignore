@@ -20,3 +20,4 @@ blib*
 cover_db*
 foo
 pm_to_blib*
+*.sw*
