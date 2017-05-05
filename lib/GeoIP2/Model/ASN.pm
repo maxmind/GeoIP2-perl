@@ -27,7 +27,7 @@ has autonomous_system_organization => (
 
 1;
 
-# ABSTRACT: Model class for the GeoIP2 ASN database
+# ABSTRACT: Model class for the GeoLite2 ASN database
 
 __END__
 
@@ -50,7 +50,7 @@ __END__
 
 =head1 DESCRIPTION
 
-This class provides a model for the data returned by the GeoIP2 ASN database.
+This class provides a model for the data returned by the GeoLite2 ASN database.
 
 =head1 METHODS
 
