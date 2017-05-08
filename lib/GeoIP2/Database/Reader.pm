@@ -11,6 +11,7 @@ use Data::Validate::IP 0.24
     qw( is_ipv4 is_ipv6 is_private_ipv4 is_private_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
+use GeoIP2::Model::ASN;
 use GeoIP2::Model::AnonymousIP;
 use GeoIP2::Model::City;
 use GeoIP2::Model::ConnectionType;
@@ -105,6 +106,16 @@ sub _model_for_address {
     return $model_class->new(
         %{$geoip_record},
         locales => $self->locales,
+    );
+}
+
+sub asn {
+    my $self = shift;
+    return $self->_model_for_address(
+        'ASN',
+        type_check => qr/^GeoLite2-ASN$/,
+        is_flat    => 1,
+        @_
     );
 }
 
@@ -299,6 +310,10 @@ Unlike the web service client class, you cannot pass the string "me" as your ip
 address.
 
 =back
+
+=head2 $reader->asn()
+
+This method returns a L<GeoIP2::Model::ASN> object.
 
 =head2 $reader->connection_type()
 
