@@ -1,6 +1,6 @@
 {{$NEXT}}
 
-- Added support for the GeoIP2 ASN database.
+- Added support for the GeoLite2 ASN database.
 
 
 2.003004 2017-03-23
