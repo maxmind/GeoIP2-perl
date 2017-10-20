@@ -1,6 +1,6 @@
 requires "B" => "0";
 requires "Data::Dumper" => "0";
-requires "Data::Validate::IP" => "0.24";
+requires "Data::Validate::IP" => "0.25";
 requires "Exporter" => "0";
 requires "Getopt::Long" => "0";
 requires "HTTP::Headers" => "0";
@@ -78,6 +78,5 @@ on 'develop' => sub {
   requires "Test::Synopsis" => "0";
   requires "Test::Vars" => "0.009";
   requires "Test::Version" => "2.05";
-  requires "blib" => "1.01";
   requires "parent" => "0";
 };
