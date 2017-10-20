@@ -31,7 +31,6 @@ use GeoIP2::Model::Insights;
             names      => {
                 'de'    => 'Nordamerika',
                 'en'    => 'North America',
-                'ja'    => '北米',
                 'es'    => 'América del Norte',
                 'fr'    => 'Amérique du Nord',
                 'ja'    => '北アメリカ',
@@ -72,7 +71,7 @@ use GeoIP2::Model::Insights;
                 geoname_id => 574635,
                 iso_code   => 'MN',
                 names      => { en => 'Minnesota' },
-            }
+            },
         ],
         traits => {
             autonomous_system_number       => 1234,
@@ -94,13 +93,13 @@ use GeoIP2::Model::Insights;
 
             is(
                 $model->location->average_income, 12345,
-                'check average_income'
+                'check average_income',
             );
             is(
                 $model->location->population_density, 45678,
-                'check population_density'
+                'check population_density',
             );
-        }
+        },
     );
 }
 
