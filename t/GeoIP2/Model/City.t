@@ -29,7 +29,6 @@ use GeoIP2::Model::City;
             names      => {
                 'de'    => 'Nordamerika',
                 'en'    => 'North America',
-                'ja'    => '北米',
                 'es'    => 'América del Norte',
                 'fr'    => 'Amérique du Nord',
                 'ja'    => '北アメリカ',
@@ -66,7 +65,7 @@ use GeoIP2::Model::City;
                 geoname_id => 574635,
                 iso_code   => 'MN',
                 names      => { en => 'Minnesota' },
-            }
+            },
         ],
         traits => {
             autonomous_system_number       => 1234,

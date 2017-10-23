@@ -9,7 +9,7 @@ our $VERSION = '2.003006';
 
 use Moo;
 
-use Data::Validate::IP 0.19 qw( is_public_ipv4 is_public_ipv6 );
+use Data::Validate::IP 0.25 qw( is_public_ip );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::HTTP;
 use GeoIP2::Error::IPAddressNotFound;
@@ -128,8 +128,7 @@ my %spec = (
             'is a public IP address or me' => sub {
                 return defined $_[0]
                     && ( $_[0] eq 'me'
-                    || is_public_ipv4( $_[0] )
-                    || is_public_ipv6( $_[0] ) );
+                    || is_public_ip( $_[0] ) );
             }
         },
     },
