@@ -94,8 +94,7 @@ sub HashRef () {
 sub IPAddress {
     return quote_sub(
         q{ GeoIP2::Types::_tc_fail( $_[0], 'IPAddress' )
-               unless Data::Validate::IP::is_ipv4( $_[0] )
-               || Data::Validate::IP::is_ipv6( $_[0] ); }
+               unless Data::Validate::IP::is_ip( $_[0] ); }
     );
 }
 

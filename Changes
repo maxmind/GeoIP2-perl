@@ -1,6 +1,9 @@
 {{$NEXT}}
 
 - Document $reader->enterprise()
+- Updated usage of Data::Validate::IP so that we don't do separate IPv4 and
+  IPv6 checks. This provides a very small performance gain.
+
 
 2.003005 2017-05-08
 
