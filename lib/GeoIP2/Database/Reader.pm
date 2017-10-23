@@ -334,6 +334,10 @@ This method returns a L<GeoIP2::Model::Domain> object.
 
 This method returns a L<GeoIP2::Model::ISP> object.
 
+=head2 $reader->enterprise()
+
+This method returns a L<GeoIP2::Model::Enterprise> object.
+
 =head2 $reader->anonymous_ip()
 
 This method returns a L<GeoIP2::Model::AnonymousIP> object.
