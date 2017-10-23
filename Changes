@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+- Document $reader->enterprise()
+
 2.003005 2017-05-08
 
 - Added support for the GeoLite2 ASN database.
