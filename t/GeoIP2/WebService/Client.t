@@ -105,6 +105,24 @@ my %responses = (
                 q{The ip address "1.2.3.14" was not found in our database},
         },
     ),
+    '1.2.3.15' => _response(
+        'insights',
+        200,
+        {
+            %country,
+            traits => {
+                ip_address            => '1.2.3.15',
+                is_anonymous          => JSON->true,
+                is_anonymous_proxy    => JSON->true,
+                is_anonymous_vpn      => JSON->true,
+                is_hosting_provider   => JSON->true,
+                is_legitimate_proxy   => JSON->true,
+                is_public_proxy       => JSON->true,
+                is_satellite_provider => JSON->true,
+                is_tor_exit_node      => JSON->true,
+            }
+        },
+    ),
 );
 
 my $ua = Mock::LWP::UserAgent->new(
@@ -112,7 +130,7 @@ my $ua = Mock::LWP::UserAgent->new(
         my $self    = shift;
         my $request = shift;
 
-        my ($ip) = $request->uri() =~ m{country/(.+)$};
+        my ($ip) = $request->uri() =~ m{(?:country|city|insights)/(.+)$};
 
         return $responses{$ip};
     }
@@ -199,6 +217,39 @@ subtest 'successful country request' => sub {
         'GeoIP2::Model::Country',
         'return value of $client->country with gzipped response'
     );
+};
+
+subtest 'successful Insights request' => sub {
+    my $client = GeoIP2::WebService::Client->new(
+        user_id     => 42,
+        license_key => 'abcdef123456',
+        ua          => $ua,
+    );
+
+    my $insights = $client->insights( ip => '1.2.3.15' );
+    isa_ok(
+        $insights,
+        'GeoIP2::Model::Insights',
+        'return value of $client->insights'
+    );
+
+    for my $attribute (
+        'is_anonymous',
+        'is_anonymous_proxy',
+        'is_anonymous_vpn',
+        'is_hosting_provider',
+        'is_legitimate_proxy',
+        'is_public_proxy',
+        'is_satellite_provider',
+        'is_tor_exit_node',
+        ) {
+
+        is(
+            $insights->traits->$attribute,
+            1,
+            "$attribute is 1"
+        );
+    }
 };
 
 subtest 'me parameter' => sub {
