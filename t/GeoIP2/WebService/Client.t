@@ -105,6 +105,24 @@ my %responses = (
                 q{The ip address "1.2.3.14" was not found in our database},
         },
     ),
+    '1.2.3.15' => _response(
+        'insights',
+        200,
+        {
+            %country,
+            traits => {
+                ip_address            => '1.2.3.15',
+                is_anonymous          => JSON->true,
+                is_anonymous_proxy    => JSON->true,
+                is_anonymous_vpn      => JSON->true,
+                is_hosting_provider   => JSON->true,
+                is_legitimate_proxy   => JSON->true,
+                is_public_proxy       => JSON->true,
+                is_satellite_provider => JSON->true,
+                is_tor_exit_node      => JSON->true,
+            }
+        },
+    ),
 );
 
 my $ua = Mock::LWP::UserAgent->new(
@@ -112,13 +130,13 @@ my $ua = Mock::LWP::UserAgent->new(
         my $self    = shift;
         my $request = shift;
 
-        my ($ip) = $request->uri() =~ m{country/(.+)$};
+        my ($ip) = $request->uri() =~ m{(?:country|city|insights)/(.+)$};
 
         return $responses{$ip};
     }
 );
 
-{
+subtest 'successful country request' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -199,9 +217,42 @@ my $ua = Mock::LWP::UserAgent->new(
         'GeoIP2::Model::Country',
         'return value of $client->country with gzipped response'
     );
-}
+};
 
-{
+subtest 'successful Insights request' => sub {
+    my $client = GeoIP2::WebService::Client->new(
+        user_id     => 42,
+        license_key => 'abcdef123456',
+        ua          => $ua,
+    );
+
+    my $insights = $client->insights( ip => '1.2.3.15' );
+    isa_ok(
+        $insights,
+        'GeoIP2::Model::Insights',
+        'return value of $client->insights'
+    );
+
+    for my $attribute (
+        'is_anonymous',
+        'is_anonymous_proxy',
+        'is_anonymous_vpn',
+        'is_hosting_provider',
+        'is_legitimate_proxy',
+        'is_public_proxy',
+        'is_satellite_provider',
+        'is_tor_exit_node',
+        ) {
+
+        is(
+            $insights->traits->$attribute,
+            1,
+            "$attribute is 1"
+        );
+    }
+};
+
+subtest 'me parameter' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -212,9 +263,9 @@ my $ua = Mock::LWP::UserAgent->new(
         $client->country( ip => 'me' ),
         'can set ip parameter to me'
     );
-}
+};
 
-{
+subtest 'invalid JSON' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -233,9 +284,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/could not decode the response as JSON/,
         'error contains expected text'
     );
-}
+};
 
-{
+subtest 'invalid IP' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -266,9 +317,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\QThe value "1.2.3" is not a valid ip address/,
         'error contains expected text'
     );
-}
+};
 
-{
+subtest 'no body' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -287,9 +338,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\QReceived a 400 error for \E.+\Q with no body/,
         'error contains expected text'
     );
-}
+};
 
-{
+subtest 'unexpected JSON response' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -308,9 +359,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\QResponse contains JSON but it does not specify code or error keys/,
         'error contains expected text'
     );
-}
+};
 
-{
+subtest 'non-JSON 4xx' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -329,9 +380,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\Qit did not include the expected JSON body:/,
         'error contains expected text'
     );
-}
+};
 
-{
+subtest '5xx error' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -350,9 +401,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\QReceived a server error (500) for \E.+/,
         'error contains expected text'
     );
-}
+};
 
-{
+subtest 'unexpected status code' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -371,9 +422,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\QReceived a very surprising HTTP status (300) for \E.+/,
         'error contains expected text'
     );
-}
+};
 
-{
+subtest 'request Accept header' => sub {
     my $test_ua = Mock::LWP::UserAgent->new(
         sub {
             my $self    = shift;
@@ -413,9 +464,9 @@ my $ua = Mock::LWP::UserAgent->new(
 
     $client->country( ip => '1.2.3.4' );
 
-}
+};
 
-{
+subtest 'User-Agent header' => sub {
     local $GeoIP2::WebService::Client::VERSION = 42;
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
@@ -441,9 +492,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\QPerl $^V/,
         'user agent includes Perl version'
     );
-}
+};
 
-{
+subtest '406 with no JSON' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -468,9 +519,9 @@ my $ua = Mock::LWP::UserAgent->new(
         qr/\QResponse contains JSON/,
         'error does not complain about JSON issues when Content-Type for error is text/plain'
     );
-}
+};
 
-{
+subtest 'client-side IP validation' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -492,9 +543,9 @@ my $ua = Mock::LWP::UserAgent->new(
             qq{client rejects ip address '$bad'}
         );
     }
-}
+};
 
-{
+subtest 'IP not found' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
@@ -513,7 +564,7 @@ my $ua = Mock::LWP::UserAgent->new(
         '1.2.3.14',
         'exception ip_address() method returns the IP address'
     );
-}
+};
 
 done_testing();
 

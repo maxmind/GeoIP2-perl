@@ -3,7 +3,7 @@ package GeoIP2::Record::Traits;
 use strict;
 use warnings;
 
-our $VERSION = '2.003006';
+our $VERSION = '2.004000';
 
 use Moo;
 
@@ -38,26 +38,21 @@ has domain => (
     predicate => 'has_domain',
 );
 
-has is_anonymous_proxy => (
+has [
+    'is_anonymous',
+    'is_anonymous_proxy',
+    'is_anonymous_vpn',
+    'is_hosting_provider',
+    'is_legitimate_proxy',
+    'is_public_proxy',
+    'is_satellite_provider',
+    'is_tor_exit_node',
+    ] => (
     is      => 'ro',
     isa     => Bool,
     default => quote_sub(q{ 0 }),
     coerce  => BoolCoercion,
-);
-
-has is_legitimate_proxy => (
-    is      => 'ro',
-    isa     => Bool,
-    default => quote_sub(q{ 0 }),
-    coerce  => BoolCoercion,
-);
-
-has is_satellite_provider => (
-    is      => 'ro',
-    isa     => Bool,
-    default => quote_sub(q{ 0 }),
-    coerce  => BoolCoercion,
-);
+    );
 
 has isp => (
     is        => 'ro',
@@ -152,13 +147,35 @@ behind a NAT, this may differ from the IP address locally assigned to it.
 
 This attribute is returned by all end points.
 
+=head2 $traits_rec->is_anonymous()
+
+This returns a true value if the IP address belongs to any sort of anonymous
+network and a false value otherwise.
+
+This attribute is only available from the Insights web service.
+
 =head2 $traits_rec->is_anonymous_proxy()
 
 I<Deprecated.> Please see our L<GeoIP2 Anonymous IP
-database|https://www.maxmind.com/en/geoip2-anonymous-ip-database> to
-determine whether the IP address is used by an anonymizing service.
+database|https://www.maxmind.com/en/geoip2-anonymous-ip-database> or our
+L<GeoIP2 Precision Insights service|https://www.maxmind.com/en/geoip2-precision-insights>
+to determine whether the IP address is used by an anonymizing service.
 
 This attribute is returned by all end points.
+
+=head2 $traits_rec->is_anonymous_vpn()
+
+This returns a true value if the IP address belongs to an anonymous VPN
+system and a false value otherwise.
+
+This attribute is only available from the Insights web service.
+
+=head2 $traits_rec->is_hosting_provider()
+
+This returns a true value if the IP address belongs to a hosting provider and
+a false value otherwise.
+
+This attribute is only available from the Insights web service.
 
 =head2 $traits_rec->is_legitimate_proxy()
 
@@ -167,6 +184,13 @@ legitimate proxy, such as an internal VPN used by a corporation
 
 This attribute is only available in the GeoIP2 Enterprise database.
 
+=head2 $traits_rec->is_public_proxy()
+
+This returns a true value if the IP address belongs to a public proxy and
+a false value otherwise.
+
+This attribute is only available from the Insights web service.
+
 =head2 $traits_rec->is_satellite_provider()
 
 I<Deprecated.> Due to the increased coverage by mobile carriers, very few
@@ -174,6 +198,13 @@ satellite providers now serve multiple countries. As a result, the
 output does not provide sufficiently relevant data for us to maintain it.
 
 This attribute is returned by all end points.
+
+=head2 $traits_rec->is_tor_exit_node()
+
+This returns a true value if the IP address is a Tor exit node and a false
+value otherwise.
+
+This attribute is only available from the Insights web service.
 
 =head2 $traits_rec->isp()
 
