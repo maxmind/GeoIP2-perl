@@ -7,7 +7,7 @@ our $VERSION = '2.004000';
 
 use Data::Validate::IP ();
 use GeoIP2::Error::Type;
-use List::MoreUtils ();
+use List::SomeUtils ();
 use Scalar::Util    ();
 use Sub::Quote qw( quote_sub );
 use URI;
@@ -121,7 +121,7 @@ sub JSONObject () {
                    unless ref $_[0]
                    && Scalar::Util::reftype( $_[0] ) eq 'ARRAY'
                    && !Scalar::Util::blessed( $_[0] )
-                   && List::MoreUtils::all(
+                   && List::SomeUtils::all(
                    sub { defined $_ && !ref $_ && $GeoIP2::Types::_SupportedLangs{$_} },
                    @{ $_[0] }
                    ); }
@@ -160,7 +160,7 @@ sub NameHashRef () {
                unless ref $_[0]
                && Scalar::Util::reftype( $_[0] ) eq 'HASH'
                && ! Scalar::Util::blessed( $_[0] )
-               && &List::MoreUtils::all( sub { defined $_ && ! ref $_ }, values %{ $_[0] } ); }
+               && &List::SomeUtils::all( sub { defined $_ && ! ref $_ }, values %{ $_[0] } ); }
     );
 }
 
