@@ -28,7 +28,6 @@ my %country = (
         ip_address => '1.2.3.4',
         ## no critic (Modules::RequireExplicitInclusion)
         is_anonymous_proxy => JSON->true
-            ## use critic
     },
 );
 
@@ -111,7 +110,8 @@ my %responses = (
         {
             %country,
             traits => {
-                ip_address            => '1.2.3.15',
+                ip_address => '1.2.3.15',
+                ## no critic (Modules::RequireExplicitInclusion)
                 is_anonymous          => JSON->true,
                 is_anonymous_proxy    => JSON->true,
                 is_anonymous_vpn      => JSON->true,
