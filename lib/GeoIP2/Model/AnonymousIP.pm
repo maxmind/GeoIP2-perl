@@ -19,11 +19,11 @@ has [
     'is_hosting_provider',
     'is_public_proxy',
     'is_tor_exit_node'
-    ] => (
+] => (
     is      => 'ro',
     isa     => Bool,
     default => 0,
-    );
+);
 
 1;
 

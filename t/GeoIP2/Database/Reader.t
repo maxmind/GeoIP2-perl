@@ -17,7 +17,7 @@ my @locales = qw( en de );
             my $reader = GeoIP2::Database::Reader->new(
                 file => file(
                     'maxmind-db', 'test-data', "GeoIP2-$type-Test.mmdb"
-                    )->stringify,
+                )->stringify,
                 locales => \@locales
             );
 

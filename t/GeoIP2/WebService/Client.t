@@ -242,7 +242,7 @@ subtest 'successful Insights request' => sub {
         'is_public_proxy',
         'is_satellite_provider',
         'is_tor_exit_node',
-        ) {
+    ) {
 
         is(
             $insights->traits->$attribute,
