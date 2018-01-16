@@ -70,9 +70,9 @@ my @locales = qw( en de );
             my $model_obj = $reader->$model( ip => $ip );
 
             is(
-                $model_obj->country->name,
-                'United Kingdom',
-                "country name - $model method"
+                $model_obj->country->is_in_european_union,
+                1,
+                "country is_in_european_union - $model method"
             );
 
             is(
@@ -107,6 +107,13 @@ my @locales = qw( en de );
                 $model_obj->city->name, 'London',
                 "city name - $model method"
             );
+
+            is(
+                $model_obj->country->name,
+                'United Kingdom',
+                "country name - $model method"
+            );
+
             is(
                 $model_obj->location->accuracy_radius, 100,
                 'accuracy_radius'

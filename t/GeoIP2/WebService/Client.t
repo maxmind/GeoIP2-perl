@@ -187,6 +187,12 @@ subtest 'successful country request' => sub {
     );
 
     is(
+        $country->country->is_in_european_union,
+        0,
+        'country is_in_european_union is 0'
+    );
+
+    is(
         $country->country->iso_code,
         'US',
         'country iso_code is US'

@@ -7,11 +7,25 @@ our $VERSION = '2.004001';
 
 use Moo::Role;
 
-use GeoIP2::Types qw( NonNegativeInt PositiveInt Str );
+use GeoIP2::Types qw(
+    Bool
+    BoolCoercion
+    NonNegativeInt
+    PositiveInt
+    Str
+);
+use Sub::Quote qw( quote_sub );
 
 use namespace::clean;
 
 with 'GeoIP2::Role::Record::HasNames';
+
+has is_in_european_union => (
+    is      => 'ro',
+    isa     => Bool,
+    default => quote_sub(q{ 0 }),
+    coerce  => BoolCoercion,
+);
 
 has iso_code => (
     is        => 'ro',

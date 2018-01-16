@@ -1,5 +1,10 @@
 {{$NEXT}}
 
+- The is_in_european_union() attribute was added to GeoIP2::Record::Country
+  and GeoIP2::Record::RepresentedCountry. This attribute is true if the
+  country is a member state of the European Union.
+
+
 2.004000 2017-10-27
 
 - The following new anonymizer attributes were added to GeoIP2::Record::Traits

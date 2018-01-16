@@ -21,9 +21,10 @@ use GeoIP2::Model::Country;
             queries_remaining => 42,
         },
         registered_country => {
-            geoname_id => 2,
-            iso_code   => 'CA',
-            names      => { en => 'Canada' },
+            geoname_id           => 2,
+            is_in_european_union => 1,
+            iso_code             => 'DE',
+            names                => { en => 'Germany' },
         },
         traits => {
             ip_address => '1.2.3.4',
@@ -99,6 +100,12 @@ use GeoIP2::Model::Country;
     );
 
     is(
+        $model->country->is_in_european_union,
+        0,
+        'country is_in_european_union is 0'
+    );
+
+    is(
         $model->country->iso_code,
         'US',
         'country iso_code is US'
@@ -129,21 +136,27 @@ use GeoIP2::Model::Country;
     );
 
     is(
+        $model->registered_country->is_in_european_union,
+        1,
+        'registered_country is_in_european_union is 1'
+    );
+
+    is(
         $model->registered_country->iso_code,
-        'CA',
-        'registered_country iso_code is CA'
+        'DE',
+        'registered_country iso_code is DE'
     );
 
     is_deeply(
         $model->registered_country->names,
-        { en => 'Canada' },
+        { en => 'Germany' },
         'registered_country names'
     );
 
     is(
         $model->registered_country->name,
-        'Canada',
-        'registered_country name is Canada'
+        'Germany',
+        'registered_country name is Germany'
     );
 
     for my $meth (qw( is_anonymous_proxy is_satellite_provider )) {
