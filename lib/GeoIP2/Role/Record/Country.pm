@@ -3,7 +3,7 @@ package GeoIP2::Role::Record::Country;
 use strict;
 use warnings;
 
-our $VERSION = '2.004001';
+our $VERSION = '2.005000';
 
 use Moo::Role;
 
