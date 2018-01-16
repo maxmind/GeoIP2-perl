@@ -130,7 +130,7 @@ my $ua = Mock::LWP::UserAgent->new(
         my $self    = shift;
         my $request = shift;
 
-        my ($ip) = $request->uri() =~ m{(?:country|city|insights)/(.+)$};
+        my ($ip) = $request->uri =~ m{(?:country|city|insights)/(.+)$};
 
         return $responses{$ip};
     }
@@ -157,49 +157,49 @@ subtest 'successful country request' => sub {
     );
 
     is(
-        $country->continent()->geoname_id(),
+        $country->continent->geoname_id,
         42,
         'continent geoname_id is 42'
     );
 
     is(
-        $country->continent()->code(),
+        $country->continent->code,
         'NA',
         'continent code is NA'
     );
 
     is_deeply(
-        $country->continent()->names(),
+        $country->continent->names,
         { en => 'North America' },
         'continent names'
     );
 
     is(
-        $country->continent()->name(),
+        $country->continent->name,
         'North America',
         'continent name is North America'
     );
 
     is(
-        $country->country()->geoname_id(),
+        $country->country->geoname_id,
         1,
         'country geoname_id is 1'
     );
 
     is(
-        $country->country()->iso_code(),
+        $country->country->iso_code,
         'US',
         'country iso_code is US'
     );
 
     is_deeply(
-        $country->country()->names(),
+        $country->country->names,
         { en => 'United States of America' },
         'country names'
     );
 
     is(
-        $country->country()->name(),
+        $country->country->name,
         'United States of America',
         'country name is United States of America'
     );
@@ -280,7 +280,7 @@ subtest 'invalid JSON' => sub {
     );
 
     like(
-        $e->message(),
+        $e->message,
         qr/could not decode the response as JSON/,
         'error contains expected text'
     );
@@ -301,19 +301,19 @@ subtest 'invalid IP' => sub {
     );
 
     is(
-        $e->code(),
+        $e->code,
         'IP_ADDRESS_INVALID',
         'exception object contains expected code'
     );
 
     is(
-        $e->http_status(),
+        $e->http_status,
         400,
         'exception object contains expected http_status'
     );
 
     like(
-        $e->message(),
+        $e->message,
         qr/\QThe value "1.2.3" is not a valid ip address/,
         'error contains expected text'
     );
@@ -334,7 +334,7 @@ subtest 'no body' => sub {
     );
 
     like(
-        $e->message(),
+        $e->message,
         qr/\QReceived a 400 error for \E.+\Q with no body/,
         'error contains expected text'
     );
@@ -355,7 +355,7 @@ subtest 'unexpected JSON response' => sub {
     );
 
     like(
-        $e->message(),
+        $e->message,
         qr/\QResponse contains JSON but it does not specify code or error keys/,
         'error contains expected text'
     );
@@ -376,7 +376,7 @@ subtest 'non-JSON 4xx' => sub {
     );
 
     like(
-        $e->message(),
+        $e->message,
         qr/\Qit did not include the expected JSON body:/,
         'error contains expected text'
     );
@@ -397,7 +397,7 @@ subtest '5xx error' => sub {
     );
 
     like(
-        $e->message(),
+        $e->message,
         qr/\QReceived a server error (500) for \E.+/,
         'error contains expected text'
     );
@@ -418,7 +418,7 @@ subtest 'unexpected status code' => sub {
     );
 
     like(
-        $e->message(),
+        $e->message,
         qr/\QReceived a very surprising HTTP status (300) for \E.+/,
         'error contains expected text'
     );
@@ -431,13 +431,13 @@ subtest 'request Accept header' => sub {
             my $request = shift;
 
             is(
-                $request->uri(),
+                $request->uri,
                 'https://geoip.maxmind.com/geoip/v2.1/country/1.2.3.4',
                 'got expected URI for Country request'
             );
 
             is(
-                $request->method(),
+                $request->method,
                 'GET',
                 'request is a GET'
             );
@@ -474,21 +474,21 @@ subtest 'User-Agent header' => sub {
     );
 
     like(
-        $client->ua()->agent(),
+        $client->ua->agent,
         qr/\QGeoIP2::WebService::Client v42/,
         'user agent includes client package and version'
     );
 
-    my $ua_version = $client->ua()->VERSION();
+    my $ua_version = $client->ua->VERSION;
 
     like(
-        $client->ua()->agent(),
+        $client->ua->agent,
         qr/\QLWP::UserAgent v$ua_version/,
         'user agent includes user agent package and version'
     );
 
     like(
-        $client->ua()->agent(),
+        $client->ua->agent,
         qr/\QPerl $^V/,
         'user agent includes Perl version'
     );
@@ -509,13 +509,13 @@ subtest '406 with no JSON' => sub {
     );
 
     like(
-        $e->message(),
+        $e->message,
         qr{\QReceived a 406 error for https://geoip.maxmind.com/geoip/v2.1/country/1.2.3.12 with the following body: Cannot satisfy your Accept-Charset requirements},
         'error contains expected text'
     );
 
     unlike(
-        $e->message(),
+        $e->message,
         qr/\QResponse contains JSON/,
         'error does not complain about JSON issues when Content-Type for error is text/plain'
     );
@@ -609,7 +609,7 @@ sub _response {
     my $content_type = shift;
     my $gzip         = shift;
 
-    my $headers = HTTP::Headers->new();
+    my $headers = HTTP::Headers->new;
 
     if ($content_type) {
         $headers->header( 'Content-Type' => $content_type );

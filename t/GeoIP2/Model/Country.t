@@ -39,123 +39,123 @@ use GeoIP2::Model::Country;
     );
 
     isa_ok(
-        $model->continent(),
+        $model->continent,
         'GeoIP2::Record::Continent',
-        '$model->continent()'
+        '$model->continent'
     );
 
     isa_ok(
-        $model->country(),
+        $model->country,
         'GeoIP2::Record::Country',
-        '$model->country()'
+        '$model->country'
     );
 
     isa_ok(
-        $model->maxmind(),
+        $model->maxmind,
         'GeoIP2::Record::MaxMind',
-        '$model->maxmind()'
+        '$model->maxmind'
     );
 
     isa_ok(
-        $model->registered_country(),
+        $model->registered_country,
         'GeoIP2::Record::Country',
-        '$model->registered_country()'
+        '$model->registered_country'
     );
 
     isa_ok(
-        $model->traits(),
+        $model->traits,
         'GeoIP2::Record::Traits',
-        '$model->traits()'
+        '$model->traits'
     );
 
     is(
-        $model->continent()->geoname_id(),
+        $model->continent->geoname_id,
         42,
         'continent geoname_id is 42'
     );
 
     is(
-        $model->continent()->code(),
+        $model->continent->code,
         'NA',
         'continent code is NA'
     );
 
     is_deeply(
-        $model->continent()->names(),
+        $model->continent->names,
         { en => 'North America' },
         'continent names'
     );
 
     is(
-        $model->continent()->name(),
+        $model->continent->name,
         'North America',
         'continent name is North America'
     );
 
     is(
-        $model->country()->geoname_id(),
+        $model->country->geoname_id,
         1,
         'country geoname_id is 1'
     );
 
     is(
-        $model->country()->iso_code(),
+        $model->country->iso_code,
         'US',
         'country iso_code is US'
     );
 
     is_deeply(
-        $model->country()->names(),
+        $model->country->names,
         { en => 'United States of America' },
         'country names'
     );
 
     is(
-        $model->country()->name(),
+        $model->country->name,
         'United States of America',
         'country name is United States of America'
     );
 
     is(
-        $model->country()->confidence(),
+        $model->country->confidence,
         undef,
         'country confidence is undef'
     );
 
     is(
-        $model->registered_country()->geoname_id(),
+        $model->registered_country->geoname_id,
         2,
         'registered_country geoname_id is 2'
     );
 
     is(
-        $model->registered_country()->iso_code(),
+        $model->registered_country->iso_code,
         'CA',
         'registered_country iso_code is CA'
     );
 
     is_deeply(
-        $model->registered_country()->names(),
+        $model->registered_country->names,
         { en => 'Canada' },
         'registered_country names'
     );
 
     is(
-        $model->registered_country()->name(),
+        $model->registered_country->name,
         'Canada',
         'registered_country name is Canada'
     );
 
     for my $meth (qw( is_anonymous_proxy is_satellite_provider )) {
         is(
-            $model->traits()->$meth(),
+            $model->traits->$meth(),
             0,
             "traits $meth returns 0 by default"
         );
     }
 
     is_deeply(
-        $model->raw(),
+        $model->raw,
         \%raw,
         'raw method returns raw input'
     );
