@@ -3,7 +3,7 @@ package GeoIP2::Role::Model::Location;
 use strict;
 use warnings;
 
-our $VERSION = '2.005000';
+our $VERSION = '2.005001';
 
 use Moo::Role;
 
