@@ -3,7 +3,7 @@ package GeoIP2::Record::Country;
 use strict;
 use warnings;
 
-our $VERSION = '2.004001';
+our $VERSION = '2.005000';
 
 use Moo;
 
@@ -56,6 +56,14 @@ Enterprise database.
 This returns a C<geoname_id> for the country.
 
 This attribute is returned by all end points.
+
+=head2 $country_rec->is_in_european_union()
+
+This returns a true value if the country is a member state of the European
+Union and a false value otherwise.
+
+This attribute is available from all web service end points and the GeoIP2
+Country, City, and Enterprise databases.
 
 =head2 $country_rec->iso_code()
 
