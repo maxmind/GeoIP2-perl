@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.005000 2018-01-17
+
 - The is_in_european_union() attribute was added to GeoIP2::Record::Country
   and GeoIP2::Record::RepresentedCountry. This attribute is true if the
   country is a member state of the European Union.
