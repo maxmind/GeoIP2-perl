@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+- Rename user_id attribute to account_id while still supporting the old
+  constructor parameter.
+
 2.005000 2018-01-17
 
 - The is_in_european_union() attribute was added to GeoIP2::Record::Country

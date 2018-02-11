@@ -16,7 +16,8 @@ sub main {
     my %opts = ( service => 'country' );
 
     GetOptions(
-        'user-id:s'     => \$opts{user_id},
+        'user-id:s'     => \$opts{account_id}, # for backwards-compatibility
+        'account-id:s'  => \$opts{account_id},
         'license-key:s' => \$opts{license_key},
         'ip-address:s'  => \$opts{ip},
         'service:s'     => \$opts{service},
@@ -29,8 +30,8 @@ sub main {
         exit 0;
     }
 
-    unless ( $opts{user_id} && $opts{license_key} && $opts{ip} ) {
-        _help('You must provide a user ID, license key, and IP address.');
+    unless ( $opts{account_id} && $opts{license_key} && $opts{ip} ) {
+        _help('You must provide a account ID, license key, and IP address.');
         exit 1;
     }
 
@@ -85,14 +86,14 @@ sub _help {
     print "\n** $error\n\n" if $error;
 
     print <<'EOF';
-web-service-request --user-id [id] --license-key [key] --ip-address [ip]
+web-service-request --account-id [id] --license-key [key] --ip-address [ip]
 
   This script will query the MaxMind GeoIP web service for information about
   the given IP address.
 
   It accepts the following options:
 
-    --user-id        Your MaxMind user ID (required)
+    --account-id     Your MaxMind account ID (required)
     --license-key    Your MaxMind license key (required)
     --ip-address     The IP address to look up (required)
     --service        One of country, city, city_isp_org, or omni. Defaults to country.
