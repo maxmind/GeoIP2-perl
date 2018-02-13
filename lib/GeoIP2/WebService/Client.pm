@@ -395,6 +395,10 @@ This method creates a new client object. It accepts the following arguments:
 Your MaxMind Account ID. Go to L<https://www.maxmind.com/en/my_license_key> to see
 your MaxMind Account ID and license key.
 
+B<Note>: This replaces a previous C<user_id> parameter, which is still
+supported for backwards-compatibility, but should no longer be used for new
+code.
+
 This argument is required.
 
 =item * license_key
