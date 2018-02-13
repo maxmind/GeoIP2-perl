@@ -31,7 +31,7 @@ sub main {
     }
 
     unless ( $opts{account_id} && $opts{license_key} && $opts{ip} ) {
-        _help('You must provide a account ID, license key, and IP address.');
+        _help('You must provide your account ID, license key, and IP address.');
         exit 1;
     }
 
