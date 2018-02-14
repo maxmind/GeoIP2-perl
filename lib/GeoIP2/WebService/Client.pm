@@ -35,11 +35,12 @@ use namespace::clean -except => 'meta';
 
 with 'GeoIP2::Role::HasLocales';
 
-has user_id => (
+has account_id => (
     is       => 'ro',
     isa      => MaxMindID,
     required => 1,
 );
+*user_id = \&account_id;    # for backwards-compatibility
 
 has license_key => (
     is       => 'ro',
@@ -72,6 +73,14 @@ has _json => (
     init_arg => undef,
     default  => quote_sub(q{ JSON::MaybeXS->new(utf8 => 1) }),
 );
+
+around BUILDARGS => sub {
+    my ( $orig, @args ) = @_;
+    my %params = %{ $orig->(@args) };
+    $params{account_id} = delete $params{user_id}
+        if exists $params{user_id};
+    return \%params;
+};
 
 sub BUILD {
     my $self = shift;
@@ -149,7 +158,10 @@ sub _response_for {
         HTTP::Headers->new( Accept => 'application/json' ),
     );
 
-    $request->authorization_basic( $self->user_id(), $self->license_key() );
+    $request->authorization_basic(
+        $self->account_id(),
+        $self->license_key(),
+    );
 
     my $response = $self->ua()->request($request);
 
@@ -314,10 +326,10 @@ __END__
   use GeoIP2::WebService::Client;
 
   # This creates a Client object that can be reused across requests.
-  # Replace "42" with your user id and "abcdef123456" with your license
+  # Replace "42" with your account id and "abcdef123456" with your license
   # key.
   my $client = GeoIP2::WebService::Client->new(
-      user_id     => 42,
+      account_id  => 42,
       license_key => 'abcdef123456',
   );
 
@@ -352,7 +364,7 @@ Requests to the GeoIP2 web service are always made with SSL.
 =head1 USAGE
 
 The basic API for this class is the same for all of the web service end
-points. First you create a web service object with your MaxMind C<user_id> and
+points. First you create a web service object with your MaxMind C<account_id> and
 C<license_key>, then you call the method corresponding to a specific end
 point, passing it the IP address you want to look up.
 
@@ -378,17 +390,21 @@ This method creates a new client object. It accepts the following arguments:
 
 =over 4
 
-=item * user_id
+=item * account_id
 
-Your MaxMind User ID. Go to L<https://www.maxmind.com/en/my_license_key> to see
-your MaxMind User ID and license key.
+Your MaxMind Account ID. Go to L<https://www.maxmind.com/en/my_license_key> to see
+your MaxMind Account ID and license key.
+
+B<Note>: This replaces a previous C<user_id> parameter, which is still
+supported for backwards-compatibility, but should no longer be used for new
+code.
 
 This argument is required.
 
 =item * license_key
 
 Your MaxMind license key. Go to L<https://www.maxmind.com/en/my_license_key> to
-see your MaxMind User ID and license key.
+see your MaxMind Account ID and license key.
 
 This argument is required.
 

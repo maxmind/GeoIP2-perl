@@ -138,7 +138,7 @@ my $ua = Mock::LWP::UserAgent->new(
 
 subtest 'successful country request' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -227,7 +227,7 @@ subtest 'successful country request' => sub {
 
 subtest 'successful Insights request' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -260,7 +260,7 @@ subtest 'successful Insights request' => sub {
 
 subtest 'me parameter' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -273,7 +273,7 @@ subtest 'me parameter' => sub {
 
 subtest 'invalid JSON' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -294,7 +294,7 @@ subtest 'invalid JSON' => sub {
 
 subtest 'invalid IP' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -327,7 +327,7 @@ subtest 'invalid IP' => sub {
 
 subtest 'no body' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -348,7 +348,7 @@ subtest 'no body' => sub {
 
 subtest 'unexpected JSON response' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -369,7 +369,7 @@ subtest 'unexpected JSON response' => sub {
 
 subtest 'non-JSON 4xx' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -390,7 +390,7 @@ subtest 'non-JSON 4xx' => sub {
 
 subtest '5xx error' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -411,7 +411,7 @@ subtest '5xx error' => sub {
 
 subtest 'unexpected status code' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -463,7 +463,7 @@ subtest 'request Accept header' => sub {
     );
 
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $test_ua,
     );
@@ -475,7 +475,7 @@ subtest 'request Accept header' => sub {
 subtest 'User-Agent header' => sub {
     local $GeoIP2::WebService::Client::VERSION = 42;
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
     );
 
@@ -502,7 +502,7 @@ subtest 'User-Agent header' => sub {
 
 subtest '406 with no JSON' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
     );
@@ -529,7 +529,7 @@ subtest '406 with no JSON' => sub {
 
 subtest 'client-side IP validation' => sub {
     my $client = GeoIP2::WebService::Client->new(
-        user_id     => 42,
+        account_id  => 42,
         license_key => 'abcdef123456',
     );
 
@@ -552,6 +552,27 @@ subtest 'client-side IP validation' => sub {
 };
 
 subtest 'IP not found' => sub {
+    my $client = GeoIP2::WebService::Client->new(
+        account_id  => 42,
+        license_key => 'abcdef123456',
+        ua          => $ua,
+    );
+
+    my $e = exception { $client->country( ip => '1.2.3.14' ) };
+    isa_ok(
+        $e,
+        'GeoIP2::Error::IPAddressNotFound',
+        'error thrown when IP address cannot be found'
+    );
+
+    is(
+        $e->ip_address,
+        '1.2.3.14',
+        'exception ip_address() method returns the IP address'
+    );
+};
+
+subtest 'user_id backwards-compatibility' => sub {
     my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',

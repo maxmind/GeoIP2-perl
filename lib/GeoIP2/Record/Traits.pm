@@ -85,7 +85,7 @@ __END__
   use GeoIP2::WebService::Client;
 
   my $client = GeoIP2::WebService::Client->new(
-      user_id     => 42,
+      account_id  => 42,
       license_key => 'abcdef123456',
   );
 
