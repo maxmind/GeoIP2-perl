@@ -3,7 +3,7 @@ package GeoIP2::Error::IPAddressNotFound;
 use strict;
 use warnings;
 
-our $VERSION = '2.005001';
+our $VERSION = '2.005002';
 
 use Moo;
 

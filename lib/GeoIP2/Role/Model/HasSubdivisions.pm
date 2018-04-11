@@ -3,7 +3,7 @@ package GeoIP2::Role::Model::HasSubdivisions;
 use strict;
 use warnings;
 
-our $VERSION = '2.005001';
+our $VERSION = '2.005002';
 
 use Moo::Role;
 
