@@ -143,7 +143,9 @@ sub MaxMindID () {
 sub MaxMindLicenseKey () {
     return quote_sub(
         q{ GeoIP2::Types::_tc_fail( $_[0], 'MaxMindLicenseKey' )
-               unless defined $_[0] && $_[0] =~ /^[a-zA-Z0-9]{12}$/; }
+               unless defined $_[0]
+               && ! ref $_[0]
+               && $_[0] =~ /^\S{12,}$/; }
     );
 }
 

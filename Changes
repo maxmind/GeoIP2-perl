@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+- Accept license keys longer than 12 characters.
+
 2.005001 2018-04-11
 
 - Rename user_id attribute to account_id while still supporting the old
