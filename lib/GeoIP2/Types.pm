@@ -3,7 +3,7 @@ package GeoIP2::Types;
 use strict;
 use warnings;
 
-our $VERSION = '2.006000';
+our $VERSION = '2.006001';
 
 use Data::Validate::IP ();
 use GeoIP2::Error::Type;
