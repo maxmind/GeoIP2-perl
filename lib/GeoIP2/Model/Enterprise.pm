@@ -3,7 +3,7 @@ package GeoIP2::Model::Enterprise;
 use strict;
 use warnings;
 
-our $VERSION = '2.005002';
+our $VERSION = '2.006000';
 
 use Moo;
 
