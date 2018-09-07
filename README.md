@@ -4,7 +4,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 # VERSION
 
-version 2.005001
+version 2.006000
 
 # DESCRIPTION
 
@@ -114,7 +114,7 @@ Bugs may be submitted through [https://github.com/maxmind/GeoIP2-perl/issues](ht
 - Michael F. Canzoneri <mikecanzoneri@gmail.com>
 - Narsimham Chelluri <nchelluri@users.noreply.github.com>
 - Patrick Cronin <PatrickCronin@users.noreply.github.com>
-- Will Storey <will@summercat.com>
+- William Storey <wstorey@maxmind.com>
 
 # COPYRIGHT AND LICENSE
 
