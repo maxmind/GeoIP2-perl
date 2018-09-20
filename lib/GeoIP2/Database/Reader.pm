@@ -201,7 +201,7 @@ __END__
   use GeoIP2::Database::Reader;
 
   my $reader = GeoIP2::Database::Reader->new(
-      file    => '/path/to/database',
+      file    => '/path/to/database',  # e.g. /home/maxmind/db/GeoIP2-Country.mmdb
       locales => [ 'en', 'de', ]
   );
 
@@ -247,7 +247,8 @@ This method creates a new object. It accepts the following arguments:
 
 =item * file
 
-This is the path to the GeoIP2 database file which you'd like to query.
+This is the path to the GeoIP2 database which you'd like to query. The path
+should include the filename.
 
 =item * locales
 
