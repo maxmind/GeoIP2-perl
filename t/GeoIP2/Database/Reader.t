@@ -66,7 +66,7 @@ my @locales = qw( en de );
                 "dies on invalid ip - $model method"
             );
 
-            my $ip = '81.2.69.160';
+            my $ip        = '81.2.69.160';
             my $model_obj = $reader->$model( ip => $ip );
 
             is(

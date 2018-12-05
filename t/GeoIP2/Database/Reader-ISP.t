@@ -12,7 +12,7 @@ use Path::Class qw( file );
         file => file(qw( maxmind-db test-data GeoIP2-ISP-Test.mmdb )) );
 
     my $ip_address = '1.128.0.0';
-    my $isp = $reader->isp( ip => $ip_address );
+    my $isp        = $reader->isp( ip => $ip_address );
     is(
         $isp->autonomous_system_number, 1221,
         'correct ASN in ISP database'

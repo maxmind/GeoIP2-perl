@@ -11,7 +11,7 @@ my $reader = GeoIP2::Database::Reader->new(
     file => file(qw( maxmind-db test-data GeoLite2-ASN-Test.mmdb )) );
 
 my $ip_address = '1.128.0.0';
-my $asn = $reader->asn( ip => $ip_address );
+my $asn        = $reader->asn( ip => $ip_address );
 is(
     $asn->autonomous_system_number, 1221,
     'correct ASN in ASN database'
