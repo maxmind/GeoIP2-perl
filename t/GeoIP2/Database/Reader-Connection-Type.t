@@ -14,7 +14,7 @@ use Path::Class qw( file );
         );
 
     my $ip_address = '1.0.1.0';
-    my $ct = $reader->connection_type( ip => $ip_address );
+    my $ct         = $reader->connection_type( ip => $ip_address );
     is(
         $ct->connection_type, 'Cable/DSL',
         'correct connection type in Connection-Type database'

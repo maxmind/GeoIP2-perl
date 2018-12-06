@@ -88,7 +88,7 @@ sub BUILD {
     ## no critic (TryTiny::RequireBlockTermination)
     my $self_version = try { 'v' . $self->VERSION() } || 'v?';
 
-    my $ua = $self->ua();
+    my $ua         = $self->ua();
     my $ua_version = try { 'v' . $ua->VERSION() } || 'v?';
 
     my $agent
