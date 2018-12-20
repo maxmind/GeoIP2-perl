@@ -169,7 +169,7 @@ This returns a true value if the IP address is registered to an anonymous VPN
 provider and a false value otherwise.
 
 If a VPN provider does not register subnets under names associated with them,
-we will likely only flag their IP ranges using the is_hosting_provider
+we will likely only flag their IP ranges using the C<is_hosting_provider>
 attribute.
 
 This attribute is only available from the Insights web service.
@@ -177,7 +177,7 @@ This attribute is only available from the Insights web service.
 =head2 $traits_rec->is_hosting_provider()
 
 This returns a true value if the IP address belongs to a hosting or VPN
-provider and a false value otherwise (see description of is_anonymous_vpn
+provider and a false value otherwise (see description of C<is_anonymous_vpn>
 attribute).
 
 This attribute is only available from the Insights web service.

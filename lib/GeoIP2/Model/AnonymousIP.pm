@@ -64,13 +64,13 @@ Returns true if the IP address belongs to any sort of anonymous network.
 
 Returns true if the IP address is registered to an anonymous VPN provider.
 If a VPN provider does not register subnets under names associated with them,
-we will likely only flag their IP ranges using the is_hosting_provider
+we will likely only flag their IP ranges using the C<is_hosting_provider>
 attribute.
 
 =head2 $anon->is_hosting_provider()
 
 Returns true if the IP address belongs to a hosting or VPN provider
-(see description of is_anonymous_vpn attribute).
+(see description of C<is_anonymous_vpn> attribute).
 
 =head2 $anon->is_public_proxy()
 
