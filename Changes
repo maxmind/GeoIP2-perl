@@ -1,5 +1,10 @@
 {{$NEXT}}
 
+2.006002
+
+- Updated documentation of anonymizer attributes - is_anonymous_vpn()
+  and is_hosting_provider() - to be more descriptive.
+
 2.006001 2018-09-07
 
 - Re-release to correct packaging issue. No code changes.
