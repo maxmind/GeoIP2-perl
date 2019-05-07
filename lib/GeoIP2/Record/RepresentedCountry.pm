@@ -38,7 +38,7 @@ __END__
 
   my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $country_rec = $insights->reprented_country();
+  my $country_rec = $insights->represented_country();
   print $country_rec->name(), "\n";
   print $country_rec->type(), "\n";
 
