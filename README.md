@@ -4,7 +4,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 # VERSION
 
-version 2.006001
+version 2.006002
 
 # DESCRIPTION
 
@@ -78,9 +78,7 @@ major number, YYY is the minor number, and ZZZ is the patch number.
 
 # PERL VERSION SUPPORT
 
-MaxMind has tested this API with Perl 5.8.8 and above. Reasonable patches for
-earlier versions of Perl 5.8 will be applied. We will not accept patches to
-support any version of Perl before 5.8.
+This API supports Perl 5.10 and above.
 
 The data returned from the GeoIP2 web services includes Unicode characters in
 several locales. This may expose bugs in earlier versions of Perl. If Unicode
@@ -88,6 +86,9 @@ support is important to you, we recommend that you use the most recent version
 of Perl available.
 
 # SUPPORT
+
+This module is deprecated and will only receive fixes for major bugs and
+security vulnerabilities. New features and functionality will not be added.
 
 Please report all issues with this code using the GitHub issue tracker at
 [https://github.com/maxmind/GeoIP2-perl/issues](https://github.com/maxmind/GeoIP2-perl/issues).
@@ -106,19 +107,21 @@ Bugs may be submitted through [https://github.com/maxmind/GeoIP2-perl/issues](ht
 
 # CONTRIBUTORS
 
+- Adam Lapczynski <alapczynski@maxmind.com>
 - Andy Jack <github@veracity.ca>
 - E. Choroba <choroba@matfyz.cz>
 - Florian Ragwitz <rafl@debian.org>
 - Graham Knop <haarg@haarg.org>
 - Mateu X Hunter <mhunter@maxmind.com>
 - Michael F. Canzoneri <mikecanzoneri@gmail.com>
+- Narsimham Chelluri <nchelluri@maxmind.com>
 - Narsimham Chelluri <nchelluri@users.noreply.github.com>
 - Patrick Cronin <PatrickCronin@users.noreply.github.com>
 - William Storey <wstorey@maxmind.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 - 2018 by MaxMind, Inc.
+This software is copyright (c) 2013 - 2019 by MaxMind, Inc.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
