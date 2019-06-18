@@ -3,7 +3,7 @@ package GeoIP2::Database::Reader;
 use strict;
 use warnings;
 
-our $VERSION = '2.006002';
+our $VERSION = '2.006003';
 
 use Moo;
 
