@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.006002 2019-06-18
+
 - Added deprecation notice
 
 - Updated documentation of anonymizer attributes - is_anonymous_vpn()
