@@ -42,7 +42,6 @@ my %WriteMakefileArgs = (
     "Throwable::Error" => 0,
     "Try::Tiny" => 0,
     "URI" => 0,
-    "lib" => 0,
     "namespace::clean" => 0,
     "strict" => 0,
     "warnings" => 0
@@ -60,6 +59,7 @@ my %WriteMakefileArgs = (
     "Test::More" => "0.96",
     "Test::Number::Delta" => 0,
     "base" => 0,
+    "lib" => 0,
     "utf8" => 0
   },
   "VERSION" => "2.006003",
