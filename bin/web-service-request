@@ -5,8 +5,6 @@ use 5.008;
 use strict;
 use warnings;
 
-use lib 'lib';
-
 use Data::Dumper;
 use Getopt::Long;
 use GeoIP2::WebService::Client;
