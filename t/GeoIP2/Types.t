@@ -142,7 +142,7 @@ my %tests = (
     LocalesArrayRef => {
         accept => [
             [],
-            [ 'en', 'ru' ],
+            [ 'en',    'ru' ],
             [ 'zh-CN', 'ja', 'en' ],
         ],
         reject => [
