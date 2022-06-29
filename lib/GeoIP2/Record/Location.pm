@@ -121,7 +121,7 @@ or household.
 This attribute is returned by all end points and location databases except
 Country.
 
-=head2 $location_rec->metro-code()
+=head2 $location_rec->metro_code()
 
 This returns the metro code of the location if the location is in the US.
 MaxMind returns the same metro codes as the Google AdWords API
